@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmyyguedo70vh"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_bn63x"]
+[ext_resource type="Script" path="res://UI/InGame/UiHp.cs" id="3_iawfh"]
+[ext_resource type="PackedScene" uid="uid://dg2ihf4xvgh6i" path="res://Players/Trooper/trooper.tscn" id="3_tsi8o"]
+[ext_resource type="Script" path="res://UI/InGame/UiScore.cs" id="4_cedjh"]
+[ext_resource type="Script" path="res://UI/InGame/Dodge.cs" id="5_2hpm7"]
+[ext_resource type="PackedScene" uid="uid://noksuimmmc88" path="res://UI/MainMenu/pause_menu.tscn" id="7_v5ypv"]
+[ext_resource type="PackedScene" uid="uid://355r06ml2mgx" path="res://Items/broc.tscn" id="8_jf53y"]
+[ext_resource type="PackedScene" uid="uid://ol25fuogiyv2" path="res://Weapons/Shotgun.tscn" id="8_n6cuf"]
+[ext_resource type="PackedScene" uid="uid://buad6j67qom1n" path="res://Spawners/spawner_basic.tscn" id="8_up5jp"]
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_bn63x")
+
+[node name="Player" parent="." instance=ExtResource("3_tsi8o")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Control" type="Control" parent="Player/Camera2D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/Control"]
+layout_mode = 1
+offset_left = -549.0
+offset_top = -299.0
+offset_right = -362.0
+offset_bottom = -229.0
+
+[node name="UiHp" type="Label" parent="Player/Camera2D/Control/VBoxContainer"]
+layout_mode = 2
+text = "Hp: "
+script = ExtResource("3_iawfh")
+
+[node name="UiScore" type="Label" parent="Player/Camera2D/Control/VBoxContainer"]
+layout_mode = 2
+text = "Score:"
+script = ExtResource("4_cedjh")
+
+[node name="Dodge" type="Label" parent="Player/Camera2D/Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_2hpm7")
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("7_v5ypv")]
+visible = false
+offset_left = -191.0
+offset_top = -280.0
+offset_right = -191.0
+offset_bottom = -280.0
+
+[node name="SpawnerBasic" parent="Player" instance=ExtResource("8_up5jp")]
+
+[node name="Broc" parent="Player" instance=ExtResource("8_jf53y")]
+
+[node name="Shotgun" parent="Player" instance=ExtResource("8_n6cuf")]

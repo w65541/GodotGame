@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://2dc4he68j4g2"]
+
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_64n5r"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="2_hjm3x"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="3_lieje"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="4_3roo1"]
+[ext_resource type="Script" path="res://UI/LevelUp/level_up_choice.cs" id="5_ijkbj"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="5_mmgwy"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="6_qf3bf"]
+[ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="7_0tibb"]
+
+[node name="LevelUpChoice" type="TextureButton"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -587.0
+offset_top = 37.0
+offset_right = -63.0
+offset_bottom = 168.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_64n5r")
+texture_pressed = ExtResource("2_hjm3x")
+texture_hover = ExtResource("3_lieje")
+texture_focused = ExtResource("4_3roo1")
+stretch_mode = 4
+script = ExtResource("5_ijkbj")
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -59.5
+offset_right = 156.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_mmgwy")
+theme_override_font_sizes/normal_font_size = 40
+text = "Name"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_qf3bf")
+
+[node name="Level" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.511
+anchor_right = 0.5
+anchor_bottom = 0.511
+offset_left = 117.0
+offset_top = -59.941
+offset_right = 256.0
+offset_bottom = -1.941
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_mmgwy")
+theme_override_font_sizes/normal_font_size = 40
+text = "LV X"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_qf3bf")
+
+[node name="Opis" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -4.5
+offset_right = 236.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_mmgwy")
+theme_override_font_sizes/normal_font_size = 25
+text = "Opis"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_qf3bf")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("7_0tibb")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="Name" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Name" method="_on_button_play_mouse_exited"]

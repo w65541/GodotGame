@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://355r06ml2mgx"]
+
+[ext_resource type="Script" path="res://Items/Broc.cs" id="1_0b3h8"]
+
+[node name="Broc" type="Node2D" groups=["Items"]]
+script = ExtResource("1_0b3h8")
+texturePath = "res://Items/Textures/brokuł.png"

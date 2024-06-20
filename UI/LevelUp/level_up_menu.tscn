@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsw2ly80jyorv"]
+
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_gq6of"]
+[ext_resource type="Script" path="res://UI/LevelUp/levelupmenu.cs" id="2_gwu5s"]
+[ext_resource type="PackedScene" uid="uid://2dc4he68j4g2" path="res://UI/LevelUp/level_up_choice.tscn" id="2_k3frv"]
+
+[node name="LevelUpMenu" type="NinePatchRect"]
+offset_right = 285.0
+offset_bottom = 313.0
+texture = ExtResource("1_gq6of")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_gwu5s")
+
+[node name="LevelUpChoice" parent="." instance=ExtResource("2_k3frv")]
+layout_mode = 1
+offset_left = -276.0
+offset_top = 11.0
+offset_right = 248.0
+offset_bottom = 142.0
+scale = Vector2(0.5, 0.5)
+
+[node name="LevelUpChoice2" parent="." instance=ExtResource("2_k3frv")]
+layout_mode = 1
+offset_left = -276.0
+offset_top = 86.0
+offset_right = 248.0
+offset_bottom = 217.0
+scale = Vector2(0.5, 0.5)
+
+[node name="LevelUpChoice3" parent="." instance=ExtResource("2_k3frv")]
+layout_mode = 1
+offset_left = -274.0
+offset_top = 160.0
+offset_right = 250.0
+offset_bottom = 291.0
+scale = Vector2(0.5, 0.5)
+
+[node name="LevelUpChoice4" parent="." instance=ExtResource("2_k3frv")]
+layout_mode = 1
+offset_left = -274.0
+offset_top = 235.0
+offset_right = 250.0
+offset_bottom = 366.0
+scale = Vector2(0.5, 0.5)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmyuti4brdafp"]
+
+[ext_resource type="Texture2D" uid="uid://be3v720jgvxaf" path="res://icon.svg" id="1_d33qm"]
+[ext_resource type="Script" path="res://Player.cs" id="1_i3iui"]
+[ext_resource type="Texture2D" uid="uid://bevlcjkbdeyf0" path="res://triangle.png" id="2_d8xib"]
+[ext_resource type="Script" path="res://Arrow.cs" id="3_vj8bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13rqt"]
+size = Vector2(124, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xco84"]
+size = Vector2(122, 116)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(300, 300)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_i3iui")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(200, 0)
+texture = ExtResource("2_d8xib")
+script = ExtResource("3_vj8bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13rqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d33qm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xco84")
+
+[node name="CooldownDodge" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="CooldownDodge" to="." method="ResetDodge"]
