@@ -13,6 +13,6 @@ Player player;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Text="Dodge: "+player.DodgeCooldown.TimeLeft;
+		Text="Dodge: "+ GetTree().GetNodesInGroup("Items").Count;//+player.DodgeCooldown.TimeLeft;
 	}
 }

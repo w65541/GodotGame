@@ -37,7 +37,7 @@ public partial class spawner_basic : Node2D
 	}
 	public void _on_timer_timeout()
 	{
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < 0; i++)
 		{
 			spawnEnemy();
 		}		

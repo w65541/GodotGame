@@ -26,6 +26,13 @@ public partial class Shotgun : Weapon
 			fireRate=1,
 			speed=5000f
 		};
+		data=new itemData{
+			name="Shotgun",
+			level=2,
+			opis="afdgsdg",
+			sprite="res://Items/Textures/Shotgun.png",
+			scene=""
+		};
 		//baseStats=stats;
 		base._Ready();
 		//projectile=GD.Load<PackedScene>("res://ShotgunBullet.tscn");
@@ -59,6 +66,7 @@ public partial class Shotgun : Weapon
 	public override void levelup()
     {
         level++;
+		data.level++;
 		switch(level)
 		{
 			case 2:

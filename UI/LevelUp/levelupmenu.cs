@@ -8,8 +8,8 @@ public partial class levelupmenu : NinePatchRect
 	
 	// Called when the node enters the scene tree for the first time.
 	ConfigFile file=new ConfigFile();
-	List<itemData> items=new List<itemData>();
-	List<itemData> weapons=new List<itemData>();
+	public List<itemData> items=new List<itemData>();
+	public List<itemData> weapons=new List<itemData>();
 	public override void _Ready()
 	{
 		file.Load("res://Configs/Items.ini");
@@ -33,45 +33,102 @@ public partial class levelupmenu : NinePatchRect
 
 	public void rollLevelUp()
 	{
-		int childCount=0;
-		var wep=GetTree().GetNodesInGroup("Weapons");
-		var ite=GetTree().GetNodesInGroup("Items");
-		//var newIte=items.Where(x=>)
-		if(wep.Count<6 || ite.Count<6)
+		GetTree().Paused = true;
+		int childCount=0,x;
+		for (var i=childCount;i < 4; i++)
+				{
+					GetChild<level_up_choice>(childCount).Visible=true;
+				}
+		var weaponsTemp=new List<itemData>( weapons);
+		var itemTemp=new List<itemData>( items);
+		var weaponsInTree=GetTree().GetNodesInGroup("Weapons");
+		var itemsInTree=GetTree().GetNodesInGroup("Items");
+		List<Levelable> wep=new List<Levelable>();
+		List<Levelable> ite=new List<Levelable>();
+		List<int> previousX1=new List<int>();
+		List<int> previousX2=new List<int>();
+		var pasives=new RandomNumberGenerator().RandiRange(0,4);
+		foreach (var item in itemsInTree.Cast<Levelable>())
+		{
+			if(item.GetItemData().level<3)
 			{
-				var pasives=new RandomNumberGenerator().RandiRange(0,4);
-				int coin,x;
-				for (int i = 0; i < 4-pasives; i++)
+				ite.Add(item);
+			}
+		}
+		foreach (var item in weaponsInTree.Cast<Levelable>())
+		{
+			if(item.GetItemData().level<3)
+			{
+				wep.Add(item);
+			}
+		}
+		//var newIte=items.Where(x=>)
+		int weaponCount=4-pasives;
+		if(weaponCount>wep.Count && weaponsInTree.Count==6) 
+		{
+			weaponCount=wep.Count;
+			pasives=4-weaponCount;
+			}
+		if(pasives>ite.Count && itemsInTree.Count==6) pasives=ite.Count;
+				
+				int coin;
+				int usedweapons=0,useditems=0;
+				
+				for (int i = 0; i < weaponCount; i++)
 				{
 					coin=new RandomNumberGenerator().RandiRange(0,1);
-					if(coin==1 || wep.Count==6)
+					if((coin==1 || weaponsInTree.Count==6)&& usedweapons<wep.Count)
 					{
-						x=new RandomNumberGenerator().RandiRange(0,wep.Count-1);
-						GetChild<level_up_choice>(childCount).updateOld( (Levelable)wep[x]);
+						do
+						{
+							x=new RandomNumberGenerator().RandiRange(1,wep.Count);
+						} while (previousX1.Find(z=>z==x)!=0);
+						GetChild<level_up_choice>(childCount).updateOld( wep[x-1]);
+						
+						usedweapons++;
 					}else{
-						x=new RandomNumberGenerator().RandiRange(0,weapons.Count-1);
-						GetChild<level_up_choice>(childCount).updateNew(weapons[x]);
-						weapons.RemoveAt(x);
+						do
+						{
+							x=new RandomNumberGenerator().RandiRange(1,weaponsTemp.Count);
+						} while (previousX2.Find(z=>z==x)!=0);
+						GetChild<level_up_choice>(childCount).updateNew(weaponsTemp[x-1]);
+					
 					}
 					childCount++;
 				}
+
+				previousX1=new List<int>();
+		 		previousX2=new List<int>();
+
 				for (int i = 0; i < pasives; i++)
 				{
 					coin=new RandomNumberGenerator().RandiRange(0,1);
-					if(coin==1 || ite.Count==6)
+					if((coin==1 || itemsInTree.Count==6) && useditems<ite.Count)
 					{
-						x=new RandomNumberGenerator().RandiRange(0,wep.Count-1);
-						GetChild<level_up_choice>(childCount).updateOld((Levelable)ite[x]);
+						do
+						{
+							x=new RandomNumberGenerator().RandiRange(1,ite.Count);
+						} while (previousX1.Find(z=>z==x)!=0);
+						GetChild<level_up_choice>(childCount).updateOld(ite[x-1]);
+						useditems++;
 					}else{
-						x=new RandomNumberGenerator().RandiRange(0,weapons.Count-1);
-						GetChild<level_up_choice>(childCount).updateNew(items[x]);
-						items.RemoveAt(x);
+						do
+						{
+							x=new RandomNumberGenerator().RandiRange(1,itemTemp.Count);
+						} while (previousX2.Find(z=>z==x)!=0);
+						GetChild<level_up_choice>(childCount).updateNew(itemTemp[x-1]);
 					}
 					childCount++;
 				}
-			}else{
-
-			}
+				GD.Print("LevelUp");
+				GD.Print("Weapons: "+weaponCount);
+				GD.Print("Used: "+usedweapons);
+				GD.Print("Passives: "+pasives);
+				GD.Print("Used: "+useditems);
+				for (var i=childCount;i < 4; i++)
+				{
+					GetChild<level_up_choice>(childCount).Visible=false;
+				}
 		
 	}
 }

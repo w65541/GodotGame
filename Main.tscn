@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmyyguedo70vh"]
+[gd_scene load_steps=11 format=3 uid="uid://bmyyguedo70vh"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_bn63x"]
 [ext_resource type="Script" path="res://UI/InGame/UiHp.cs" id="3_iawfh"]
 [ext_resource type="PackedScene" uid="uid://dg2ihf4xvgh6i" path="res://Players/Trooper/trooper.tscn" id="3_tsi8o"]
 [ext_resource type="Script" path="res://UI/InGame/UiScore.cs" id="4_cedjh"]
 [ext_resource type="Script" path="res://UI/InGame/Dodge.cs" id="5_2hpm7"]
+[ext_resource type="PackedScene" uid="uid://dsw2ly80jyorv" path="res://UI/LevelUp/level_up_menu.tscn" id="6_616ma"]
 [ext_resource type="PackedScene" uid="uid://noksuimmmc88" path="res://UI/MainMenu/pause_menu.tscn" id="7_v5ypv"]
 [ext_resource type="PackedScene" uid="uid://355r06ml2mgx" path="res://Items/broc.tscn" id="8_jf53y"]
 [ext_resource type="PackedScene" uid="uid://ol25fuogiyv2" path="res://Weapons/Shotgun.tscn" id="8_n6cuf"]
@@ -48,6 +49,16 @@ script = ExtResource("4_cedjh")
 [node name="Dodge" type="Label" parent="Player/Camera2D/Control/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("5_2hpm7")
+
+[node name="LevelUpMenu" parent="Player" instance=ExtResource("6_616ma")]
+process_mode = 3
+visible = false
+z_index = 11
+offset_left = -171.0
+offset_top = -235.0
+offset_right = 114.0
+offset_bottom = 78.0
+scale = Vector2(1.5, 1.5)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("7_v5ypv")]
 visible = false

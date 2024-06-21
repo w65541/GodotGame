@@ -11,7 +11,8 @@ public partial class BasicItem : Node2D,Levelable
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        player=(Player) GetParent().GetParent();
+        player=(Player) GetParent();
+        player.updateStats();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
