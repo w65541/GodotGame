@@ -29,6 +29,7 @@ public partial class levelupmenu : NinePatchRect
 			}
 		}
 		GD.Print(items.Count);
+		Visible=false;
 	}
 
 	public void rollLevelUp()

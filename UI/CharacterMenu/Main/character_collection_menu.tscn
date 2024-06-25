@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://lswj0m2ho2gk"]
+
+[ext_resource type="PackedScene" uid="uid://sir1un40vyyk" path="res://UI/CharacterMenu/Main/CharacterMenuTile.tscn" id="1_4ew8w"]
+[ext_resource type="Script" path="res://UI/CharacterMenu/Main/CharacterTileContainer.cs" id="1_vrl67"]
+[ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="2_ao4kt"]
+
+[node name="Node" type="Node"]
+
+[node name="CharacterCollectionMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CharacterTileContainer" type="GridContainer" parent="CharacterCollectionMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_right = 344.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("1_vrl67")
+
+[node name="CharacterMenuTile" parent="CharacterCollectionMenu/CharacterTileContainer" instance=ExtResource("1_4ew8w")]
+layout_mode = 2
+
+[node name="CharacterMenuTile2" parent="CharacterCollectionMenu/CharacterTileContainer" instance=ExtResource("1_4ew8w")]
+layout_mode = 2
+
+[node name="CharacterMenuTile3" parent="CharacterCollectionMenu/CharacterTileContainer" instance=ExtResource("1_4ew8w")]
+layout_mode = 2
+
+[node name="BackButton" parent="." instance=ExtResource("2_ao4kt")]
+offset_right = 200.0
+offset_bottom = 50.0

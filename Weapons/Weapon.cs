@@ -17,7 +17,7 @@ public partial class Weapon: Node2D,Levelable
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		main= GetTree().Root.GetNode("Main");
+		main= GetTree().GetFirstNodeInGroup("Main");
 		GD.Print("res://Weapons/Projectiles/"+bulletType+".tscn");
 		projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
 		player=(Player) GetParent();
@@ -53,7 +53,7 @@ public partial class Weapon: Node2D,Levelable
     }
 	public void updateStats()
 	{
-		stats=baseStats*player.stats;
+		stats=baseStats*GetParent<Player>().stats;
 		GD.Print(stats.damageMult);
 	}
 	public virtual void Shoot(){}

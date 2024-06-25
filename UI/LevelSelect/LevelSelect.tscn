@@ -1,0 +1,184 @@
+[gd_scene load_steps=12 format=3 uid="uid://hamvsw3axkdr"]
+
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_21j65"]
+[ext_resource type="Script" path="res://UI/LevelSelect/LevelSelect.cs" id="1_chq02"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="2_0fv2l"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="3_1c42r"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="4_6rh8l"]
+[ext_resource type="Script" path="res://UI/LevelSelect/LevelButton.cs" id="5_8wtkp"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="5_jxrnu"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="6_b06ts"]
+[ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="7_br5l5"]
+[ext_resource type="PackedScene" uid="uid://sir1un40vyyk" path="res://UI/CharacterMenu/Main/CharacterMenuTile.tscn" id="8_6k1xw"]
+[ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="9_nmkig"]
+
+[node name="Node" type="Node"]
+
+[node name="LevelSelect" type="Control" parent="." groups=["LevelSelectMenu"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_chq02")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect"]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 18.0
+offset_right = 772.0
+offset_bottom = 131.0
+
+[node name="LevelButton" type="TextureButton" parent="LevelSelect/VBoxContainer"]
+custom_minimum_size = Vector2(524, 131)
+layout_mode = 2
+texture_normal = ExtResource("1_21j65")
+texture_pressed = ExtResource("2_0fv2l")
+texture_hover = ExtResource("3_1c42r")
+texture_focused = ExtResource("4_6rh8l")
+stretch_mode = 4
+script = ExtResource("5_8wtkp")
+name = "Level1"
+
+[node name="Name" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -59.5
+offset_right = 156.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_jxrnu")
+theme_override_font_sizes/normal_font_size = 40
+text = "Name"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_b06ts")
+
+[node name="Opis" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -4.5
+offset_right = 236.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_jxrnu")
+theme_override_font_sizes/normal_font_size = 25
+text = "Opis"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_b06ts")
+
+[node name="Sprite" type="TextureRect" parent="LevelSelect/VBoxContainer/LevelButton"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("7_br5l5")
+
+[node name="LevelButton2" type="TextureButton" parent="LevelSelect/VBoxContainer"]
+custom_minimum_size = Vector2(524, 131)
+layout_mode = 2
+texture_normal = ExtResource("1_21j65")
+texture_pressed = ExtResource("2_0fv2l")
+texture_hover = ExtResource("3_1c42r")
+texture_focused = ExtResource("4_6rh8l")
+stretch_mode = 4
+script = ExtResource("5_8wtkp")
+name = "Level2"
+
+[node name="Name" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -59.5
+offset_right = 156.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_jxrnu")
+theme_override_font_sizes/normal_font_size = 40
+text = "Name"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_b06ts")
+
+[node name="Opis" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -4.5
+offset_right = 236.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_jxrnu")
+theme_override_font_sizes/normal_font_size = 25
+text = "Opis"
+fit_content = true
+scroll_active = false
+script = ExtResource("6_b06ts")
+
+[node name="Sprite" type="TextureRect" parent="LevelSelect/VBoxContainer/LevelButton2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("7_br5l5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 219.0
+offset_right = 434.0
+offset_bottom = 458.0
+
+[node name="CharacterMenuTile" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+layout_mode = 2
+
+[node name="CharacterMenuTile2" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+layout_mode = 2
+
+[node name="CharacterMenuTile3" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+layout_mode = 2
+
+[node name="BackButton" parent="." instance=ExtResource("9_nmkig")]
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 210.0
+offset_bottom = 64.0
+
+[connection signal="button_up" from="LevelSelect/VBoxContainer/LevelButton" to="LevelSelect/VBoxContainer/LevelButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="LevelSelect/VBoxContainer/LevelButton" to="LevelSelect/VBoxContainer/LevelButton/Name" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="LevelSelect/VBoxContainer/LevelButton" to="LevelSelect/VBoxContainer/LevelButton/Name" method="_on_button_play_mouse_exited"]
+[connection signal="button_up" from="LevelSelect/VBoxContainer/LevelButton2" to="LevelSelect/VBoxContainer/LevelButton2" method="_on_button_up"]
+[connection signal="mouse_entered" from="LevelSelect/VBoxContainer/LevelButton2" to="LevelSelect/VBoxContainer/LevelButton2/Name" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="LevelSelect/VBoxContainer/LevelButton2" to="LevelSelect/VBoxContainer/LevelButton2/Name" method="_on_button_play_mouse_exited"]

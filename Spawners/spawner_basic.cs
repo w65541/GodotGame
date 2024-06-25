@@ -11,7 +11,7 @@ public partial class spawner_basic : Node2D
 	public override void _Ready()
 	{
 		player=(Player) GetParent();
-		main= GetTree().Root.GetNode("Main");
+		main= GetTree().GetFirstNodeInGroup("Main");
 		enemy=GD.Load<PackedScene>("res://Enemies/Basic/enemy_basic.tscn");
 	}
 

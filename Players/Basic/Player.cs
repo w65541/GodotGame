@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 public partial class Player : CharacterBody2D
 {
 	//[Export] Position;
-	public  float Speed = 200.0f;
+	public  float Speed = 300.0f;
 	
 	public bool dodge=true;
 	public bool specialReady=false;
@@ -28,8 +28,8 @@ public override void _Ready()
 		cooldown=5f,
 		};*/
 		//GD.Print(stats.fireRate);
-		main=(Main) GetTree().Root.GetNode("Main");
-		GD.Print(main.Score);
+		//main=(Main) GetTree().Root.GetNode("Main");
+		//GD.Print(main.Score);
 	}
 	public override void _PhysicsProcess(double delta)
 	{

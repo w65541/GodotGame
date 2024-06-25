@@ -6,6 +6,7 @@ public partial class trooper : Player
 	PackedScene specialObject;
 	public String startingWeapon="Shotgun";
 	Timer SpecialCooldown;
+    
 	public override void _Ready()
 	{
 		SpecialCooldown= (Timer)GetNode("CooldownSpecial");
@@ -22,7 +23,7 @@ public partial class trooper : Player
 		GD.Print(stats.damageMult);
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;
-		main=(Main) GetTree().Root.GetNode("Main");
+		//main=(Main) GetTree().Root.GetNode("Main");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -56,7 +57,7 @@ public partial class trooper : Player
 		instance.spawnRot=Rotation;
 		instance.damage=100f;
 		instance.Scale*=10f;
-		main.CallDeferred("add_child",instance);
+		GetParent().CallDeferred("add_child",instance);
 		SpecialCooldown.Start();
 	}
 }

@@ -1,0 +1,147 @@
+[gd_scene load_steps=7 format=3 uid="uid://bilfxrr6dvmi2"]
+
+[ext_resource type="Script" path="res://UI/CharacterMenu/Details/CharacterDetails.cs" id="1_7sxoq"]
+[ext_resource type="Script" path="res://UI/CharacterMenu/Details/character_details.cs" id="1_yxctk"]
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="2_d0u1e"]
+[ext_resource type="Texture2D" uid="uid://bts3sg0p4e8ib" path="res://Players/Trooper/troop.png" id="3_kfhm1"]
+[ext_resource type="Texture2D" uid="uid://cxw5w5tnvijob" path="res://Items/Textures/Shotgun.png" id="4_elpw4"]
+[ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="5_psobe"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_yxctk")
+
+[node name="CharacterDetails" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7sxoq")
+
+[node name="Statbox" type="NinePatchRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 103.0
+offset_right = 292.0
+offset_bottom = 599.0
+texture = ExtResource("2_d0u1e")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterDetails/Statbox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 234.0
+offset_bottom = 481.0
+
+[node name="Sprite" type="TextureRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 120.0
+offset_right = 766.0
+offset_bottom = 516.0
+texture = ExtResource("3_kfhm1")
+
+[node name="Weaponbox" type="NinePatchRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 48.0
+offset_right = 1108.0
+offset_bottom = 180.0
+texture = ExtResource("2_d0u1e")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Sprite" type="TextureRect" parent="CharacterDetails/Weaponbox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 116.0
+texture = ExtResource("4_elpw4")
+
+[node name="Name" type="RichTextLabel" parent="CharacterDetails/Weaponbox"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 13.0
+offset_right = 290.0
+offset_bottom = 58.0
+
+[node name="Opis" type="RichTextLabel" parent="CharacterDetails/Weaponbox"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 63.0
+offset_right = 290.0
+offset_bottom = 120.0
+
+[node name="Abillitybox" type="NinePatchRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 216.0
+offset_right = 1107.0
+offset_bottom = 348.0
+texture = ExtResource("2_d0u1e")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Sprite" type="TextureRect" parent="CharacterDetails/Abillitybox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 116.0
+texture = ExtResource("4_elpw4")
+
+[node name="Name" type="RichTextLabel" parent="CharacterDetails/Abillitybox"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 13.0
+offset_right = 290.0
+offset_bottom = 58.0
+
+[node name="Opis" type="RichTextLabel" parent="CharacterDetails/Abillitybox"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 63.0
+offset_right = 290.0
+offset_bottom = 120.0
+
+[node name="Passivebox" type="NinePatchRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 378.0
+offset_right = 1107.0
+offset_bottom = 510.0
+texture = ExtResource("2_d0u1e")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="CharacterDetails/Passivebox"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 290.0
+offset_bottom = 58.0
+
+[node name="Opis" type="RichTextLabel" parent="CharacterDetails/Passivebox"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 63.0
+offset_right = 290.0
+offset_bottom = 120.0
+
+[node name="BackButton" parent="." instance=ExtResource("5_psobe")]
+offset_left = 36.0
+offset_top = 21.0
+offset_right = 285.0
+offset_bottom = 93.0
