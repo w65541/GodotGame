@@ -58,7 +58,7 @@ public partial class levelupmenu : NinePatchRect
 		}
 		foreach (var item in weaponsInTree.Cast<Levelable>())
 		{
-			if(item.GetItemData().level<3)
+			if(item.GetItemData().level<=3)
 			{
 				wep.Add(item);
 			}

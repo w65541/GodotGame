@@ -23,7 +23,9 @@ public partial class Weapon: Node2D,Levelable
 		player=(Player) GetParent();
 		baseStats=stats;
 		Cooldown= (Timer)GetNode("Timer");
+		GD.Print(stats.penetration);
 		stats=baseStats*player.stats;
+		GD.Print(stats.penetration);
 		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
 		Cooldown.Start();
 	}
@@ -54,7 +56,7 @@ public partial class Weapon: Node2D,Levelable
 	public void updateStats()
 	{
 		stats=baseStats*GetParent<Player>().stats;
-		GD.Print(stats.damageMult);
+		GD.Print(Name+": Update stats damage multiplayer: "+stats.damageMult);
 	}
 	public virtual void Shoot(){}
 	/*void Shoot()

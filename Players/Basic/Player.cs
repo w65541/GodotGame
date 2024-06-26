@@ -7,7 +7,7 @@ public partial class Player : CharacterBody2D
 {
 	//[Export] Position;
 	public  float Speed = 300.0f;
-	
+	public Timer SpecialCooldown;
 	public bool dodge=true;
 	public bool specialReady=false;
 	public float hp=100f;
@@ -102,6 +102,7 @@ public override void _Ready()
 
 	public void updateStats()
 	{
+		stats=baseStats;
 		var items=GetTree().GetNodesInGroup("Items"); 
 		var weapons=GetTree().GetNodesInGroup("Weapons"); 
 		foreach (BasicItem item in items.Cast<BasicItem>())

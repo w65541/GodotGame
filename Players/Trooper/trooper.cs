@@ -5,7 +5,7 @@ public partial class trooper : Player
 {
 	PackedScene specialObject;
 	public String startingWeapon="Shotgun";
-	Timer SpecialCooldown;
+	//public Timer SpecialCooldown;
     
 	public override void _Ready()
 	{
@@ -16,11 +16,14 @@ public partial class trooper : Player
 		speed=200f,
 		speedMove=200f,
 		cooldown=5f,
+		penetration=0
 		};
 		baseStats=stats;
 		updateStats();
 
 		GD.Print(stats.damageMult);
+		var ps=GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
+		AddChild(ps.Instantiate());
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;
 		//main=(Main) GetTree().Root.GetNode("Main");

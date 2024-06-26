@@ -23,7 +23,7 @@ public struct Stats
     public float durationMult=1f;// {get;set;}//x
     public float  expMult=1f;// {get;set;}//x
     public float fireRate =1f;//{get;set;}//x
-    public int penetration =1;//{get;set;}//+
+    public int penetration =0;//{get;set;}//+
     public bool penetrationInf=false;// {get;set;}
     public float goldMult=1f;// {get;set;}//x
     public float cooldown=1f;//{get;set;}
@@ -36,6 +36,7 @@ public struct Stats
             count=s1.count+s2.count,
             duration=s1.duration,
             damage=s1.damage,
+            penetration=s1.penetration+s2.penetration,
             penetrationInf=s1.penetrationInf,
             speed=s1.speed,
             damageMult=s1.damageMult*s2.damageMult,

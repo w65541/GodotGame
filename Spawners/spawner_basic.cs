@@ -6,13 +6,15 @@ public partial class spawner_basic : Node2D
 	Player player;
 	PackedScene enemy;
 	Node main;
-
+	public int spawnCount;
+	public float difficulty=1f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player=(Player) GetParent();
+		player=GetParent<Player>();
 		main= GetTree().GetFirstNodeInGroup("Main");
 		enemy=GD.Load<PackedScene>("res://Enemies/Basic/enemy_basic.tscn");
+		spawnCount=5;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +25,7 @@ public partial class spawner_basic : Node2D
 	{
 		var r=700f;
 		var instance = enemy.Instantiate() as EnemyBasic;
+		instance.difficulty=difficulty;
 		var rng=new RandomNumberGenerator().RandfRange(0f,6f);
 		Position=new Vector2{
 			Y=((float)Math.Sin(rng))*r,
@@ -35,12 +38,20 @@ public partial class spawner_basic : Node2D
 		main.AddChild(instance);
 
 	}
+	int timeElapsed=0;
 	public void _on_timer_timeout()
 	{
-		for (int i = 0; i < 0; i++)
+		
+		for (int i = 0; i < spawnCount; i++)
 		{
 			spawnEnemy();
 		}		
-		 
+		 timeElapsed+=5;
+		 if(timeElapsed%60==0)
+		 {
+			timeElapsed=0;
+			spawnCount++;
+			difficulty+=0.2f;
+		 }
 	}
 }

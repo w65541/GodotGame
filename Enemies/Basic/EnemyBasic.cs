@@ -5,18 +5,20 @@ public partial class EnemyBasic : CharacterBody2D
 {
 	public Stats stats;
 	public float hp=5f;
+	public float difficulty;
 	//float speed=80f;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 Player player;
-Main main;
+BasicLevel main;
 public Vector2 spawnPos{get;set;} 
 	public override void _Ready()
 	{
-		player=(Player) GetTree().Root.GetNode("Main").GetNode("Player");
-		main=(Main) GetTree().Root.GetNode("Main");
+		player=(Player) GetTree().GetFirstNodeInGroup("Player");
+		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
 		GlobalPosition=spawnPos;
-		stats=new Stats{maxHp=5f,speed=80f,speedMove=80f};
+		stats=new Stats{maxHp=5f*difficulty,speed=80f,speedMove=80f};
+		hp=stats.maxHp;
 		//Velocity=Position.DirectionTo(player.Position)*speed;
 		//MoveAndSlide();
 	}
@@ -32,7 +34,7 @@ public Vector2 spawnPos{get;set;}
 		//MoveAndSlide();
 	}
 public void Death(){
-	main.Score++;
+	main.exp++;
 	QueueFree();
 }
 public void Despawn(){
@@ -49,7 +51,7 @@ if(bullet.GetType()==new explosion().GetType())
 		if(bullet.GetType().IsAssignableTo(new ProjectilePlayer().GetType()))
 		{
 			var x=(ProjectilePlayer) bullet;
-			hp-=x.stats.damage;
+			hp-=(x.stats.damage*x.stats.damageMult);
 		}
 		//GD.Print(bullet.GetType());
 		/*if(bullet.GetType()==new ShotgunBullet().GetType())

@@ -1,29 +1,23 @@
 using Godot;
 using System;
+using System.Linq;
 
-public partial class wall : StaticBody2D
+public partial class ItemsDebugUi : Label
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
 	}
-	float Speed=50f;
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
-		if (Input.IsActionJustPressed("ui_left"))
+		string a="Items:\n";
+		var itemsInTree=GetTree().GetNodesInGroup("Items");
+		foreach (var item in itemsInTree.Cast<BasicItem>())
 		{
-			MoveAndCollide(Vector2.Left);
+			a+=""+item.data.name+" Lv "+(item.data.level-1)+"\n";
 		}
-
-		if (Input.IsActionJustPressed("ui_right"))
-		{
-			MoveAndCollide(Vector2.Right);
-		}
-
-		
-		
+		Text=a;
 	}
 }
