@@ -26,7 +26,7 @@ public partial class Shotgun : Weapon
 			fireRate=1,
 			speed=5000f
 		};
-		GD.Print(stats.penetration);
+		//GD.Print(stats.penetration);
 		data=new itemData{
 			name="Shotgun",
 			level=2,
@@ -59,7 +59,7 @@ public partial class Shotgun : Weapon
 		//instance.speed=5000;
 		instance.spawnPos=GlobalPosition;
 		instance.stats=stats;
-		GD.Print(instance.stats.penetration+"/"+stats.penetration);
+		//GD.Print(instance.stats.penetration+"/"+stats.penetration);
 		//GD.Print("ShootRotate"+Rotation);
 		instance.spawnRot=Rotation+rng;
 		main.AddChild(instance);

@@ -4,10 +4,13 @@
 
 [node name="SpawnerBasic" type="Node2D"]
 script = ExtResource("1_pvoun")
+spawnCount = 5
+spawnIncrise = 1
+enemyType = "res://Enemies/Basic/enemy_basic.tscn"
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

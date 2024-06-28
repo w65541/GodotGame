@@ -10,7 +10,7 @@ height = 122.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqmfi"]
 size = Vector2(128, 127)
 
-[node name="EnemyBasic" type="CharacterBody2D"]
+[node name="EnemyBasic" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_l57p8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -26,9 +26,9 @@ public partial class BasicLevel : Node2D
 			var ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
 
-			/*x=(String)level.GetValue(name,"bossspawner");
+			x=(String)level.GetValue(name,"bossspawner");
 			ele=GD.Load<PackedScene>(x);
-			GetNode("Player").AddChild(ele.Instantiate());*/
+			GetNode("Player").AddChild(ele.Instantiate());
 
 			x=(String)level.GetValue(name,"camera");
 			ele=GD.Load<PackedScene>(x);

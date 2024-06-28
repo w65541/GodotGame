@@ -9,8 +9,8 @@ public partial class EnemyBasic : CharacterBody2D
 	//float speed=80f;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-Player player;
-BasicLevel main;
+public Player player;
+public BasicLevel main;
 public Vector2 spawnPos{get;set;} 
 	public override void _Ready()
 	{
@@ -26,7 +26,7 @@ public Vector2 spawnPos{get;set;}
 	{
 		
 		if(hp<=0)Death();
-		//if(Position.DistanceTo(player.Position)>1000) Despawn();
+		if(Position.DistanceTo(player.Position)>5000) Despawn();
 		//player=(Player) GetTree().Root.GetNode("Node2D").GetNode("Player");
 		//Velocity=
 		Vector2 dir= Position.DirectionTo(player.Position);//*speed;
@@ -40,7 +40,7 @@ public void Death(){
 public void Despawn(){
 	QueueFree();
 }
-public void _on_area_2d_body_entered(Node2D bullet)
+public virtual void _on_area_2d_body_entered(Node2D bullet)
 	{
 if(bullet.GetType()==new explosion().GetType())
 		{

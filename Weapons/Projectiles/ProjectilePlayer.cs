@@ -23,7 +23,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 		Cooldown= (Timer)GetNode("Timer");
 		Cooldown.WaitTime=stats.duration*stats.durationMult;
 		Cooldown.Start();
-		GD.Print(stats.penetration);
+		//GD.Print(stats.penetration);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,7 +45,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 		if(bullet.GetType()!=new Player().GetType())
 		{
 			penetrable--;
-			GD.Print(penetrable+"/"+stats.penetration);
+			//GD.Print(penetrable+"/"+stats.penetration);
 			if(penetrable<0) QueueFree();
 		}
 		}

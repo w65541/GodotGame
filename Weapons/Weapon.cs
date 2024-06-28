@@ -23,9 +23,9 @@ public partial class Weapon: Node2D,Levelable
 		player=(Player) GetParent();
 		baseStats=stats;
 		Cooldown= (Timer)GetNode("Timer");
-		GD.Print(stats.penetration);
+		//GD.Print(stats.penetration);
 		stats=baseStats*player.stats;
-		GD.Print(stats.penetration);
+	//	GD.Print(stats.penetration);
 		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
 		Cooldown.Start();
 	}

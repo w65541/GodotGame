@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmyyguedo70vh"]
+[gd_scene load_steps=11 format=3 uid="uid://bmyyguedo70vh"]
 
-[ext_resource type="Script" path="res://Main.cs" id="1_bn63x"]
+[ext_resource type="Script" path="res://Levels/Basic/BasicLevel.cs" id="1_i3u1k"]
 [ext_resource type="PackedScene" uid="uid://dsou6t2xto2js" path="res://Levels/Cameras/Default.tscn" id="3_evuf1"]
 [ext_resource type="PackedScene" uid="uid://dg2ihf4xvgh6i" path="res://Players/Trooper/trooper.tscn" id="3_tsi8o"]
 [ext_resource type="PackedScene" uid="uid://dsw2ly80jyorv" path="res://UI/LevelUp/level_up_menu.tscn" id="6_616ma"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://ol25fuogiyv2" path="res://Weapons/Shotgun.tscn" id="8_n6cuf"]
 [ext_resource type="PackedScene" uid="uid://buad6j67qom1n" path="res://Spawners/spawner_basic.tscn" id="8_up5jp"]
 [ext_resource type="PackedScene" uid="uid://coiyynt20eta5" path="res://UI/InGame/DebugUi.tscn" id="9_behci"]
+[ext_resource type="PackedScene" uid="uid://dey1kk2pq27ox" path="res://Enemies/Charger/charger.tscn" id="10_h5uro"]
 
 [node name="Main" type="Node2D" groups=["Main"]]
 process_mode = 1
-script = ExtResource("1_bn63x")
+script = ExtResource("1_i3u1k")
 
 [node name="Player" parent="." instance=ExtResource("3_tsi8o")]
-collision_layer = 0
+collision_layer = 16
 
 [node name="Camera2D" parent="Player" instance=ExtResource("3_evuf1")]
 
@@ -29,7 +30,6 @@ offset_bottom = 78.0
 scale = Vector2(1.5, 1.5)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("7_v5ypv")]
-visible = false
 offset_left = -191.0
 offset_top = -280.0
 offset_right = -191.0
@@ -42,3 +42,6 @@ offset_bottom = -280.0
 [node name="Shotgun" parent="Player" instance=ExtResource("8_n6cuf")]
 
 [node name="Control" parent="Player" instance=ExtResource("9_behci")]
+
+[node name="Charger" parent="." instance=ExtResource("10_h5uro")]
+position = Vector2(-432, 465)

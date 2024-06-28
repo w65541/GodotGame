@@ -82,11 +82,16 @@ public override void _Ready()
 	{
 		
 
-		if(node.GetType()==new EnemyBasic().GetType())
+		if(node.GetType().IsAssignableTo(new EnemyBasic().GetType()))
 		{
 			touchCounter++;
 			Speed=100f;
 			//GD.Print(touchCounter);
+		}
+		if(node.GetType()==new charger().GetType())
+		{
+			 
+			GD.Print("touchCounter");
 		}
 	}
 	public void _on_area_2d_body_exited(Node2D node)
@@ -95,7 +100,12 @@ public override void _Ready()
 		{
 			touchCounter--;
 			if(touchCounter==0)Speed=stats.speed*stats.speedMult;
-			//GD.Print(touchCounter);
+			GD.Print(touchCounter);
+		}
+		if(node.GetType()==new charger().GetType())
+		{
+			 
+			GD.Print("touchCounter");
 		}
 	}
 
