@@ -16,7 +16,6 @@ process_mode = 1
 script = ExtResource("1_i3u1k")
 
 [node name="Player" parent="." instance=ExtResource("3_tsi8o")]
-collision_layer = 16
 
 [node name="Camera2D" parent="Player" instance=ExtResource("3_evuf1")]
 

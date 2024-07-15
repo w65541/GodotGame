@@ -34,14 +34,16 @@ public partial class BasicLevel : Node2D
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
 
-			x=(String)level.GetValue(name,"pauseMenu");
-			ele=GD.Load<PackedScene>(x);
-			GetNode("Player").AddChild(ele.Instantiate());
+			
 
 			x=(String)level.GetValue(name,"levelupMenu");
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
 
+			x=(String)level.GetValue(name,"pauseMenu");
+			ele=GD.Load<PackedScene>(x);
+			GetNode("Player").AddChild(ele.Instantiate());
+			
 			x=(String)level.GetValue(name,"ui");
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());

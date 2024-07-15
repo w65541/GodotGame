@@ -11,11 +11,11 @@ public partial class CharacterDetails : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		int[] ints= (int[])character.GetValue(name,"stats");
-		GetChild(0).GetChild<RichTextLabel>(0).Text=ints[level-1]+"";
 		
+		//character=GetParent<character_details>().character;
 		GetChild<TextureRect>(1).Texture=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
-
+string ints= (string)character.GetValue(name,"stats");
+		GetChild(0).GetChild<RichTextLabel>(0).Text=ints;
 		GetChild(2).GetChild<TextureRect>(0).Texture=(Texture2D)GD.Load((string)items.GetValue(weapon,"sprite"));
 		GetChild(2).GetChild<RichTextLabel>(1).Text=weapon;
 		GetChild(2).GetChild<RichTextLabel>(2).Text=(string)items.GetValue(weapon,"opis");

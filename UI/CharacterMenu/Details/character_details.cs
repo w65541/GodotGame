@@ -17,6 +17,7 @@ public partial class character_details : Node
 		instance.name=name;
 		instance.weapon=weapon;
 		instance.level=level;
+		instance._Ready();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
