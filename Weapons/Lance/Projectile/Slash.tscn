@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs7i34x0fc5l2"]
+
+[ext_resource type="Script" path="res://Weapons/Lance/Projectile/Slash.cs" id="1_rqnbi"]
+[ext_resource type="Texture2D" uid="uid://b2hq6q6pbuq0f" path="res://Weapons/Lance/Projectile/Slash.png" id="2_pkqnt"]
+
+[node name="Slash" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_rqnbi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(60, 23, 61, 0, 59, -45, 23, -108, -29, -138, -88, -144, -92, -132, -50, -93, -26, -45, -16, -5, -24, 47, -58, 92, -90, 112, -90, 122, -78, 125, -8, 112, 35, 85, 56, 51)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pkqnt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(60, 23, 61, 0, 59, -45, 23, -108, -29, -138, -88, -144, -92, -132, -50, -93, -26, -45, -16, -5, -24, 47, -58, 92, -90, 112, -90, 122, -78, 125, -8, 112, 35, 85, 56, 51)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

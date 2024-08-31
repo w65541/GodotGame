@@ -34,6 +34,7 @@ public partial class Shotgun : Weapon
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
+		projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
 		//baseStats=stats;
 		base._Ready();
 		//projectile=GD.Load<PackedScene>("res://ShotgunBullet.tscn");

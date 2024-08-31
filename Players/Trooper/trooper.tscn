@@ -12,7 +12,7 @@ script = ExtResource("2_j7wjt")
 [node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("3_7bpcu")
 
-[node name="CooldownSpecial" type="Timer" parent="." index="5"]
+[node name="CooldownSpecial2" type="Timer" parent="." index="5"]
 wait_time = 5.0
 one_shot = true
 autostart = true

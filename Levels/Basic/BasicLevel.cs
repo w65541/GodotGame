@@ -5,7 +5,7 @@ public partial class BasicLevel : Node2D
 {
 	public ConfigFile level;
 	public string name;
-	public string charatcer="res://Players/Trooper/trooper.tscn";
+	public string charatcer="res://Players/Knight/knight.tscn";//"res://Players/Trooper/trooper.tscn";//
 	public string passive1;
 	public string passive2;
 	public levelupmenu levelupmenu;

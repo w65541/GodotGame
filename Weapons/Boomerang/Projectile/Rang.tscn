@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://csu8oyg8cl5ih"]
+
+[ext_resource type="Script" path="res://Weapons/Boomerang/Projectile/Rang.cs" id="1_6d6ho"]
+[ext_resource type="Texture2D" uid="uid://ddjxyq26yndrh" path="res://Rectangle.png" id="2_iajs4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nuhtd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8isq"]
+
+[node name="Rang" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_6d6ho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nuhtd")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.191667, 0.166667)
+texture = ExtResource("2_iajs4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 119
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_q8isq")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

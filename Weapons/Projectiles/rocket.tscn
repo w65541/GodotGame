@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctmii5cw0vdd3"]
 
-[ext_resource type="Script" path="res://rocket.cs" id="1_50dmx"]
+[ext_resource type="Script" path="res://Weapons/Projectiles/rocket.cs" id="1_50dmx"]
 [ext_resource type="Texture2D" uid="uid://bevlcjkbdeyf0" path="res://triangle.png" id="2_aoxne"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_35clx"]

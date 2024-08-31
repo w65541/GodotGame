@@ -3,19 +3,31 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class RPG : Node2D
+public partial class RPG : Weapon
 {
-	Node main;
-	PackedScene  projectile,expl;
-	String bulletType;
-	 float r=100.0f;
+	//Node main;
+	PackedScene  expl;
+	//String bulletType;
+	// float r=100.0f;
 	 int count=5;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
-	{
-		main= GetTree().Root.GetNode("Main");
-		projectile=GD.Load<PackedScene>("res://Weapons//Projectiles//rocket.tscn");
+	{stats=new Stats{
+			damage=1f,
+			count=3,
+			penetrationInf=false,
+			penetration=2,
+			cooldown=0.5f,
+			durationMult=1,
+			fireRate=1,
+			speed=5000f
+		};
+		bulletType="rocket";
+		//main= GetTree().Root.GetNode("Main");
+		//projectile=GD.Load<PackedScene>("res://Weapons//Projectiles//rocket.tscn");
 		expl=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
+		projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
+		base._Ready();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +42,7 @@ public partial class RPG : Node2D
 		};*/
 	}
 
-	void Shoot()
+	public override void Shoot()
 	{
 		var instance = projectile.Instantiate() as rocket;
 		var e=Enemies.OrderBy(x=>Position.DistanceTo(x.Position)).First();
@@ -43,14 +55,14 @@ public partial class RPG : Node2D
 		//instance.main=main;
 		main.AddChild(instance);
 	}
-	public void _on_timer_timeout()
+	/*public void _on_timer_timeout()
 	{
 		for (int i = 0; i < 1; i++)
 		{
 			Shoot();
 		}		
 		 
-	}
+	}*/
 	List<Node2D> Enemies=new List<Node2D>();
 	public void _on_area_2d_body_entered(Node2D node)
 	{

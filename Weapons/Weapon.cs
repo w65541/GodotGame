@@ -19,7 +19,7 @@ public partial class Weapon: Node2D,Levelable
 	{
 		main= GetTree().GetFirstNodeInGroup("Main");
 		GD.Print("res://Weapons/Projectiles/"+bulletType+".tscn");
-		projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
+		//projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
 		player=(Player) GetParent();
 		baseStats=stats;
 		Cooldown= (Timer)GetNode("Timer");
@@ -53,7 +53,7 @@ public partial class Weapon: Node2D,Levelable
     {
         return data;
     }
-	public void updateStats()
+	virtual public void updateStats()
 	{
 		stats=baseStats*GetParent<Player>().stats;
 		GD.Print(Name+": Update stats damage multiplayer: "+stats.damageMult);
@@ -69,7 +69,7 @@ public partial class Weapon: Node2D,Levelable
 		instance.spawnRot=Rotation;
 		main.AddChild(instance);
 	}*/
-	public void _on_timer_timeout()
+	public virtual void _on_timer_timeout()
 	{
 		
 		for (int i = 0; i < stats.count; i++)

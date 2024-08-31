@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck4grntj0j37h"]
+
+[ext_resource type="Script" path="res://Weapons/Lance/Lance.cs" id="1_4jimh"]
+
+[node name="Lance" type="Node2D"]
+script = ExtResource("1_4jimh")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.33
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="Shoot"]

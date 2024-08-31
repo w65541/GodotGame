@@ -14,6 +14,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Scale*=stats.size;
 		GlobalPosition=spawnPos;
 		GlobalRotation=spawnRot+Vector2.Down.Angle();
 		//GD.Print("rotate"+GlobalRotation);
@@ -21,7 +22,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 		dir+=Vector2.Down.Angle();
 		penetrable=stats.penetration;
 		Cooldown= (Timer)GetNode("Timer");
-		Cooldown.WaitTime=stats.duration*stats.durationMult;
+		Cooldown.WaitTime=stats.duration*stats.durationMult+0.01f;
 		Cooldown.Start();
 		//GD.Print(stats.penetration);
 	}
@@ -32,10 +33,14 @@ public partial class ProjectilePlayer : CharacterBody2D
 		Velocity=new Vector2(0,-stats.speed).Rotated(dir)+Vector2.Right;
 		MoveAndSlide();
 	}
-
-	public void _on_timer_timeout()
+	virtual public void Despawn()
 	{
 		QueueFree();
+	}
+	virtual public void _on_timer_timeout()
+	{
+		Visible=false;
+		Despawn();
 	}
 	virtual public void _on_area_2d_body_entered(Node2D bullet)
 	{
@@ -46,7 +51,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 		{
 			penetrable--;
 			//GD.Print(penetrable+"/"+stats.penetration);
-			if(penetrable<0) QueueFree();
+			if(penetrable<0) Despawn();
 		}
 		}
 	}

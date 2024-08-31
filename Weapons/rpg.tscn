@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://sxqll07726hy"]
 
-[ext_resource type="Script" path="res://RPG.cs" id="1_bclp2"]
+[ext_resource type="Script" path="res://Weapons/RPG.cs" id="1_bclp2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj1dg"]
 radius = 5532.23

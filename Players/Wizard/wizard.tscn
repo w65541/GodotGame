@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8tluxcrjiyp"]
+
+[ext_resource type="PackedScene" uid="uid://dtixee4n8a5me" path="res://Players/Basic/Player.tscn" id="1_50vbk"]
+[ext_resource type="Script" path="res://Players/Wizard/Wizard.cs" id="2_adp4w"]
+
+[node name="Wizard" instance=ExtResource("1_50vbk")]
+script = ExtResource("2_adp4w")
+
+[node name="SpecialTime" type="Timer" parent="." index="6"]
+
+[connection signal="timeout" from="CooldownSpecial" to="." method="_on_cooldown_special_timeout"]
+[connection signal="timeout" from="SpecialTime" to="." method="_on_special_time_timeout"]

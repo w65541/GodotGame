@@ -14,7 +14,7 @@ public partial class rocket : ProjectilePlayer
 		//Rotation=spawnRot;
 		//dir+=Vector2.Down.Angle();
 		//damage=5f;
-		main=GetTree().Root.GetNode("Main");
+		main= GetTree().GetFirstNodeInGroup("Main");
 		
 	}
 	bool boom=true;

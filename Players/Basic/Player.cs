@@ -8,6 +8,7 @@ public partial class Player : CharacterBody2D
 	//[Export] Position;
 	public  float Speed = 300.0f;
 	public Timer SpecialCooldown;
+	public bool unstopable=false;
 	public bool dodge=true;
 	public bool specialReady=false;
 	public float hp=100f;
@@ -58,7 +59,7 @@ public override void _Ready()
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 		}
-
+		
 		Velocity = velocity;
 		/*if (Input.IsActionJustPressed("ui_accept") && dodge)
 			{Velocity *= 100;
@@ -85,7 +86,7 @@ public override void _Ready()
 		if(node.GetType().IsAssignableTo(new EnemyBasic().GetType()))
 		{
 			touchCounter++;
-			Speed=100f;
+			if(!unstopable)Speed=stats.speed*stats.speedMult*0.1f;
 			//GD.Print(touchCounter);
 		}
 		if(node.GetType()==new charger().GetType())
@@ -99,7 +100,7 @@ public override void _Ready()
 		if(node.GetType()==new EnemyBasic().GetType())
 		{
 			touchCounter--;
-			if(touchCounter==0)Speed=stats.speed*stats.speedMult;
+			if(touchCounter==0 && !unstopable)Speed=stats.speed*stats.speedMult;
 			GD.Print(touchCounter);
 		}
 		if(node.GetType()==new charger().GetType())
@@ -110,7 +111,7 @@ public override void _Ready()
 	}
 
 
-	public void updateStats()
+	public virtual void updateStats()
 	{
 		stats=baseStats;
 		var items=GetTree().GetNodesInGroup("Items"); 
@@ -123,6 +124,6 @@ public override void _Ready()
 		{
 			item.updateStats();
 		}
-
+		Speed=stats.speed*stats.speedMult;
 	}
 }
