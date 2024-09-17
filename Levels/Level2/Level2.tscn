@@ -5,10 +5,10 @@
 
 [node name="Level2" instance=ExtResource("1_btl7n")]
 
-[node name="Wall" parent="." index="0" instance=ExtResource("2_b7kt2")]
+[node name="Wall2" parent="." index="0" instance=ExtResource("2_b7kt2")]
 position = Vector2(-6, -565)
 scale = Vector2(100, 1)
 
-[node name="Wall2" parent="." index="1" instance=ExtResource("2_b7kt2")]
+[node name="Wall3" parent="." index="1" instance=ExtResource("2_b7kt2")]
 position = Vector2(-4, 562)
 scale = Vector2(100, 1)

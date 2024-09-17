@@ -14,6 +14,7 @@ public partial class Weapon: Node2D,Levelable
 	public Timer Cooldown;
 	public int level=1;
 	public itemData data;
+	public TargetClosest closest;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -28,6 +29,7 @@ public partial class Weapon: Node2D,Levelable
 	//	GD.Print(stats.penetration);
 		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
 		Cooldown.Start();
+		closest=GetTree().GetFirstNodeInGroup("Closest") as TargetClosest;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,9 +45,12 @@ public partial class Weapon: Node2D,Levelable
 			Y=((float)Math.Sin(ang))*r,
 			X=((float)Math.Cos(ang))*r
 			};
-			
 			break;
 
+			case Targeting.Closest:
+			Rotation=closest.rotate;
+			Position=Position;
+			break;
 		}
 		
 	}

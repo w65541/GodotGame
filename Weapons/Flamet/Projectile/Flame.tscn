@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3p262aulxsyd"]
+[gd_scene load_steps=5 format=3 uid="uid://b3p262aulxsyd"]
 
 [ext_resource type="Script" path="res://Weapons/Flamet/Projectile/Flame.cs" id="1_1s1jm"]
 [ext_resource type="Texture2D" uid="uid://cxolmybk5ruhb" path="res://exp3.png" id="2_penn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_227nd"]
-radius = 32.0
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi8xy"]
+radius = 38.0
 
 [node name="Flame" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 16
 script = ExtResource("1_1s1jm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,11 +23,12 @@ collision_layer = 0
 collision_mask = 119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_227nd")
+shape = SubResource("CircleShape2D_qi8xy")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_penn8")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

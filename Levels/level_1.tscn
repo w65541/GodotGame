@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_mw1af"]
 
 [node name="Level1" instance=ExtResource("1_mw1af")]
+
+[node name="Wall" parent="." index="1"]
+scale = Vector2(69.1408, 22.2664)

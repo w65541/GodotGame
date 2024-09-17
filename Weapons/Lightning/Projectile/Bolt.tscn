@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ie5byutkodi"]
+
+[ext_resource type="Script" path="res://Weapons/Lightning/Projectile/Bolt.cs" id="1_2uj8f"]
+[ext_resource type="Texture2D" uid="uid://cxolmybk5ruhb" path="res://exp3.png" id="2_3nvuy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6smmr"]
+radius = 46.2709
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijv3t"]
+size = Vector2(117, 110)
+
+[node name="Bolt" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_2uj8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6smmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 1.583)
+texture = ExtResource("2_3nvuy")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 119
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6smmr")
+
+[node name="NextTarget" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 119
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextTarget"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_ijv3t")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="NextTarget" to="." method="_on_next_target_body_entered"]
+[connection signal="body_exited" from="NextTarget" to="." method="_on_next_target_body_exited"]

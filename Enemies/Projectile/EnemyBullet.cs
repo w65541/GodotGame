@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-public partial class ProjectilePlayer : CharacterBody2D
+public partial class EnemyBullet : CharacterBody2D
 {
-	//[Export] public float speed {get;set;} 
 	public float dir {get;set;} 
 	public Vector2 spawnPos{get;set;} 
 	public float spawnRot{get;set;} 
@@ -12,7 +11,6 @@ public partial class ProjectilePlayer : CharacterBody2D
 	public  Stats stats;
 	public Timer Cooldown;
 	public float stop=1f;
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Scale*=stats.size;
@@ -27,11 +25,10 @@ public partial class ProjectilePlayer : CharacterBody2D
 		Cooldown.Start();
 		//GD.Print(stats.penetration);
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+		public override void _PhysicsProcess(double delta)
 	{
-		Velocity=(new Vector2(0,-stats.speed).Rotated(dir)+Vector2.Right)*stop;
+		
+		Velocity=(new Vector2(0,-stats.speed).Rotated(dir)+Vector2.Right);
 		MoveAndSlide();
 	}
 	virtual public void Despawn()
@@ -45,24 +42,10 @@ public partial class ProjectilePlayer : CharacterBody2D
 	}
 	virtual public void _on_area_2d_body_entered(Node2D bullet)
 	{
-		//GD.Print(bullet.GetType());
-		if(bullet.GetType().IsAssignableTo(new wall().GetType())){
-			//GD.Print("wall");
-			stop=0;
+		GD.Print(bullet.GetType());
+		if(bullet.GetType().IsAssignableTo(new wall().GetType()) || bullet.GetType().IsAssignableTo(new Player().GetType())){
+			GD.Print("wall");
+			Despawn();
 			}
-		if(stats.penetrationInf==false){
-		
-		
-		if(bullet.GetType().IsAssignableTo(new EnemyBasic().GetType()))
-		{
-			penetrable--;
-			//GD.Print(penetrable+"/"+stats.penetration);
-			if(penetrable<0) Despawn();
-		}else{
-			if(bullet.GetType().IsAssignableTo(new wall().GetType())){
-				Despawn();
-			}
-		}
-		}
 	}
 }

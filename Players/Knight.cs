@@ -23,7 +23,7 @@ public partial class Knight : Player
 		updateStats();
 		dodge=true;
 		
-		var ps=GD.Load<PackedScene>("res://Weapons/Flamet/Flamet.tscn");//("res://Weapons/Lance/Lance.tscn");
+		var ps=GD.Load<PackedScene>("res://Weapons/Lightning/Lightning.tscn");//("res://Weapons/Lance/Lance.tscn");
 		AddChild(ps.Instantiate());
 		
 		//main=(Main) GetTree().Root.GetNode("Main");

@@ -8,7 +8,7 @@ public partial class Boomerang : Weapon
 	public override void _Ready()
 	{
 		bulletType="Rang";
-		targeting=Targeting.Mouse;
+		targeting=Targeting.Closest;
 		stats=new Stats{
 			damage=10f,
 			count=2,

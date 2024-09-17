@@ -82,7 +82,14 @@ public override void _Ready()
 	public void _on_area_2d_body_entered(Node2D node)
 	{
 		
-
+		if(node.GetType().IsAssignableTo(new EnemyBullet().GetType()))
+		{
+			EnemyBullet bullet=node as EnemyBullet;
+			hp-=bullet.stats.damage;
+			bullet.QueueFree();
+		}
+			 
+			
 		if(node.GetType().IsAssignableTo(new EnemyBasic().GetType()))
 		{
 			touchCounter++;

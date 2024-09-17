@@ -12,6 +12,6 @@ public partial class Flame : ProjectilePlayer
 	{
 		base._Process(delta);
 		Scale*=1.01f;
-		stats.speed*=0.99f;
+		stats.speed*=0.99f*stop;
 	}
 }
