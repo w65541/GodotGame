@@ -6,6 +6,7 @@ public partial class character_details : Node
 	public  ConfigFile character;
 	public ConfigFile items;
 	public int level;
+	public int skill;
 	public string name;
 	public string weapon;
 	// Called when the node enters the scene tree for the first time.

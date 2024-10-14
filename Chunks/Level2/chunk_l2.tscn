@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7l4jxafdnyrx"]
+
+[ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_gkmnm"]
+[ext_resource type="Script" path="res://Chunks/Level2/MiddleL2.cs" id="2_75mga"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_a88yj"]
+
+[node name="ChunkL2" instance=ExtResource("1_gkmnm")]
+scale = Vector2(3, 3)
+script = ExtResource("2_75mga")
+
+[node name="Wall" parent="." index="3" instance=ExtResource("2_a88yj")]
+position = Vector2(0, 500)
+scale = Vector2(25, 1)
+
+[node name="Wall2" parent="." index="4" instance=ExtResource("2_a88yj")]
+position = Vector2(0, -500)
+scale = Vector2(25, 1)

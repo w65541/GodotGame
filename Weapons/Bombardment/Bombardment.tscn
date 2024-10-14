@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Weapons/Bombardment/Bombardment.cs" id="1_7hrsy"]
 
-[node name="Bombardment" type="Node2D"]
+[node name="Bombardment" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_7hrsy")
 
 [node name="Timer" type="Timer" parent="."]

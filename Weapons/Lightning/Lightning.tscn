@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Weapons/Lightning/Lightning.cs" id="1_k8jgw"]
 
-[node name="Lightning" type="Node2D"]
+[node name="Lightning" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_k8jgw")
 
 [node name="Timer" type="Timer" parent="."]

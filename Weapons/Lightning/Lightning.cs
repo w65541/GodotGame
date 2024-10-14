@@ -14,7 +14,7 @@ public partial class Lightning : Weapon
 			count=2,
 			penetrationInf=false,
 			penetration=2,
-			cooldown=0.5f,
+			cooldown=4f,
 			durationMult=1,
 			fireRate=1,
 			speed=5000f
@@ -68,6 +68,38 @@ public partial class Lightning : Weapon
 	public override void _Process(double delta)
 	{
 		//base._Process(delta);
+	}
+	public override void levelup()
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			baseStats.size=1.5f;
+			updateStats();
+			break;
+			case 3:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 4:
+			baseStats.damage=15f;
+			updateStats();
+			break;
+			case 5:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 6:
+			baseStats.cooldown=2f;
+			updateStats();
+			break;
+			case 7:
+			baseStats.size=2f;
+			updateStats();
+			break;
+		}
 	}
 	public override void _on_timer_timeout()
 	{

@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3g61ndqrclg1"]
+
+[ext_resource type="Script" path="res://Chunks/ChunkBase.cs" id="1_7knot"]
+[ext_resource type="Texture2D" uid="uid://be3v720jgvxaf" path="res://icon.svg" id="1_34hg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1heq2"]
+size = Vector2(1000, 1000)
+
+[node name="ChunkBase" type="Node2D"]
+script = ExtResource("1_7knot")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 32887
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1heq2")
+
+[node name="Rays" type="Node2D" parent="."]
+
+[node name="Right" type="RayCast2D" parent="Rays"]
+position = Vector2(2000, 0)
+target_position = Vector2(0, 0)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Left" type="RayCast2D" parent="Rays"]
+position = Vector2(-2000, 0)
+target_position = Vector2(0, 0)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dr" type="RayCast2D" parent="Rays"]
+position = Vector2(2000, 2000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Down" type="RayCast2D" parent="Rays"]
+position = Vector2(0, 2000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ul" type="RayCast2D" parent="Rays"]
+position = Vector2(-2000, -2000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ur" type="RayCast2D" parent="Rays"]
+position = Vector2(2000, -2000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Up" type="RayCast2D" parent="Rays"]
+position = Vector2(0, -2000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dl" type="RayCast2D" parent="Rays"]
+position = Vector2(-2000, 2000)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-6.5, -1)
+scale = Vector2(7.77344, 7.73438)
+texture = ExtResource("1_34hg8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

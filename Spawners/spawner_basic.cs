@@ -19,10 +19,7 @@ public partial class spawner_basic : Node2D
 		//spawnCount=5;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+
 	public void spawnEnemy()
 	{
 		var r=700f;

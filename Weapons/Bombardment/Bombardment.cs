@@ -13,7 +13,7 @@ public partial class Bombardment : Weapon
 			count=1,
 			penetrationInf=false,
 			penetration=2,
-			cooldown=2f,
+			cooldown=5f,
 			durationMult=1,
 			fireRate=1,
 			speed=200f,
@@ -39,7 +39,39 @@ public partial class Bombardment : Weapon
 	{
 		base._Process(delta);
 	}
-
+	public override void levelup()
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			baseStats.count+=2;
+			updateStats();
+			break;
+			case 3:
+			baseStats.size=1.5f;
+			updateStats();
+			break;
+			case 4:
+			baseStats.damage=30f;
+			updateStats();
+			break;
+			case 5:
+			baseStats.count+=2;
+			updateStats();
+			break;
+			case 6:
+			baseStats.cooldown=2.5f;
+			updateStats();
+			break;
+			case 7:
+			stats.duration=10f;
+			projectile=GD.Load<PackedScene>("res://Weapons/Bombardment/Projectile/OrbitalLaser.tscn");
+			updateStats();
+			break;
+		}
+	}
 public override void _on_timer_timeout()
 	{
 		Shoot();
@@ -52,7 +84,7 @@ public override void _on_timer_timeout()
 		var enemies=GetTree().GetNodesInGroup("Enemy");
 		if(enemies.Count>0)
 			{
-		var instance = projectile.Instantiate() as Bombard;
+		var instance = projectile.Instantiate() as ProjectilePlayer;
 		
 		instance.stats=stats;
 		

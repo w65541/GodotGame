@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://Levels/Basic/BasicLevel.cs" id="1_w52cc"]
 [ext_resource type="PackedScene" uid="uid://imy0mt808rqa" path="res://target_closest.tscn" id="2_rbwdo"]
-[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="3_lkv8s"]
+[ext_resource type="PackedScene" uid="uid://dvao6uqjsn1xe" path="res://Items/Pickable/PickableBasic.tscn" id="3_n2eml"]
 
 [node name="BasicLevel" type="Node2D" groups=["Main"]]
 script = ExtResource("1_w52cc")
 
 [node name="TargetClosest" parent="." instance=ExtResource("2_rbwdo")]
 
-[node name="Wall" parent="." instance=ExtResource("3_lkv8s")]
-position = Vector2(-186, -230)
-scale = Vector2(8.46874, 31.8338)
+[node name="PickableBasic" parent="." instance=ExtResource("3_n2eml")]
+position = Vector2(-242, 2)

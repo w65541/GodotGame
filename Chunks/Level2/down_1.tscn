@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx6wfvcbrr1yr"]
+
+[ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_3n3mg"]
+[ext_resource type="Script" path="res://Chunks/Level2/DownL2.cs" id="2_e1bjf"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_q6ila"]
+
+[node name="Down1" instance=ExtResource("1_3n3mg")]
+script = ExtResource("2_e1bjf")
+
+[node name="Wall" parent="." index="3" instance=ExtResource("2_q6ila")]
+position = Vector2(0, 516)
+scale = Vector2(25, 1)

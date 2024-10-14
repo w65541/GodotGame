@@ -55,8 +55,23 @@ public partial class level_up_choice : TextureButton
 		{
 			item.levelup();
 		}else{
-			parent.items.RemoveAll(x=>x.name.Equals(name));
-			parent.weapons.RemoveAll(x=>x.name.Equals(name));
+			
+
+			
+			for (int i = 0; i < parent.weapons.Count; i++)
+			{
+				if(parent.weapons[i].name.Equals(name.Text)){
+					
+					parent.weapons.RemoveAt(i);}
+			}
+			for (int i = 0; i < parent.items.Count; i++)
+			{
+				if(parent.items[i].name.Equals(name.Text)){
+					
+					parent.items.RemoveAt(i);}
+			}
+			
+
 			var s=GD.Load<PackedScene>(path);
 			var instance=s.Instantiate();
 			player.AddChild(instance);

@@ -30,6 +30,10 @@ folder_colors={
 "res://Weapons/": "yellow"
 }
 
+[global_group]
+
+Weapons=""
+
 [input]
 
 ui_left={

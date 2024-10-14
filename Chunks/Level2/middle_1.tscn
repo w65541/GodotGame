@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4kb1m24v6xmh"]
+
+[ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_uyyu2"]
+[ext_resource type="Script" path="res://Chunks/Level2/MiddleL2.cs" id="2_fyq4r"]
+
+[node name="Middle1" instance=ExtResource("1_uyyu2")]
+script = ExtResource("2_fyq4r")

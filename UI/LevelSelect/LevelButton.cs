@@ -23,11 +23,15 @@ public partial class LevelButton : TextureButton
 
 	public void _on_button_up()
 	{
+		var team=GetTree().GetFirstNodeInGroup("Team") as PickedTeam;
 		scene=GD.Load<PackedScene>((string)level.GetValue(name,"scene"));
 		GD.Print("dada");
 		var instance=scene.Instantiate<BasicLevel>();
 		instance.level=level;
 		instance.name=name;
+		instance.charatcer=team.player;
+		instance.passive1=team.support1;
+		instance.passive2=team.support2;
 		GetTree().Root.GetChild(0).AddChild(instance);
 		var m=GetTree().GetFirstNodeInGroup("LevelSelectMenu") as CanvasItem;
 		m.Visible=false;

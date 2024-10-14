@@ -21,14 +21,14 @@ public partial class Shotgun : Weapon
 			count=3,
 			penetrationInf=false,
 			penetration=2,
-			cooldown=0.5f,
+			cooldown=2f,
 			durationMult=1,
 			fireRate=1,
 			speed=5000f
 		};
 		//GD.Print(stats.penetration);
 		data=new itemData{
-			name="Shotgun",
+			name="Strzelba",
 			level=2,
 			opis="afdgsdg",
 			sprite="res://Items/Textures/Shotgun.png",
@@ -73,24 +73,38 @@ public partial class Shotgun : Weapon
 		switch(level)
 		{
 			case 2:
-			baseStats.penetration++;
+			baseStats.count++;
+			baseStats.cooldown=1.5f;
+			
 			updateStats();
 			break;
 			case 3:
-			baseStats.penetrationInf=true;
+			baseStats.count++;
+			baseStats.penetration++;
+			baseStats.size=1.2f;
 			updateStats();
 			break;
 			case 4:
-			
+			baseStats.count++;
+			baseStats.cooldown=1f;
+			updateStats();
 			break;
 			case 5:
-			
+			baseStats.count++;
+			baseStats.penetration++;
+			baseStats.size=1.5f;
+			updateStats();
 			break;
 			case 6:
-			
+			baseStats.count++;
+			baseStats.damage=5f;
+			updateStats();
 			break;
 			case 7:
+			baseStats.count++;
+			baseStats.penetrationInf=true;
 			
+			updateStats();
 			break;
 		}
     }

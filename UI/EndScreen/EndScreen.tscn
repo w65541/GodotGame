@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmj7e6ex32lgf"]
+
+[ext_resource type="Script" path="res://UI/EndScreen/EndScreen.cs" id="1_fa3pi"]
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="2_t56wq"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="3_1rfs1"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="4_fb0ev"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="5_gfiyq"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="6_2cfu1"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="7_74akb"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fa3pi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 364.0
+offset_bottom = 284.0
+texture = ExtResource("2_t56wq")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 32.0
+offset_right = 154.0
+offset_bottom = 57.0
+text = "Game Over"
+
+[node name="ButtonPlay2" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -309.0
+offset_top = 202.0
+offset_right = -72.0
+offset_bottom = 263.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_t56wq")
+texture_pressed = ExtResource("3_1rfs1")
+texture_hover = ExtResource("4_fb0ev")
+texture_focused = ExtResource("5_gfiyq")
+stretch_mode = 4
+
+[node name="TextPlay" type="RichTextLabel" parent="NinePatchRect/ButtonPlay2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -21.5
+offset_right = 127.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_2cfu1")
+theme_override_font_sizes/normal_font_size = 35
+text = "Menu"
+fit_content = true
+scroll_active = false
+script = ExtResource("7_74akb")
+
+[connection signal="button_up" from="NinePatchRect/ButtonPlay2" to="." method="backToMenu"]
+[connection signal="mouse_entered" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_exited"]

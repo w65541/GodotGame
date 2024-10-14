@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bilfxrr6dvmi2"]
+[gd_scene load_steps=14 format=3 uid="uid://bilfxrr6dvmi2"]
 
 [ext_resource type="Script" path="res://UI/CharacterMenu/Details/CharacterDetails.cs" id="1_7sxoq"]
 [ext_resource type="Script" path="res://UI/CharacterMenu/Details/character_details.cs" id="1_yxctk"]
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="2_d0u1e"]
 [ext_resource type="Texture2D" uid="uid://bts3sg0p4e8ib" path="res://Players/Trooper/troop.png" id="3_kfhm1"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="4_3k2lw"]
 [ext_resource type="Texture2D" uid="uid://cxw5w5tnvijob" path="res://Items/Textures/Shotgun.png" id="4_elpw4"]
 [ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="5_psobe"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="5_v37kb"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="6_hdgwm"]
+[ext_resource type="Script" path="res://UI/CharacterMenu/Details/UpgradeButton.cs" id="7_2pkvb"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="8_rwp02"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="9_c33js"]
+[ext_resource type="Texture2D" uid="uid://b0xjhfpsa4ujt" path="res://Items/Textures/Lax.png" id="10_d0t6j"]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" groups=["CharacterDetails"]]
 script = ExtResource("1_yxctk")
 
 [node name="CharacterDetails" type="Control" parent="."]
@@ -37,6 +44,74 @@ offset_left = 17.0
 offset_top = 18.0
 offset_right = 234.0
 offset_bottom = 481.0
+
+[node name="UpgradeLevel" type="NinePatchRect" parent="CharacterDetails/Statbox"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 383.0
+offset_right = 253.0
+offset_bottom = 485.0
+texture = ExtResource("2_d0u1e")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="CharacterButton" type="TextureButton" parent="CharacterDetails/Statbox/UpgradeLevel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -259.0
+offset_top = 37.0
+offset_right = 27.0
+offset_bottom = 107.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_d0u1e")
+texture_pressed = ExtResource("4_3k2lw")
+texture_hover = ExtResource("5_v37kb")
+texture_focused = ExtResource("6_hdgwm")
+stretch_mode = 4
+script = ExtResource("7_2pkvb")
+
+[node name="TextPlay" type="RichTextLabel" parent="CharacterDetails/Statbox/UpgradeLevel/CharacterButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -21.5
+offset_right = 127.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_rwp02")
+theme_override_font_sizes/normal_font_size = 35
+text = "Ulepsz"
+fit_content = true
+scroll_active = false
+script = ExtResource("9_c33js")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterDetails/Statbox/UpgradeLevel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 4.0
+offset_right = 237.0
+offset_bottom = 40.0
+text = "10/100"
+
+[node name="TextureRect" type="TextureRect" parent="CharacterDetails/Statbox/UpgradeLevel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 32.0
+offset_bottom = 30.0
+texture = ExtResource("10_d0t6j")
+expand_mode = 1
 
 [node name="Sprite" type="TextureRect" parent="CharacterDetails"]
 layout_mode = 0
@@ -116,10 +191,10 @@ offset_bottom = 120.0
 
 [node name="Passivebox" type="NinePatchRect" parent="CharacterDetails"]
 layout_mode = 0
-offset_left = 803.0
-offset_top = 378.0
-offset_right = 1107.0
-offset_bottom = 510.0
+offset_left = 804.0
+offset_top = 470.0
+offset_right = 1108.0
+offset_bottom = 602.0
 texture = ExtResource("2_d0u1e")
 patch_margin_left = 3
 patch_margin_top = 3
@@ -140,8 +215,107 @@ offset_top = 63.0
 offset_right = 290.0
 offset_bottom = 120.0
 
+[node name="RankUp" type="NinePatchRect" parent="CharacterDetails"]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 372.0
+offset_right = 1104.0
+offset_bottom = 461.0
+texture = ExtResource("2_d0u1e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterDetails/RankUp"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 285.0
+offset_bottom = 32.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CharacterDetails/RankUp/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_d0t6j")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterDetails/RankUp/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "1/1"
+
+[node name="TextureRect2" type="TextureRect" parent="CharacterDetails/RankUp/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_d0t6j")
+expand_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CharacterDetails/RankUp/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "1/1"
+
+[node name="TextureRect3" type="TextureRect" parent="CharacterDetails/RankUp/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_d0t6j")
+expand_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CharacterDetails/RankUp/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "1/1"
+
+[node name="CharacterButton" type="TextureButton" parent="CharacterDetails/RankUp"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -276.0
+offset_top = 37.0
+offset_right = -18.0
+offset_bottom = 87.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_d0u1e")
+texture_pressed = ExtResource("4_3k2lw")
+texture_hover = ExtResource("5_v37kb")
+texture_focused = ExtResource("6_hdgwm")
+stretch_mode = 0
+script = ExtResource("7_2pkvb")
+levelup = false
+
+[node name="TextPlay" type="RichTextLabel" parent="CharacterDetails/RankUp/CharacterButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -21.5
+offset_right = 127.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_rwp02")
+theme_override_font_sizes/normal_font_size = 35
+text = "Ulepsz"
+fit_content = true
+scroll_active = false
+script = ExtResource("9_c33js")
+
 [node name="BackButton" parent="." instance=ExtResource("5_psobe")]
 offset_left = 36.0
 offset_top = 21.0
 offset_right = 285.0
 offset_bottom = 93.0
+
+[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="levelupChar"]
+[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]
+[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="levelupSkill"]
+[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]

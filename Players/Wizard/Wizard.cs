@@ -10,8 +10,8 @@ public partial class Wizard : Player
     {specialtime= (Timer)GetNode("SpecialTime");
 		stats=new Stats{
 		maxHp=100.0f,
-		speed=200f,
-		speedMove=200f,
+		speed=500f,
+		speedMove=500f,
 		cooldown=5f,
 		penetration=0
 		};

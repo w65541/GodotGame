@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Weapons/Flamet/Flamet.cs" id="1_2na4u"]
 
-[node name="Flamet" type="Node2D"]
+[node name="Flamet" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_2na4u")
 
 [node name="Timer" type="Timer" parent="."]

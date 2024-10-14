@@ -13,7 +13,8 @@ public partial class CharacterDetails : Control
 	{
 		
 		//character=GetParent<character_details>().character;
-		GetChild<TextureRect>(1).Texture=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
+		var tex=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
+		GetChild<TextureRect>(1).Texture=tex;
 string ints= (string)character.GetValue(name,"stats");
 		GetChild(0).GetChild<RichTextLabel>(0).Text=ints;
 		GetChild(2).GetChild<TextureRect>(0).Texture=(Texture2D)GD.Load((string)items.GetValue(weapon,"sprite"));

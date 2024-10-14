@@ -17,7 +17,7 @@ public Vector2 spawnPos{get;set;}
 		player=(Player) GetTree().GetFirstNodeInGroup("Player");
 		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
 		GlobalPosition=spawnPos;
-		stats=new Stats{maxHp=5f*difficulty,speed=80f,speedMove=80f};
+		stats=new Stats{maxHp=5f*difficulty,speed=200f,speedMove=80f};
 		hp=stats.maxHp;
 		//Velocity=Position.DirectionTo(player.Position)*speed;
 		//MoveAndSlide();
@@ -35,6 +35,7 @@ public Vector2 spawnPos{get;set;}
 	}
 public void Death(){
 	main.exp++;
+	main.deathcount++;
 	QueueFree();
 }
 public void Despawn(){

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://g5cx0jqeexu6"]
+
+[ext_resource type="PackedScene" uid="uid://dvao6uqjsn1xe" path="res://Items/Pickable/PickableBasic.tscn" id="1_4oi1b"]
+[ext_resource type="Script" path="res://Items/Pickable/Exp/ExpPack.cs" id="2_7wqmc"]
+
+[node name="ExpPack" instance=ExtResource("1_4oi1b")]
+script = ExtResource("2_7wqmc")

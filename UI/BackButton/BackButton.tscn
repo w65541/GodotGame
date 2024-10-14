@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="3_tpwru"]
 [ext_resource type="Script" path="res://UI/BackButton/BackButton.cs" id="4_j5s7f"]
 
-[node name="BackButton" type="TextureButton"]
+[node name="BackButton" type="TextureButton" groups=["BackButton"]]
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_2plgs")

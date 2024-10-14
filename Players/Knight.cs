@@ -14,8 +14,8 @@ public partial class Knight : Player
 		ChargeTime= (Timer)GetNode("Chargetime");
 		stats=new Stats{
 		maxHp=100.0f,
-		speed=200f,
-		speedMove=200f,
+		speed=500f,
+		speedMove=500f,
 		cooldown=5f,
 		penetration=0
 		};
@@ -23,10 +23,10 @@ public partial class Knight : Player
 		updateStats();
 		dodge=true;
 		
-		var ps=GD.Load<PackedScene>("res://Weapons/Lightning/Lightning.tscn");//("res://Weapons/Lance/Lance.tscn");
+		var ps=GD.Load<PackedScene>("res://Weapons/Lance/Lance.tscn");
 		AddChild(ps.Instantiate());
 		
-		//main=(Main) GetTree().Root.GetNode("Main");
+		main=(Main) GetTree().Root.GetNode("Main");
 	}
 
 

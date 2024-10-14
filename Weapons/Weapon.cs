@@ -85,5 +85,35 @@ public partial class Weapon: Node2D,Levelable
 		Cooldown.Start();
 	}
 	public virtual void levelup()
-    {}
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			
+			updateStats();
+			break;
+			case 3:
+			
+			updateStats();
+			break;
+			case 4:
+			
+			updateStats();
+			break;
+			case 5:
+			
+			updateStats();
+			break;
+			case 6:
+			
+			updateStats();
+			break;
+			case 7:
+			
+			updateStats();
+			break;
+		}
+	}
 }

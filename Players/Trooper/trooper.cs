@@ -13,8 +13,8 @@ public partial class trooper : Player
 		DodgeCooldown= (Timer)GetNode("CooldownDodge");
 		stats=new Stats{
 		maxHp=100.0f,
-		speed=200f,
-		speedMove=200f,
+		speed=500f,
+		speedMove=500f,
 		cooldown=5f,
 		penetration=0
 		};

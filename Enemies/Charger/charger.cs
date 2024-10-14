@@ -69,7 +69,7 @@ public partial class charger : EnemyBasic
 				var x=(ProjectilePlayer) bullet;
 			hp-=(x.stats.damage*x.stats.damageMult);
 			
-			stats.speed-=50f;
+			stats.speed-=100f;
 			if(stats.speed<0)stats.speed=1f;
 			}
 		}
@@ -77,13 +77,27 @@ public partial class charger : EnemyBasic
 
 	public void _on_area_2d_area_entered(Area2D area2D)
 	{
+		
 		var z=area2D.GetParent();
-		if(z.GetType()==new Player().GetType())
+		if(z.GetType().IsAssignableTo(new Player().GetType()) && readyToCharge)
 		{
 			player.hp-=stats.damage;
 			//hp-=x.damage;
 			GD.Print("Hit player"+hp);
 			readyToCharge=false;
+			return;
+		}
+		if(z.GetType().IsAssignableTo(new ProjectilePlayer().GetType()))
+		{
+			GD.Print(readyToCharge);
+			if(readyToCharge)
+			{
+				var x=(ProjectilePlayer) z;
+			hp-=(x.stats.damage*x.stats.damageMult);
+			
+			stats.speed-=100f;
+			if(stats.speed<0)stats.speed=1f;
+			}
 		}
 	}
 }

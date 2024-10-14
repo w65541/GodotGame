@@ -16,10 +16,7 @@ public partial class ToCharacterDetails : NinePatchRect
 		GetChild(1).GetChild<RichTextLabel>(1).Text="LV "+level;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+	
 
 	public void _on_button_up()
 	{

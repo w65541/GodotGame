@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dug1efbs73225"]
+
+[ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_gxmfy"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_xutqw"]
+
+[node name="ChunkWall" instance=ExtResource("1_gxmfy")]
+
+[node name="Wall" parent="." index="3" instance=ExtResource("2_xutqw")]
+scale = Vector2(25, 25)

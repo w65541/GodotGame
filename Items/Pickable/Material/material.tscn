@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6t4ps8qdper"]
+
+[ext_resource type="PackedScene" uid="uid://dvao6uqjsn1xe" path="res://Items/Pickable/PickableBasic.tscn" id="1_60axg"]
+[ext_resource type="Script" path="res://Items/Pickable/Material/PickMaterial.cs" id="2_hiw0s"]
+
+[node name="Material" instance=ExtResource("1_60axg")]
+script = ExtResource("2_hiw0s")
+name = ""
+amount = 0
+sprite = null

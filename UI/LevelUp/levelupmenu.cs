@@ -28,7 +28,18 @@ public partial class levelupmenu : NinePatchRect
 				weapons.Add(toSort); 
 			}
 		}
-		GD.Print(items.Count);
+		
+		var weaponsInTree=GetTree().GetNodesInGroup("Weapons");
+		foreach (var item in weaponsInTree.Cast<Levelable>())
+		{
+			for (int i = 0; i < weapons.Count; i++)
+			{
+				if(weapons[i].name.Equals(item.GetItemData().name)){
+					
+					weapons.RemoveAt(i);}
+			}
+		}
+		GD.Print("Liczba broni "+weapons.Count);
 		Visible=false;
 	}
 

@@ -13,7 +13,7 @@ public partial class Boomerang : Weapon
 			damage=10f,
 			count=2,
 			penetrationInf=false,
-			penetration=2,
+			penetration=20,
 			cooldown=2f,
 			durationMult=1,
 			fireRate=1,
@@ -51,6 +51,10 @@ public partial class Boomerang : Weapon
 		//GD.Print("ShootRotate"+Rotation);
 		instance.spawnRot=Rotation;
 		main.AddChild(instance);
+		if(level>6){
+			instance.dir =-1f*Rotation;
+			main.AddChild(instance);
+		}
 		GD.Print("Rangs "+rangs+"/"+stats.count);
 		}
 	}
@@ -65,7 +69,38 @@ public partial class Boomerang : Weapon
 	{
 		base._Process(delta);
 	}
-
+	public override void levelup()
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			baseStats.size=1.2f;
+			updateStats();
+			break;
+			case 3:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 4:
+			baseStats.speed=300f;
+			updateStats();
+			break;
+			case 5:
+			baseStats.damage=20f;
+			updateStats();
+			break;
+			case 6:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 7:
+			baseStats.count*=2;
+			updateStats();
+			break;
+		}
+	}
 	public void _on_area_2d_body_entered(Node2D node)
 	{
 		if(node.GetType().IsAssignableTo(new Rang().GetType()))

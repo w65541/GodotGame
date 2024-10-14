@@ -53,6 +53,38 @@ public partial class Flamet : Weapon
 		instance.spawnRot=Rotation;
 		main.AddChild(instance);
 	}
+	public override void levelup()
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			
+			updateStats();
+			break;
+			case 3:
+			baseStats.speed=400f;
+			updateStats();
+			break;
+			case 4:
+			baseStats.damage=3f;
+			updateStats();
+			break;
+			case 5:
+			baseStats.duration=5f;
+			updateStats();
+			break;
+			case 6:
+			baseStats.speed=500f;
+			updateStats();
+			break;
+			case 7:
+			
+			updateStats();
+			break;
+		}
+	}
 	public override void _on_timer_timeout()
 	{
 		flameOn=true;
@@ -60,7 +92,9 @@ public partial class Flamet : Weapon
 	}
 	public void FlameEnd()
 	{
-		flameOn=false;
+		if(level<7){
+			flameOn=false;
 		Cooldown.Start();
+		}
 	}
 }

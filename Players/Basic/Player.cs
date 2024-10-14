@@ -72,7 +72,7 @@ public override void _Ready()
 
     private void Death()
     {
-        QueueFree();
+       // QueueFree();
     }
 	public void ResetDodge(){
 		dodge=true;

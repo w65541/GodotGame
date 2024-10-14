@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://by63ro8gq0r1v"]
+
+[ext_resource type="PackedScene" uid="uid://dvao6uqjsn1xe" path="res://Items/Pickable/PickableBasic.tscn" id="1_vvljv"]
+[ext_resource type="Script" path="res://Items/Pickable/Hpack/Hpack.cs" id="2_dh6op"]
+
+[node name="Hpack" instance=ExtResource("1_vvljv")]
+script = ExtResource("2_dh6op")

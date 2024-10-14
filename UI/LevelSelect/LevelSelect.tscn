@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hamvsw3axkdr"]
+[gd_scene load_steps=13 format=3 uid="uid://hamvsw3axkdr"]
 
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_21j65"]
 [ext_resource type="Script" path="res://UI/LevelSelect/LevelSelect.cs" id="1_chq02"]
@@ -9,8 +9,9 @@
 [ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="5_jxrnu"]
 [ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="6_b06ts"]
 [ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="7_br5l5"]
-[ext_resource type="PackedScene" uid="uid://sir1un40vyyk" path="res://UI/CharacterMenu/Main/CharacterMenuTile.tscn" id="8_6k1xw"]
 [ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="9_nmkig"]
+[ext_resource type="Script" path="res://UI/LevelSelect/PickedTeam.cs" id="10_qkqel"]
+[ext_resource type="PackedScene" uid="uid://b62172dvb5fcp" path="res://UI/CharacterMenu/PickPlayable/CharacterPickedTile.tscn" id="11_qmdow"]
 
 [node name="Node" type="Node"]
 
@@ -154,21 +155,25 @@ offset_right = 116.0
 offset_bottom = 116.0
 texture = ExtResource("7_br5l5")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect" groups=["Team"]]
 layout_mode = 0
 offset_left = 90.0
 offset_top = 219.0
 offset_right = 434.0
 offset_bottom = 458.0
+script = ExtResource("10_qkqel")
 
-[node name="CharacterMenuTile" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+[node name="CharacterMenuTile4" parent="LevelSelect/HBoxContainer" instance=ExtResource("11_qmdow")]
 layout_mode = 2
+position = 1
 
-[node name="CharacterMenuTile2" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+[node name="CharacterMenuTile5" parent="LevelSelect/HBoxContainer" instance=ExtResource("11_qmdow")]
 layout_mode = 2
+position = 2
 
-[node name="CharacterMenuTile3" parent="LevelSelect/HBoxContainer" instance=ExtResource("8_6k1xw")]
+[node name="CharacterMenuTile6" parent="LevelSelect/HBoxContainer" instance=ExtResource("11_qmdow")]
 layout_mode = 2
+position = 3
 
 [node name="BackButton" parent="." instance=ExtResource("9_nmkig")]
 offset_left = 10.0

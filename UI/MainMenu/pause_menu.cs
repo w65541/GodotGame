@@ -31,4 +31,5 @@ public partial class pause_menu : Control
 		m.Visible=true;
 		GetParent().GetParent().QueueFree();
 	}
+	
 }

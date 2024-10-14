@@ -45,6 +45,42 @@ public partial class Lance : Weapon
 		remaining=1;
 		Shoot();}
 	}
+
+	public override void levelup()
+    {
+		level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			baseStats.cooldown=3f;
+			updateStats();
+			break;
+			case 3:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 4:
+			baseStats.damage=7f;
+			updateStats();
+			break;
+			case 5:
+			baseStats.count++;
+			updateStats();
+			break;
+			case 6:
+			baseStats.damage=10f;
+			updateStats();
+			break;
+			case 7:
+			baseStats.count++;
+			baseStats.size=2f;
+			updateStats();
+			break;
+		}
+	}
+
+
 	public override void Shoot()
 	{
 		if (remaining<=stats.count)

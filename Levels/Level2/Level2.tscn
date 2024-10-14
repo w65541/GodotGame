@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://g21uwe6hq7kh"]
 
 [ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_btl7n"]
-[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_b7kt2"]
+[ext_resource type="PackedScene" uid="uid://b7l4jxafdnyrx" path="res://Chunks/Level2/chunk_l2.tscn" id="2_ghhpu"]
 
 [node name="Level2" instance=ExtResource("1_btl7n")]
 
-[node name="Wall2" parent="." index="0" instance=ExtResource("2_b7kt2")]
-position = Vector2(-6, -565)
-scale = Vector2(100, 1)
+[node name="ChunkL2" parent="." index="1" instance=ExtResource("2_ghhpu")]
 
-[node name="Wall3" parent="." index="1" instance=ExtResource("2_b7kt2")]
-position = Vector2(-4, 562)
-scale = Vector2(100, 1)
+[node name="ChunkL3" parent="." index="2" instance=ExtResource("2_ghhpu")]
+position = Vector2(-3000, 0)
+
+[node name="ChunkL4" parent="." index="3" instance=ExtResource("2_ghhpu")]
+position = Vector2(3000, 0)
