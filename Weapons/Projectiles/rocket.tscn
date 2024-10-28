@@ -15,7 +15,6 @@ height = 102.0
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_50dmx")
-speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708

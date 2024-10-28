@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnpesi25sftia"]
+
+[ext_resource type="PackedScene" uid="uid://buad6j67qom1n" path="res://Spawners/spawner_basic.tscn" id="1_ddlub"]
+[ext_resource type="Script" path="res://Spawners/spawnerBosswall/SpawnerBosswall.cs" id="2_1fhsf"]
+
+[node name="SpawnerBosswall" instance=ExtResource("1_ddlub")]
+script = ExtResource("2_1fhsf")
+spawnCount = 10

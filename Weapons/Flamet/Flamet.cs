@@ -88,6 +88,7 @@ public partial class Flamet : Weapon
 	public override void _on_timer_timeout()
 	{
 		flameOn=true;
+		GetChild<AudioStreamPlayer>(3).Play();
 		Tflame.Start();
 	}
 	public void FlameEnd()

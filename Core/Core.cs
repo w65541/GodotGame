@@ -46,6 +46,15 @@ public partial class Core : Node
 		file.SetValue("Inventory",name,x);
 		file.Save("res://Configs/Save.ini");
 	}
+	public void addMat(string name,long x)
+	{	
+		var temp=inventory.FindIndex(x=>x.name.Equals(name));
+		
+		inventory[temp]=new material{name=name,amount=inventory[temp].amount+x};
+		GD.Print(inventory[temp].amount);
+		file.SetValue("Inventory",name,inventory[temp].amount);
+		file.Save("res://Configs/Save.ini");
+	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhpwkxdr57428"]
+
+[ext_resource type="Script" path="res://Enemies/BossStage/Tentacle/Tentacle.cs" id="1_gl384"]
+[ext_resource type="Texture2D" uid="uid://cgnfy8kmncu1f" path="res://Enemies/BossStage/Circle.png" id="1_m7pb7"]
+
+[node name="Tentacle" type="Node2D"]
+visible = false
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_gl384")
+
+[node name="Macka" type="Line2D" parent="."]
+z_index = 1
+points = PackedVector2Array(0, 0, 10, 0)
+width = 25.0
+default_color = Color(0, 0, 0, 1)
+end_cap_mode = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 1000, 0)
+default_color = Color(1, 0, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 8208
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, 11)
+target_position = Vector2(20, 0)
+collision_mask = 8208
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(0, -11)
+target_position = Vector2(20, 0)
+collision_mask = 8208
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_m7pb7")
+
+[node name="Retract" type="Timer" parent="."]
+
+[node name="Delay" type="Timer" parent="."]
+
+[connection signal="timeout" from="Retract" to="." method="_on_retract_timeout"]

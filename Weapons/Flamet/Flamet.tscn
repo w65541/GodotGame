@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bel2c4ti4e3is"]
+[gd_scene load_steps=3 format=3 uid="uid://bel2c4ti4e3is"]
 
 [ext_resource type="Script" path="res://Weapons/Flamet/Flamet.cs" id="1_2na4u"]
+[ext_resource type="AudioStream" uid="uid://bvktctdobabrd" path="res://Dark Fantasy Studio- Fire spell 1.mp3" id="2_5obkd"]
 
 [node name="Flamet" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_2na4u")
@@ -15,6 +16,9 @@ one_shot = true
 [node name="Timer3" type="Timer" parent="."]
 wait_time = 0.05
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5obkd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="FlameEnd"]

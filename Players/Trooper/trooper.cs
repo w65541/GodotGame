@@ -6,7 +6,7 @@ public partial class trooper : Player
 	PackedScene specialObject;
 	public String startingWeapon="Shotgun";
 	//public Timer SpecialCooldown;
-    
+    int dodgeframes=10;
 	public override void _Ready()
 	{
 		SpecialCooldown= (Timer)GetNode("CooldownSpecial");
@@ -34,16 +34,22 @@ public partial class trooper : Player
 		
 		if (Input.IsActionJustPressed("ui_accept") && dodge && Speed<stats.speed*stats.speedMult)
 			{Speed=stats.speed*stats.speedMult;}
-
+		
 	base._PhysicsProcess(delta);
 			if (Input.IsActionJustPressed("ui_special") && specialReady)
 			{
 				specialReady=false;
 				special();
 			}
+			if(dodgeframes<10){
+				dodgeframes++;
+				Velocity*=5;
+			}
 			if (Input.IsActionJustPressed("ui_accept") && dodge)
-			{Velocity *= 100;
+			{Velocity *= 10;
 			dodge=false;
+			unstopable=true;
+			dodgeframes=0;
 			DodgeCooldown.Start();
 			}
 			MoveAndSlide();

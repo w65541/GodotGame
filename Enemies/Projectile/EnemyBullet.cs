@@ -42,7 +42,7 @@ public partial class EnemyBullet : CharacterBody2D
 	}
 	virtual public void _on_area_2d_body_entered(Node2D bullet)
 	{
-		GD.Print(bullet.GetType());
+		//GD.Print(bullet.GetType());
 		if(bullet.GetType().IsAssignableTo(new wall().GetType()) || bullet.GetType().IsAssignableTo(new Player().GetType())){
 			GD.Print("wall");
 			Despawn();

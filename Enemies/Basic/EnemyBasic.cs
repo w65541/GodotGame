@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class EnemyBasic : CharacterBody2D
 {
@@ -36,6 +37,17 @@ public Vector2 spawnPos{get;set;}
 public void Death(){
 	main.exp++;
 	main.deathcount++;
+	main.activeEnemies--;
+	var rng=new RandomNumberGenerator().RandiRange(1,10);
+	if(rng<11){
+		var instance=main.material.Instantiate<PickMaterial>();
+		rng=new RandomNumberGenerator().RandiRange(0,main.materials.Count()-1);
+		instance.name=main.materials[rng];
+		instance.GlobalPosition=GlobalPosition;
+		rng=new RandomNumberGenerator().RandiRange(1, (int)Math.Floor(difficulty));
+		instance.amount=rng;
+		main.AddChild(instance);
+	}
 	QueueFree();
 }
 public void Despawn(){

@@ -3,25 +3,26 @@ using System;
 
 public partial class spawner_basic : Node2D
 {
-	Player player;
-	PackedScene enemy;
-	Node main;
+	public Player player;
+	public PackedScene enemy;
+	public BasicLevel main;
 	[Export] public int spawnCount;
 	[Export] public int spawnIncrise;
 	[Export] public float difficulty=1f;
-	[Export] string enemyType;
+	[Export] public string enemyType;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		player=GetParent<Player>();
-		main= GetTree().GetFirstNodeInGroup("Main");
+		main= GetTree().GetFirstNodeInGroup("Main") as BasicLevel;
 		enemy=GD.Load<PackedScene>(enemyType);
 		//spawnCount=5;
 	}
 
 
-	public void spawnEnemy()
+	public virtual void spawnEnemy()
 	{
+		if(main.activeEnemies<100){
 		var r=700f;
 		var instance = enemy.Instantiate() as EnemyBasic;
 		instance.difficulty=difficulty;
@@ -33,9 +34,9 @@ public partial class spawner_basic : Node2D
 		
 		instance.spawnPos=GlobalPosition;
 		//GD.Print("ShootRotate"+Rotation);
-		
+		main.activeEnemies++;
 		main.AddChild(instance);
-
+}
 	}
 	int timeElapsed=0;
 	public void _on_timer_timeout()

@@ -1,0 +1,376 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbr2m2upr18vk"]
+
+[ext_resource type="Texture2D" uid="uid://b1ku31ctbaeto" path="res://Enemies/BossStage/Eyeguy.png" id="1_ee340"]
+[ext_resource type="Script" path="res://Enemies/BossStage/WallBoss.cs" id="1_r1ptk"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_yuepj"]
+[ext_resource type="PackedScene" uid="uid://bfdcdxoyf4l4e" path="res://Enemies/BossStage/Spike/WallSpike.tscn" id="3_1hvbk"]
+[ext_resource type="Script" path="res://Enemies/BossStage/SpikeGroup.cs" id="4_saphn"]
+[ext_resource type="PackedScene" uid="uid://dhpwkxdr57428" path="res://Enemies/BossStage/Tentacle/tentacle.tscn" id="6_uy78c"]
+[ext_resource type="PackedScene" uid="uid://bnpesi25sftia" path="res://Spawners/spawnerBosswall/spawner_bosswall.tscn" id="7_whycl"]
+[ext_resource type="Script" path="res://Enemies/BossStage/LineFollow.cs" id="9_gnex2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egk0b"]
+size = Vector2(97, 139.867)
+
+[node name="WallBoss" type="CharacterBody2D" groups=["Boss"]]
+scale = Vector2(15, 15)
+script = ExtResource("1_r1ptk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0.233335, -3.66667)
+scale = Vector2(1.00733, 1.452)
+texture = ExtResource("1_ee340")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4099
+collision_mask = 4099
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.56667, -2.53333)
+shape = SubResource("RectangleShape2D_egk0b")
+
+[node name="Wall" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(342.2, -75.5333)
+scale = Vector2(20, 0.1)
+
+[node name="Wall2" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(342.667, 70.4)
+scale = Vector2(20, 0.1)
+
+[node name="Wall3" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(-51.4667, -1.4)
+scale = Vector2(0.1, 4)
+
+[node name="Wall4" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(738.467, -1.13333)
+scale = Vector2(0.1, 4)
+
+[node name="TentacleAttack" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Rotation" type="Timer" parent="."]
+
+[node name="WallSpike" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="BulletAttack" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Charge" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="SpikeGroup1" type="Node2D" parent="."]
+position = Vector2(200, 0)
+scale = Vector2(0.5, 1)
+script = ExtResource("4_saphn")
+
+[node name="Spike1" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(-100, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike2" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(-80, -5)
+rotation = -3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike3" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(-60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike4" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(-40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike5" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(-20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike6" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(0, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike7" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike8" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike9" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike10" parent="SpikeGroup1" instance=ExtResource("3_1hvbk")]
+position = Vector2(80, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="SpikeGroup2" type="Node2D" parent="."]
+position = Vector2(300, 0)
+scale = Vector2(0.5, 1)
+script = ExtResource("4_saphn")
+
+[node name="Spike1" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(-100, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike2" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(-80, -5)
+rotation = -3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike3" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(-60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike4" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(-40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike5" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(-20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike6" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(0, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike7" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike8" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike9" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike10" parent="SpikeGroup2" instance=ExtResource("3_1hvbk")]
+position = Vector2(80, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="SpikeGroup3" type="Node2D" parent="."]
+position = Vector2(400, 0)
+scale = Vector2(0.5, 1)
+script = ExtResource("4_saphn")
+
+[node name="Spike1" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(-100, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike2" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(-80, -5)
+rotation = -3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike3" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(-60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike4" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(-40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike5" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(-20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike6" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(0, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike7" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike8" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike9" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike10" parent="SpikeGroup3" instance=ExtResource("3_1hvbk")]
+position = Vector2(80, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="SpikeGroup4" type="Node2D" parent="."]
+position = Vector2(500, 0)
+scale = Vector2(0.5, 1)
+script = ExtResource("4_saphn")
+
+[node name="Spike1" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(-100, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike2" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(-80, -5)
+rotation = -3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike3" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(-60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike4" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(-40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike5" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(-20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike6" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(0, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike7" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike8" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike9" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike10" parent="SpikeGroup4" instance=ExtResource("3_1hvbk")]
+position = Vector2(80, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="SpikeGroup5" type="Node2D" parent="."]
+position = Vector2(600, 0)
+scale = Vector2(0.5, 1)
+script = ExtResource("4_saphn")
+
+[node name="Spike1" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(-100, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike2" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(-80, -5)
+rotation = -3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike3" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(-60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike4" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(-40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike5" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(-20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike6" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(0, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike7" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(20, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike8" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(40, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike9" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(60, 0)
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Spike10" parent="SpikeGroup5" instance=ExtResource("3_1hvbk")]
+position = Vector2(80, -5)
+rotation = 3.14159
+scale = Vector2(0.173834, 0.173834)
+
+[node name="Tentacle1" parent="." instance=ExtResource("6_uy78c")]
+
+[node name="Tentacle2" parent="." instance=ExtResource("6_uy78c")]
+position = Vector2(-25.8, -21.5333)
+
+[node name="Tentacle3" parent="." instance=ExtResource("6_uy78c")]
+position = Vector2(15.8, 28.8667)
+
+[node name="Tentacle4" parent="." instance=ExtResource("6_uy78c")]
+position = Vector2(9.86667, -22.4)
+
+[node name="Tentacle5" parent="." instance=ExtResource("6_uy78c")]
+position = Vector2(-24, 25.3333)
+
+[node name="Wall5" parent="." instance=ExtResource("2_yuepj")]
+position = Vector2(199.867, 96.4667)
+
+[node name="Wall6" parent="." instance=ExtResource("2_yuepj")]
+position = Vector2(299.533, 96.8)
+
+[node name="Wall7" parent="." instance=ExtResource("2_yuepj")]
+position = Vector2(397.067, 100.333)
+
+[node name="Wall8" parent="." instance=ExtResource("2_yuepj")]
+position = Vector2(500.667, 99.2667)
+
+[node name="Wall9" parent="." instance=ExtResource("2_yuepj")]
+position = Vector2(601.067, 99.6)
+
+[node name="Wall10" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(340.8, -116.867)
+scale = Vector2(20, 2)
+
+[node name="Wall11" parent="." instance=ExtResource("2_yuepj")]
+z_index = 1
+position = Vector2(341.333, 110.067)
+scale = Vector2(20, 2)
+
+[node name="SpawnerBosswall" parent="." instance=ExtResource("7_whycl")]
+position = Vector2(375, 0)
+spawnCount = 5
+
+[node name="Line2D" type="Line2D" parent="."]
+scale = Vector2(0.6, 0.6)
+points = PackedVector2Array(0, 0, 600, 0)
+script = ExtResource("9_gnex2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TentacleAttack" to="." method="tentacleAttack"]
+[connection signal="timeout" from="Rotation" to="." method="changeRotatation"]
+[connection signal="timeout" from="WallSpike" to="." method="spikeAttack"]
+[connection signal="timeout" from="BulletAttack" to="." method="bulletAttack"]
+[connection signal="timeout" from="Charge" to="." method="chargeAttack"]

@@ -12,6 +12,10 @@ public partial class BasicLevel : Node2D
 	public float exp=0f;
 	public long deathcount=0;
 	public float nextLevelExp=10f; 
+	public long activeEnemies=0;
+	public long enemyProjectiles=0;
+	public PackedScene material=GD.Load<PackedScene>("res://Items/Pickable/Material/material.tscn");
+	[Export] public string[] materials={"red","green","blue"};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,6 +26,7 @@ public partial class BasicLevel : Node2D
 		var instance=player.Instantiate<Player>();
 		instance.Name="Player";
 		AddChild(instance);
+		instance.GlobalPosition=new Vector2(0,0);
 		string x;
 		PackedScene ele;
 		GD.Print(GetTreeStringPretty());
@@ -34,9 +39,9 @@ public partial class BasicLevel : Node2D
 			}
 			
 
-			x=(String)level.GetValue(name,"bossspawner");
+			/*x=(String)level.GetValue(name,"bossspawner");
 			ele=GD.Load<PackedScene>(x);
-			GetNode("Player").AddChild(ele.Instantiate());
+			GetNode("Player").AddChild(ele.Instantiate());*/
 
 			x=(String)level.GetValue(name,"camera");
 			ele=GD.Load<PackedScene>(x);

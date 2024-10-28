@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfdcdxoyf4l4e"]
+
+[ext_resource type="Texture2D" uid="uid://gnmwgm8afe10" path="res://Enemies/BossStage/Spike/Spike.png" id="1_t54jd"]
+[ext_resource type="Script" path="res://Enemies/BossStage/Spike/SpikePath.cs" id="2_2wv1d"]
+[ext_resource type="Script" path="res://Enemies/BossStage/Spike/WallSpike.cs" id="2_77pxv"]
+[ext_resource type="Script" path="res://Enemies/BossStage/Spike/BossWallSpike.cs" id="3_vcd8u"]
+
+[sub_resource type="Curve2D" id="Curve2D_npo88"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 860, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[node name="WallSpike" type="Sprite2D"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_t54jd")
+script = ExtResource("2_77pxv")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_npo88")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 774.003)
+rotation = -1.5708
+progress = 86.0001
+script = ExtResource("2_2wv1d")
+
+[node name="BossWallSpike" type="StaticBody2D" parent="Path2D/PathFollow2D"]
+rotation = 1.5708
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource("3_vcd8u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/BossWallSpike"]
+polygon = PackedVector2Array(0, -400, 100, 400, -100, 400)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/BossWallSpike"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 3
+texture = ExtResource("1_t54jd")
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D/BossWallSpike"]
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/BossWallSpike/Area2D"]
+polygon = PackedVector2Array(0, -405, 105, 405, -105, 405)
+
+[node name="Retract" type="Timer" parent="Path2D/PathFollow2D"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/BossWallSpike/Area2D" to="Path2D/PathFollow2D/BossWallSpike" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Path2D/PathFollow2D/Retract" to="Path2D/PathFollow2D" method="_on_retract_timeout"]
+[connection signal="timeout" from="Delay" to="Path2D/PathFollow2D" method="Start"]

@@ -28,6 +28,8 @@ public partial class EnemyShooter : EnemyBasic
 	}
 	public void _on_timer_timeout()
 	{
+		if(main.enemyProjectiles<100){
+		main.enemyProjectiles++;
 		var instance = projectile.Instantiate() as EnemyBullet;
 		var rng=new RandomNumberGenerator().RandfRange(-0.25f,0.25f);
 		var rotate=GlobalPosition.AngleToPoint(player.GlobalPosition);
@@ -39,5 +41,6 @@ public partial class EnemyShooter : EnemyBasic
 		//GD.Print("ShootRotate"+Rotation);
 		instance.spawnRot=rotate+rng;
 		main.AddChild(instance);
+		}
 	}
 }

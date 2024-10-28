@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://jcwfvbdqxm2u"]
+
+[ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_vaq7g"]
+[ext_resource type="PackedScene" uid="uid://cbr2m2upr18vk" path="res://Enemies/BossStage/WallBoss.tscn" id="2_bd3xg"]
+
+[node name="Level4" instance=ExtResource("1_vaq7g")]
+
+[node name="CharacterBody2D" parent="." index="2" instance=ExtResource("2_bd3xg")]
+position = Vector2(-6000, 0)
