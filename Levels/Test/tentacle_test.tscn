@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://blblnhmt14au3"]
+
+[ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_75vtu"]
+[ext_resource type="Script" path="res://Levels/Test/TentacleTest.cs" id="2_k5fsn"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_sqftv"]
+[ext_resource type="PackedScene" uid="uid://dhpwkxdr57428" path="res://Enemies/BossStage/Tentacle/tentacle.tscn" id="3_64p5e"]
+
+[node name="TentacleTest" instance=ExtResource("1_75vtu")]
+script = ExtResource("2_k5fsn")
+
+[node name="Wall" parent="." index="1" instance=ExtResource("2_sqftv")]
+position = Vector2(318, -1)
+
+[node name="Tentacle" parent="." index="2" instance=ExtResource("3_64p5e")]
+visible = true
+position = Vector2(-332, -4.76837e-07)
+scale = Vector2(1, 1)
+
+[node name="Tentacle2" parent="." index="3" instance=ExtResource("3_64p5e")]
+visible = true
+position = Vector2(-319, 178)
+rotation = -0.242046
+scale = Vector2(1, 1)

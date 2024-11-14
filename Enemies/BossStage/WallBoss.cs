@@ -34,10 +34,11 @@ public partial class WallBoss : CharacterBody2D
 		var m=new RandomNumberGenerator().RandiRange(0,5);
 		for (int i = 0; i < tentaclesNumber; i++)
 		{
-			rng=new RandomNumberGenerator().RandfRange(-7f,11f);
-		tentacles[i].Rotation=rng;
+			rng=new RandomNumberGenerator().RandfRange(tentacles[i].minAng,tentacles[i].maxAng);
+		tentacles[i].RotationDegrees=rng;
 		tentacles[i].speed=1000f;
 		tentacles[i].Visible=true;
+		tentacles[i].retract=true;
 		}
 		
 	}

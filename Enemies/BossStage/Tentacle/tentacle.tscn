@@ -38,6 +38,8 @@ visible = false
 texture = ExtResource("1_m7pb7")
 
 [node name="Retract" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="Delay" type="Timer" parent="."]
 

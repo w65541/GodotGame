@@ -10,7 +10,8 @@ public partial class Tentacle : Node2D
 	public float speed=0;
 	Player player;
 	int inputCounter=0;
-	bool retract=false;
+	public bool retract=true;
+	[Export]public float minAng,maxAng;
 	public override void _Ready()
 	{
 		player=GetTree().GetFirstNodeInGroup("Player") as Player;
@@ -44,11 +45,11 @@ public partial class Tentacle : Node2D
 		if(a.CollideWithBodies){
 			var n=a.GetCollider() as Node2D;
 			
-			if(n!=null && n.IsInGroup("Player") && !retract){
+			if(n!=null && n.IsInGroup("Player") && retract){
 				hold();
-			}else if(n!=null && n.GetType().IsAssignableTo(new wall().GetType()) && !retract){
-				speed=0;
-				GetChild<Timer>(6).Start();
+				GD.Print("Hold");
+			}else if(n!=null && n.GetType().IsAssignableTo(new wall().GetType()) && retract){
+				retra();
 			}
 		}}else{
 			if (Input.IsActionJustPressed("ui_left"))
@@ -73,12 +74,22 @@ public partial class Tentacle : Node2D
 			}
 		
 	}
+	public void retra(){
+		GD.Print("raz");
+		if(retract ){
+			retract=false;
+			speed=0;
+				GD.Print("RetractSTART");
+				GetChild<Timer>(6).Start();
+		}
+	}
 	public void hold(){
 		player.hold=true;
 		GetChild<Node2D>(5).Visible=true;
 		GetChild<Node2D>(5).GlobalPosition=player.GlobalPosition;
 		var vec=new Vector2(	Math.Abs(	GlobalPosition.DistanceTo(	player.GlobalPosition)),0);
 		macka.SetPointPosition(1,vec);
+		speed=0;
 	}
 	public void unhold(){
 		player.hold=false;
@@ -86,6 +97,7 @@ public partial class Tentacle : Node2D
 	speed=-5000f;
 	}
 	public void _on_retract_timeout(){
-		speed*=-3F;
+		GD.Print("Retract");
+		speed=-5000f;
 	}
 }

@@ -53,7 +53,7 @@ position = Vector2(738.467, -1.13333)
 scale = Vector2(0.1, 4)
 
 [node name="TentacleAttack" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="Rotation" type="Timer" parent="."]
@@ -321,18 +321,28 @@ rotation = 3.14159
 scale = Vector2(0.173834, 0.173834)
 
 [node name="Tentacle1" parent="." instance=ExtResource("6_uy78c")]
+minAng = -11.0
+maxAng = 11.0
 
 [node name="Tentacle2" parent="." instance=ExtResource("6_uy78c")]
 position = Vector2(-25.8, -21.5333)
+minAng = -11.0
+maxAng = 18.0
 
 [node name="Tentacle3" parent="." instance=ExtResource("6_uy78c")]
 position = Vector2(15.8, 28.8667)
+minAng = -17.0
+maxAng = 9.0
 
 [node name="Tentacle4" parent="." instance=ExtResource("6_uy78c")]
 position = Vector2(9.86667, -22.4)
+minAng = -12.0
+maxAng = 20.0
 
 [node name="Tentacle5" parent="." instance=ExtResource("6_uy78c")]
 position = Vector2(-24, 25.3333)
+minAng = -16.0
+maxAng = 8.0
 
 [node name="Wall5" parent="." instance=ExtResource("2_yuepj")]
 position = Vector2(199.867, 96.4667)
@@ -364,6 +374,7 @@ position = Vector2(375, 0)
 spawnCount = 5
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 scale = Vector2(0.6, 0.6)
 points = PackedVector2Array(0, 0, 600, 0)
 script = ExtResource("9_gnex2")
