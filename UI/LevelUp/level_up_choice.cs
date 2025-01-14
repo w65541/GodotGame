@@ -76,6 +76,8 @@ public partial class level_up_choice : TextureButton
 			var instance=s.Instantiate();
 			player.AddChild(instance);
 		}
+		var ui=GetTree().GetFirstNodeInGroup("GameUi") as UiBasic;
+		ui.updateItems();
 		GetTree().Paused = !GetTree().Paused;
 		parent.Visible=false;
 	}
