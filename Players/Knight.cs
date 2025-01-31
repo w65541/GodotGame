@@ -7,6 +7,9 @@ public partial class Knight : Player
 	public bool horse=false,charging=false;
 	Timer SpeedCooldown;
 	Timer ChargeTime;
+	Texture2D normalSprite =(Texture2D) GD.Load("res://Players/Textures/Knightwide.png");
+	Texture2D chargingSprite =(Texture2D) GD.Load("res://Players/Textures/Knight2.png");
+	Sprite2D sprite;
 	public override void _Ready()
 	{
 		DodgeCooldown= (Timer)GetNode("CooldownDodge");
@@ -22,7 +25,7 @@ public partial class Knight : Player
 		baseStats=stats;
 		updateStats();
 		dodge=true;
-		
+		sprite=GetChild<Sprite2D>(2);
 		var ps=GD.Load<PackedScene>("res://Weapons/Lance/Lance.tscn");
 		AddChild(ps.Instantiate());
 		
@@ -51,6 +54,7 @@ public partial class Knight : Player
 		Speed*=10;
 		SpeedCooldown.Start();
 		GD.Print("horseOn");
+		sprite.Texture=chargingSprite;
 	}
 	public void horseOff(){
 		horse=false;
@@ -58,12 +62,14 @@ public partial class Knight : Player
 		updateStats();
 		DodgeCooldown.Start();
 		GD.Print("horseOff");
+		sprite.Texture=normalSprite;
 	}
 	public void charge(){
 		horse=true;
 		charging=true;
 		ChargeTime.Start();
 		GD.Print("ChargeOn");
+		sprite.Texture=chargingSprite;
 	}
 	public override void updateStats()
 	{
@@ -77,6 +83,7 @@ public partial class Knight : Player
 
 	public void _on_chargetime_timeout()
 	{
+		sprite.Texture=normalSprite;
 		horse=false;
 		charging=false;
 		GD.Print("Chargeoff");

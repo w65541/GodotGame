@@ -1,5 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjfieu4v5ulem"]
+[gd_scene load_steps=3 format=3 uid="uid://bjfieu4v5ulem"]
 
 [ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_mw1af"]
+[ext_resource type="PackedScene" uid="uid://dsamm1yd4vffu" path="res://Chunks/Level1/GenericGround.tscn" id="2_nba1a"]
 
 [node name="Level1" instance=ExtResource("1_mw1af")]
+
+[node name="ChunkBase" parent="." index="1" instance=ExtResource("2_nba1a")]
+
+[node name="ChunkBase2" parent="." index="2" instance=ExtResource("2_nba1a")]
+position = Vector2(1000, 0)
+
+[node name="ChunkBase3" parent="." index="3" instance=ExtResource("2_nba1a")]
+position = Vector2(0, 1000)
+
+[node name="ChunkBase4" parent="." index="4" instance=ExtResource("2_nba1a")]
+position = Vector2(1000, 1000)
+
+[node name="ChunkBase5" parent="." index="5" instance=ExtResource("2_nba1a")]
+position = Vector2(-1000, 0)
+
+[node name="ChunkBase6" parent="." index="6" instance=ExtResource("2_nba1a")]
+position = Vector2(-1000, 1000)
+
+[node name="ChunkBase7" parent="." index="7" instance=ExtResource("2_nba1a")]
+position = Vector2(0, -1000)
+
+[node name="ChunkBase8" parent="." index="8" instance=ExtResource("2_nba1a")]
+position = Vector2(1000, -1000)
+
+[node name="ChunkBase9" parent="." index="9" instance=ExtResource("2_nba1a")]
+position = Vector2(-1000, -1000)

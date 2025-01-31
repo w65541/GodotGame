@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsamm1yd4vffu"]
+
+[ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_usat0"]
+[ext_resource type="Texture2D" uid="uid://3q1sboqqhpht" path="res://Chunks/Textures/Ground.png" id="2_ofmeg"]
+
+[node name="ChunkBase" instance=ExtResource("1_usat0")]
+chunk = "res://Chunks/Level1/GenericGround.tscn"
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, 0)
+scale = Vector2(0.97654, 0.975995)
+texture = ExtResource("2_ofmeg")

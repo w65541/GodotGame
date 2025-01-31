@@ -7,6 +7,10 @@ script = ExtResource("1_pvoun")
 spawnCount = 5
 spawnIncrise = 1
 enemyType = "res://Enemies/Basic/enemy_basic.tscn"
+texures = "res://Enemies/Textures/Basic/Basic"
+texturenumber = 10
+randomColor = true
+brightness = 0.5
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0

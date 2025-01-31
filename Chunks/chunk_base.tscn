@@ -77,6 +77,67 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="Dl2" type="RayCast2D" parent="Rays"]
+position = Vector2(-1000, 1000)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dl3" type="RayCast2D" parent="Rays"]
+position = Vector2(-1000, 0)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dl4" type="RayCast2D" parent="Rays"]
+position = Vector2(1000, 1000)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dl5" type="RayCast2D" parent="Rays"]
+position = Vector2(0, 1000)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Dl6" type="RayCast2D" parent="Rays"]
+position = Vector2(1000, 0)
+scale = Vector2(0.998538, 1)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Up2" type="RayCast2D" parent="Rays"]
+position = Vector2(0, -1000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ul2" type="RayCast2D" parent="Rays"]
+position = Vector2(-1000, -1000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Ur2" type="RayCast2D" parent="Rays"]
+position = Vector2(1000, -1000)
+collision_mask = 32768
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(-6.5, -1)

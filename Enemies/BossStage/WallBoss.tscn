@@ -372,6 +372,10 @@ scale = Vector2(20, 2)
 [node name="SpawnerBosswall" parent="." instance=ExtResource("7_whycl")]
 position = Vector2(375, 0)
 spawnCount = 5
+texures = ""
+texturenumber = 1
+randomColor = false
+brightness = 1.0
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false

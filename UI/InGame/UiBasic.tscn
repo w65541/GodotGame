@@ -18,17 +18,27 @@ bg_color = Color(0.781003, 0.781003, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivbq5"]
 bg_color = Color(0.603922, 0, 0, 1)
 
-[node name="Control" type="Control" groups=["GameUi"]]
+[node name="Control" type="Control"]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="." groups=["GameUi"]]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1155.0
+offset_top = -650.0
+offset_right = -1155.0
+offset_bottom = -650.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_txggg")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
 layout_mode = 0
 offset_top = 10.0
 offset_right = 425.0
@@ -39,14 +49,14 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_left = -2.0
 offset_right = 1154.0
 offset_bottom = 12.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 22.0
@@ -54,7 +64,7 @@ offset_right = 421.0
 offset_bottom = 99.0
 color = Color(0, 0, 0, 1)
 
-[node name="ExpBar" type="ProgressBar" parent="."]
+[node name="ExpBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 1.0
@@ -68,7 +78,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_hp4he")
 value = 100.0
 show_percentage = false
 
-[node name="SpecialBar" type="ProgressBar" parent="."]
+[node name="SpecialBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 64.0
@@ -81,7 +91,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_jv260")
 theme_override_styles/fill = SubResource("StyleBoxFlat_usqpv")
 value = 50.0
 
-[node name="HpBar" type="ProgressBar" parent="."]
+[node name="HpBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 25.0
@@ -94,7 +104,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_jv260")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ivbq5")
 value = 100.0
 
-[node name="Dodge" type="ColorRect" parent="."]
+[node name="Dodge" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_left = 188.0
 offset_top = 110.0
@@ -102,7 +112,7 @@ offset_right = 415.0
 offset_bottom = 159.0
 color = Color(0, 0.580392, 0, 1)
 
-[node name="ItemIcons" type="GridContainer" parent="."]
+[node name="ItemIcons" type="GridContainer" parent="Control"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 107.0
@@ -110,79 +120,79 @@ offset_right = 46.0
 offset_bottom = 147.0
 columns = 6
 
-[node name="TextureRect" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect2" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect3" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect4" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect5" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect6" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect7" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect7" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect8" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect8" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect9" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect9" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect10" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect10" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect11" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect11" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="TextureRect12" type="TextureRect" parent="ItemIcons"]
+[node name="TextureRect12" type="TextureRect" parent="Control/ItemIcons"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_34t43")
 expand_mode = 1
 
-[node name="ItemLevels" type="GridContainer" parent="."]
+[node name="ItemLevels" type="GridContainer" parent="Control"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 107.0
@@ -190,79 +200,79 @@ offset_right = 46.0
 offset_bottom = 147.0
 columns = 6
 
-[node name="TextureRect" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect2" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect3" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect4" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect5" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect6" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect7" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect7" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect8" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect8" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect9" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect9" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect10" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect10" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect11" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect11" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="TextureRect12" type="TextureRect" parent="ItemLevels"]
+[node name="TextureRect12" type="TextureRect" parent="Control/ItemLevels"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("4_hu7vj")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
 offset_left = 1074.0
 offset_top = 1.0

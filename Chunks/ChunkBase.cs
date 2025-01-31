@@ -7,13 +7,14 @@ public partial class ChunkBase : Node2D
 	public int seed=0;
 	public PackedScene chunks;
 	public Node2D main,player;
+	[Export] public string chunk;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		//chunks=GetParent<BasicLevel>.chunks;
 		//chunkNumber=GetParent<BasicLevel>.chunkNumber;
 		//seed=GetParent<BasicLevel>.seed;
-		chunks=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
+		chunks=GD.Load<PackedScene>(chunk);//temp
 		main= GetTree().GetFirstNodeInGroup("Main") as Node2D;
 		//player= GetTree().GetFirstNodeInGroup("Player") as Node2D;
 	}

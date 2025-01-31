@@ -10,6 +10,10 @@ public partial class spawner_basic : Node2D
 	[Export] public int spawnIncrise;
 	[Export] public float difficulty=1f;
 	[Export] public string enemyType;
+	[Export]public string texures;
+	[Export] public int texturenumber=1;
+	[Export] public bool randomColor;
+	[Export] public float brightness=1f;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -31,7 +35,9 @@ public partial class spawner_basic : Node2D
 			Y=((float)Math.Sin(rng))*r,
 			X=((float)Math.Cos(rng))*r
 		};
-		
+		if(randomColor)instance.Modulate=Color.FromHsv(new RandomNumberGenerator().RandfRange(0f,359f),1f,brightness);
+		//instance.Scale=new Vector2(new RandomNumberGenerator().RandfRange(0.9f,1.1f),new RandomNumberGenerator().RandfRange(0.9f,1.1f));
+		instance.GetChild<Sprite2D>(1).Texture=(Texture2D) GD.Load(texures+new RandomNumberGenerator().RandiRange(1,texturenumber)+".png"); 
 		instance.spawnPos=GlobalPosition;
 		//GD.Print("ShootRotate"+Rotation);
 		main.activeEnemies++;

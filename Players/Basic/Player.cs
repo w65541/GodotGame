@@ -19,6 +19,7 @@ public partial class Player : CharacterBody2D
 	 public Stats baseStats;
 	 public Stats stats;
 	public Main main;
+	public Area2D hitbox;
 public override void _Ready()
 	{
 		
@@ -42,7 +43,8 @@ public override void _Ready()
 		//public override void _Ready() {
 		//	base._Ready();
 		//}
-		hp-=touchCounter*basicEnemydameg;
+		hitbox=GetChild<Area2D>(3);
+		if(hitbox.HasOverlappingBodies())hp-=touchCounter*basicEnemydameg;
 		if(hp<=0) Death();
 			
 	//	if (Input.IsActionJustPressed("ui_accept") && dodge && Speed<BaseSpeed)
@@ -95,7 +97,7 @@ public override void _Ready()
 		{
 			touchCounter++;
 			if(!unstopable)Speed=stats.speed*(stats.speedMult-(touchCounter*0.1f));
-			//GD.Print(touchCounter);
+			GD.Print("entered - "+touchCounter);
 		}
 		if(node.GetType()==new charger().GetType())
 		{
@@ -109,7 +111,7 @@ public override void _Ready()
 		{
 			touchCounter--;
 			if(touchCounter==0 && !unstopable)Speed=stats.speed*stats.speedMult;
-			GD.Print(touchCounter);
+			GD.Print("left - "+touchCounter);
 		}
 		if(node.GetType()==new charger().GetType())
 		{

@@ -11,6 +11,7 @@ public partial class EnemyBullet : CharacterBody2D
 	public  Stats stats;
 	public Timer Cooldown;
 	public float stop=1f;
+	public BasicLevel main;
 	public override void _Ready()
 	{
 		Scale*=stats.size;
@@ -33,6 +34,7 @@ public partial class EnemyBullet : CharacterBody2D
 	}
 	virtual public void Despawn()
 	{
+		main.enemyProjectiles--;
 		QueueFree();
 	}
 	virtual public void _on_timer_timeout()

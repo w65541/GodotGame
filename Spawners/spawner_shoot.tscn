@@ -5,3 +5,6 @@
 [node name="SpawnerShoot" instance=ExtResource("1_huw4x")]
 spawnCount = 7
 enemyType = "res://Enemies/Shooter/enemy_shooter.tscn"
+texures = "res://Enemies/Textures/Shooter/Shooter"
+texturenumber = 6
+brightness = 0.9

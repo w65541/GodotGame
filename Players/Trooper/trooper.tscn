@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtixee4n8a5me" path="res://Players/Basic/Player.tscn" id="1_kl2fm"]
 [ext_resource type="Script" path="res://Players/Trooper/trooper.cs" id="2_j7wjt"]
-[ext_resource type="Texture2D" uid="uid://bts3sg0p4e8ib" path="res://Players/Trooper/troop.png" id="3_7bpcu"]
+[ext_resource type="Texture2D" uid="uid://bt31l6uiwsr2t" path="res://Players/Textures/Trooper.png" id="3_ssfnw"]
 
 [node name="Trooper" instance=ExtResource("1_kl2fm")]
 collision_layer = 12304
@@ -10,7 +10,7 @@ collision_mask = 4120
 script = ExtResource("2_j7wjt")
 
 [node name="Sprite2D" parent="." index="2"]
-texture = ExtResource("3_7bpcu")
+texture = ExtResource("3_ssfnw")
 
 [node name="CooldownSpecial2" type="Timer" parent="." index="5"]
 wait_time = 5.0

@@ -6,6 +6,9 @@ public partial class Wizard : Player
 {
 	Timer specialtime;
 	bool specialActive=false;
+	Texture2D normalSprite =(Texture2D) GD.Load("res://Players/Textures/Wizard1.png");
+	Texture2D chargingSprite =(Texture2D) GD.Load("res://Players/Textures/Wizard2.png");
+	Sprite2D sprite;
     public override void _Ready()
     {specialtime= (Timer)GetNode("SpecialTime");
 		stats=new Stats{
@@ -16,6 +19,7 @@ public partial class Wizard : Player
 		penetration=0
 		};
 		baseStats=stats;
+		sprite=GetChild<Sprite2D>(2);
         base._Ready();
     }
 
@@ -41,6 +45,7 @@ public partial class Wizard : Player
     {
 		
 		specialActive=true;
+		sprite.Texture=chargingSprite;
 		updateStats();
         specialtime.Start();
     }
@@ -85,6 +90,7 @@ public override void updateStats()
 	}
 	public void	_on_special_time_timeout(){
 		specialActive=false;
+		sprite.Texture=normalSprite;
 		updateStats();
 		SpecialCooldown.Start();
 	}

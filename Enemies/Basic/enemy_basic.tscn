@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1xkj31s6t6gm"]
 
 [ext_resource type="Script" path="res://Enemies/Basic/EnemyBasic.cs" id="1_l57p8"]
-[ext_resource type="Texture2D" uid="uid://be3v720jgvxaf" path="res://icon.svg" id="2_8j2fq"]
+[ext_resource type="Texture2D" uid="uid://cocr01kj4g3qf" path="res://Enemies/Textures/Basic/Basic4.png" id="2_cwjct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xu453"]
 radius = 61.0
@@ -17,7 +17,8 @@ script = ExtResource("1_l57p8")
 shape = SubResource("CapsuleShape2D_xu453")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_8j2fq")
+scale = Vector2(0.124512, 0.124512)
+texture = ExtResource("2_cwjct")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3

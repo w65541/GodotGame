@@ -6,6 +6,9 @@
 spawnCount = 1
 spawnIncrise = 0
 enemyType = "res://Enemies/Charger/charger.tscn"
+texures = "res://Enemies/Textures/Charger/Charger"
+texturenumber = 4
+randomColor = false
 
 [node name="Timer" parent="." index="0"]
 wait_time = 30.0
