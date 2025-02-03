@@ -3,11 +3,13 @@ using System;
 
 public partial class CharacterButton : TextureButton
 {
-	PackedScene charMenu;
+
+	[Export] string scena;
+	 PackedScene charMenu;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		charMenu=GD.Load<PackedScene>("res://UI/CharacterMenu/Main/character_collection_menu.tscn");
+		charMenu=GD.Load<PackedScene>(scena);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

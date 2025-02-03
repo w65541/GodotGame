@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=3 uid="uid://dwnypw8b5vbeh"]
+
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="1_f5d0y"]
+[ext_resource type="Script" path="res://UI/Shop/StatShop.cs" id="2_rpca4"]
+[ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="2_yh2tq"]
+[ext_resource type="Texture2D" uid="uid://lyil6twtrx28" path="res://UI/Texures/InGame/ItemLevel/level1.png" id="3_yktr7"]
+[ext_resource type="Texture2D" uid="uid://42cgomokrcbs" path="res://UI/Texures/MainMenu/ShopButtons/plusnormal.png" id="4_7rs1j"]
+[ext_resource type="Texture2D" uid="uid://dkftkcuj5qbeb" path="res://UI/Texures/MainMenu/ShopButtons/pluspressed.png" id="5_xcfvq"]
+[ext_resource type="Texture2D" uid="uid://csgqqy7yle50f" path="res://UI/Texures/MainMenu/ShopButtons/plushover.png" id="6_4m5h2"]
+[ext_resource type="Texture2D" uid="uid://cv050o7e3pgi8" path="res://UI/Texures/MainMenu/ShopButtons/highlighsquare.png" id="7_ak8q0"]
+[ext_resource type="Texture2D" uid="uid://dm7ul5ag8kbus" path="res://UI/Texures/MainMenu/ShopButtons/minusnormal.png" id="8_01wp6"]
+[ext_resource type="Texture2D" uid="uid://cn2u1dfwis7s0" path="res://UI/Texures/MainMenu/ShopButtons/minuspressed.png" id="9_gsfy2"]
+[ext_resource type="Texture2D" uid="uid://box6shc15f4s" path="res://UI/Texures/MainMenu/ShopButtons/minushover.png" id="10_l10vo"]
+[ext_resource type="Texture2D" uid="uid://cyle1ouakr8y3" path="res://Items/Textures/Material/money.png" id="11_h2fa5"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="11_khn3y"]
+
+[node name="StatShop" type="NinePatchRect"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+offset_right = -696.0
+offset_bottom = 105.0
+grow_horizontal = 0
+scale = Vector2(0.869655, 0.869655)
+texture = ExtResource("1_f5d0y")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_rpca4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 112.0
+offset_bottom = 115.0
+scale = Vector2(0.779343, 0.779343)
+texture = ExtResource("2_yh2tq")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("3_yktr7")
+
+[node name="Plus" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 371.412
+offset_top = 6.0
+offset_right = 446.412
+offset_bottom = 81.0
+texture_normal = ExtResource("4_7rs1j")
+texture_pressed = ExtResource("5_xcfvq")
+texture_hover = ExtResource("6_4m5h2")
+texture_focused = ExtResource("7_ak8q0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Plus"]
+offset_left = 0.000213623
+offset_top = 75.6416
+offset_right = 18.0002
+offset_bottom = 93.6416
+texture = ExtResource("11_h2fa5")
+expand_mode = 1
+
+[node name="Name" type="RichTextLabel" parent="Plus"]
+offset_left = 17.2484
+offset_top = 77.9413
+offset_right = 94.2484
+offset_bottom = 98.9413
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("11_khn3y")
+theme_override_font_sizes/normal_font_size = 13
+text = "0000"
+fit_content = true
+scroll_active = false
+
+[node name="Minus" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 288.62
+offset_top = 6.0
+offset_right = 363.62
+offset_bottom = 81.0
+texture_normal = ExtResource("8_01wp6")
+texture_pressed = ExtResource("9_gsfy2")
+texture_hover = ExtResource("10_l10vo")
+texture_focused = ExtResource("7_ak8q0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Minus"]
+layout_mode = 0
+offset_left = 0.000213623
+offset_top = 75.6416
+offset_right = 18.0002
+offset_bottom = 93.6416
+texture = ExtResource("11_h2fa5")
+expand_mode = 1
+
+[node name="Name" type="RichTextLabel" parent="Minus"]
+offset_left = 17.2484
+offset_top = 77.9413
+offset_right = 94.2484
+offset_bottom = 98.9413
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("11_khn3y")
+theme_override_font_sizes/normal_font_size = 13
+text = "0000"
+fit_content = true
+scroll_active = false
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 6.0
+offset_right = 275.0
+offset_bottom = 27.0
+theme_override_fonts/normal_font = ExtResource("11_khn3y")
+theme_override_font_sizes/normal_font_size = 16
+text = "Name"
+fit_content = true
+scroll_active = false
+
+[node name="Name2" type="RichTextLabel" parent="."]
+offset_left = 92.0
+offset_top = 31.0
+offset_right = 267.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("11_khn3y")
+theme_override_font_sizes/normal_font_size = 10
+text = "Zwieksza obrazenia o 10%"
+fit_content = true
+scroll_active = false
+
+[connection signal="button_up" from="Plus" to="." method="_on_plus_button_up"]
+[connection signal="button_up" from="Minus" to="." method="_on_minus_button_up"]

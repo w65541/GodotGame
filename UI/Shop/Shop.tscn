@@ -1,0 +1,160 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci3reqfjtfr7x"]
+
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_fxodt"]
+[ext_resource type="Script" path="res://UI/Shop/StatShopContainer.cs" id="2_3m7gt"]
+[ext_resource type="PackedScene" uid="uid://dwnypw8b5vbeh" path="res://UI/Shop/stat_shop.tscn" id="2_5ullf"]
+[ext_resource type="Texture2D" uid="uid://cyle1ouakr8y3" path="res://Items/Textures/Material/money.png" id="4_lvhn2"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="5_r7loc"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="8_g2mnu"]
+[ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="10_fxauf"]
+
+[node name="Node" type="Node"]
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 90.0
+offset_right = 1125.0
+offset_bottom = 549.0
+texture = ExtResource("1_fxodt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_3m7gt")
+
+[node name="StatShop" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 492.0
+offset_bottom = 127.0
+grow_horizontal = 1
+Nazwa = "Obrazenia"
+inCodeName = "damage"
+moneyScale = 500
+
+[node name="StatShop2" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 36.0
+offset_top = 130.0
+offset_right = 492.0
+offset_bottom = 235.0
+grow_horizontal = 1
+
+[node name="StatShop3" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 36.0
+offset_top = 238.0
+offset_right = 492.0
+offset_bottom = 343.0
+grow_horizontal = 1
+
+[node name="StatShop4" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 36.0
+offset_top = 346.0
+offset_right = 492.0
+offset_bottom = 451.0
+grow_horizontal = 1
+
+[node name="StatShop5" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 470.0
+offset_top = 22.0
+offset_right = 926.0
+offset_bottom = 127.0
+grow_horizontal = 1
+
+[node name="StatShop6" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 470.0
+offset_top = 130.0
+offset_right = 926.0
+offset_bottom = 235.0
+grow_horizontal = 1
+
+[node name="StatShop7" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 470.0
+offset_top = 238.0
+offset_right = 926.0
+offset_bottom = 343.0
+grow_horizontal = 1
+
+[node name="StatShop8" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 470.0
+offset_top = 346.0
+offset_right = 926.0
+offset_bottom = 451.0
+grow_horizontal = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shop"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 7.0
+offset_right = 1117.0
+offset_bottom = 52.0
+texture = ExtResource("5_r7loc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="Shop/NinePatchRect2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 38.0
+offset_bottom = 39.0
+texture = ExtResource("4_lvhn2")
+expand_mode = 1
+
+[node name="Name" type="RichTextLabel" parent="Shop/NinePatchRect2"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 43.0
+theme_override_fonts/normal_font = ExtResource("8_g2mnu")
+theme_override_font_sizes/normal_font_size = 22
+text = "00000"
+fit_content = true
+scroll_active = false
+
+[node name="BackButton" parent="." instance=ExtResource("10_fxauf")]
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 209.0
+offset_bottom = 60.0

@@ -73,6 +73,7 @@ texture_hover = ExtResource("3_c47sv")
 texture_focused = ExtResource("4_hcf3n")
 stretch_mode = 4
 script = ExtResource("8_gdqfq")
+scena = "res://UI/CharacterMenu/Main/character_collection_menu.tscn"
 
 [node name="TextPlay" type="RichTextLabel" parent="CharacterButton"]
 layout_mode = 1
@@ -111,6 +112,8 @@ texture_pressed = ExtResource("2_02l3p")
 texture_hover = ExtResource("3_c47sv")
 texture_focused = ExtResource("4_hcf3n")
 stretch_mode = 4
+script = ExtResource("8_gdqfq")
+scena = "res://UI/Shop/Shop.tscn"
 
 [node name="TextPlay" type="RichTextLabel" parent="ButtonPlay3"]
 layout_mode = 1
@@ -149,6 +152,7 @@ texture_pressed = ExtResource("2_02l3p")
 texture_hover = ExtResource("3_c47sv")
 texture_focused = ExtResource("4_hcf3n")
 stretch_mode = 4
+script = ExtResource("8_gdqfq")
 
 [node name="TextPlay" type="RichTextLabel" parent="ButtonPlay4"]
 layout_mode = 1
@@ -219,8 +223,10 @@ script = ExtResource("6_knf38")
 [connection signal="button_up" from="CharacterButton" to="CharacterButton" method="_on_button_up"]
 [connection signal="mouse_entered" from="CharacterButton" to="CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterButton" to="CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]
+[connection signal="button_up" from="ButtonPlay3" to="ButtonPlay3" method="_on_button_up"]
 [connection signal="mouse_entered" from="ButtonPlay3" to="ButtonPlay3/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonPlay3" to="ButtonPlay3/TextPlay" method="_on_button_play_mouse_exited"]
+[connection signal="button_up" from="ButtonPlay4" to="ButtonPlay4" method="_on_button_up"]
 [connection signal="mouse_entered" from="ButtonPlay4" to="ButtonPlay4/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonPlay4" to="ButtonPlay4/TextPlay" method="_on_button_play_mouse_exited"]
 [connection signal="mouse_entered" from="ButtonPlay5" to="ButtonPlay5/TextPlay" method="_on_button_play_mouse_entered"]

@@ -7,6 +7,7 @@ public partial class Core : Node
 	public ConfigFile file=new ConfigFile();
 	public List<characterStatus> unlocked=new List<characterStatus>();
 	public List<material> inventory=new List<material>();
+	public Dictionary<string,int> shopStatus=new Dictionary<string,int>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -21,6 +22,11 @@ public partial class Core : Node
 		{
 			long temp=(long)file.GetValue("Inventory",key);
 			inventory.Add(new material{name=key,amount=temp});
+		} ;
+		foreach (var key in file.GetSectionKeys("Shop"))
+		{
+			int temp=(int)file.GetValue("Shop",key);
+			shopStatus.Add(key,temp);
 		} ;
 	}
 	public void updateChar(string name,int unl=1,int level=1,int skill=1)
@@ -55,8 +61,12 @@ public partial class Core : Node
 		file.SetValue("Inventory",name,inventory[temp].amount);
 		file.Save("res://Configs/Save.ini");
 	}
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public void updateShop(string name,int x)
+	{	
+		shopStatus[name]=x;
+		
+		
+		file.SetValue("Shop",name,x);
+		file.Save("res://Configs/Save.ini");
 	}
 }
