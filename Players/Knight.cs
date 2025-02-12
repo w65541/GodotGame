@@ -30,6 +30,7 @@ public partial class Knight : Player
 		AddChild(ps.Instantiate());
 		
 		main=(Main) GetTree().Root.GetNode("Main");
+		base._Ready();
 	}
 
 

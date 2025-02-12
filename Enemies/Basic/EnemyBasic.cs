@@ -35,7 +35,7 @@ public Vector2 spawnPos{get;set;}
 		//MoveAndSlide();
 	}
 public void Death(){
-	main.exp++;
+	main.exp+=(1+difficulty)*player.stats.expMult;
 	main.deathcount++;
 	main.activeEnemies--;
 	var rng=new RandomNumberGenerator().RandiRange(1,10);
@@ -45,7 +45,7 @@ public void Death(){
 		instance.name=main.materials[rng];
 		instance.GlobalPosition=GlobalPosition;
 		rng=new RandomNumberGenerator().RandiRange(1, (int)Math.Floor(difficulty));
-		instance.amount=rng;
+		instance.amount=(long)Math.Floor(rng*player.stats.goldMult);
 		main.AddChild(instance);
 	}
 	QueueFree();

@@ -13,7 +13,7 @@ public partial class StatShop : NinePatchRect
 	RichTextLabel minusKasa;
 	RichTextLabel plusKasa;
 	TextureButton plus,minus;
-	int level,refund,next;
+	int level=0,refund,next;
 	Core core;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,12 +30,18 @@ public partial class StatShop : NinePatchRect
 		updateCost();
 	}
 	public void updateCost(){
-		if(level==0) {minus.Disabled=true;
-		minusKasa.Text="----";
+		refund=level*moneyScale;
+		
+		if(level==0) {
+			GD.Print("disable-");
+			minus.Disabled=true;
+			minusKasa.Text="----";
 		}else{
-			minusKasa.Text=(level*moneyScale)+"";
+			minus.Disabled=false;
+			minusKasa.Text=refund+"";
 		}
 		next=(level+1)*moneyScale;
+		
 		plusKasa.Text=next+"";
 
 		if(core.inventory[core.inventory.FindIndex(x=>x.name.Equals("money"))].amount<next){
@@ -47,12 +53,14 @@ public partial class StatShop : NinePatchRect
 		}
 	}
 	public void _on_plus_button_up(){
-		core.updateShop(inCodeName,level+1);
+		level++;
+		core.updateShop(inCodeName,level);
 		core.updateMat("money",core.inventory[core.inventory.FindIndex(x=>x.name.Equals("money"))].amount-next);
 		GetParent<StatShopContainer>().updateAllCost();
 	}
 	public void _on_minus_button_up(){
-		core.updateShop(inCodeName,level-1);
+		level--;
+		core.updateShop(inCodeName,level);
 		core.updateMat("money",core.inventory[core.inventory.FindIndex(x=>x.name.Equals("money"))].amount+refund);
 		GetParent<StatShopContainer>().updateAllCost();
 	}

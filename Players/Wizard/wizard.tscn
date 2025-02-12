@@ -11,6 +11,7 @@ script = ExtResource("2_adp4w")
 texture = ExtResource("3_g0d1q")
 
 [node name="SpecialTime" type="Timer" parent="." index="6"]
+wait_time = 5.0
 
 [connection signal="timeout" from="CooldownSpecial" to="." method="_on_cooldown_special_timeout"]
 [connection signal="timeout" from="SpecialTime" to="." method="_on_special_time_timeout"]

@@ -17,13 +17,24 @@ public partial class Player : CharacterBody2D
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	public Timer DodgeCooldown;
 	 public Stats baseStats;
-	 public Stats stats;
+	 public Stats stats,shop;
 	public Main main;
 	public Area2D hitbox;
 public override void _Ready()
 	{
 		
 		DodgeCooldown= (Timer)GetNode("CooldownDodge");
+		var core=GetTree().Root.GetChild<Core>(0) as Core;
+		baseStats.maxHp*=((core.shopStatus["hp"]/10)+1);
+		hp=baseStats.maxHp;
+		baseStats.damage*=((core.shopStatus["damage"]/10)+1);
+		baseStats.defense*=((core.shopStatus["defense"]/10)+1);
+		baseStats.fireRate*=(1-(core.shopStatus["firerate"]/10));
+		baseStats.durationMult*=((core.shopStatus["duration"]/10)+1);
+		baseStats.speedMove*=((core.shopStatus["movespeed"]/10)+1);
+		baseStats.speed*=((core.shopStatus["movespeed"]/10)+1);
+		baseStats.expMult*=((core.shopStatus["expboost"]/10)+1);
+		baseStats.goldMult*=((core.shopStatus["goldboost"]/10)+1);
 		/*stats=new Stats{
 		maxHp=100.0f,
 		speed=200f,
@@ -73,14 +84,14 @@ public override void _Ready()
 		//if(touchCounter>0)Speed=100f;
 	}
 
-    private void Death()
-    {
-       // QueueFree();
-    }
+	private void Death()
+	{
+	   // QueueFree();
+	}
 	public void ResetDodge(){
 		dodge=true;
 	}
-    int touchCounter=0;
+	int touchCounter=0;
 	float basicEnemydameg=0.01f;
 	public void _on_area_2d_body_entered(Node2D node)
 	{
@@ -123,6 +134,7 @@ public override void _Ready()
 
 	public virtual void updateStats()
 	{
+		var perhp=hp/stats.maxHp;
 		stats=baseStats;
 		var items=GetTree().GetNodesInGroup("Items"); 
 		var weapons=GetTree().GetNodesInGroup("Weapons"); 
@@ -135,5 +147,6 @@ public override void _Ready()
 			item.updateStats();
 		}
 		Speed=stats.speed*stats.speedMult;
+		hp=stats.maxHp*perhp;
 	}
 }

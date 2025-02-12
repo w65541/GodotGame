@@ -40,7 +40,7 @@ public partial class Bombardment : Weapon
 		base._Process(delta);
 	}
 	public override void levelup()
-    {
+	{
 		level++;
 		data.level++;
 		switch(level)

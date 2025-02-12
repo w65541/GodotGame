@@ -6,7 +6,7 @@ public partial class trooper : Player
 	PackedScene specialObject;
 	public String startingWeapon="Shotgun";
 	//public Timer SpecialCooldown;
-    int dodgeframes=10;
+	int dodgeframes=10;
 	public override void _Ready()
 	{
 		SpecialCooldown= (Timer)GetNode("CooldownSpecial");
@@ -27,6 +27,7 @@ public partial class trooper : Player
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;
 		//main=(Main) GetTree().Root.GetNode("Main");
+		base._Ready();
 	}
 
 	public override void _PhysicsProcess(double delta)

@@ -9,8 +9,8 @@ public partial class Wizard : Player
 	Texture2D normalSprite =(Texture2D) GD.Load("res://Players/Textures/Wizard1.png");
 	Texture2D chargingSprite =(Texture2D) GD.Load("res://Players/Textures/Wizard2.png");
 	Sprite2D sprite;
-    public override void _Ready()
-    {specialtime= (Timer)GetNode("SpecialTime");
+	public override void _Ready()
+	{specialtime= (Timer)GetNode("SpecialTime");
 		stats=new Stats{
 		maxHp=100.0f,
 		speed=500f,
@@ -20,10 +20,10 @@ public partial class Wizard : Player
 		};
 		baseStats=stats;
 		sprite=GetChild<Sprite2D>(2);
-        base._Ready();
-    }
+		base._Ready();
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		if (Input.IsActionJustPressed("ui_special") && specialReady)
 			{
@@ -41,16 +41,16 @@ public partial class Wizard : Player
 		MoveAndSlide();
 	}
 
-    private void special()
-    {
+	public void special()
+	{
 		
 		specialActive=true;
 		sprite.Texture=chargingSprite;
 		updateStats();
-        specialtime.Start();
-    }
+		specialtime.Start();
+	}
 
-    public void teleport()
+	public void teleport()
 	{
 		var mous=GetGlobalMousePosition();
 		Vector2 direction=GlobalPosition.DirectionTo(mous);
@@ -76,7 +76,7 @@ public override void updateStats()
 		{
 			stats*=item.stats;
 		}
-		if(specialActive)stats.fireRate-=0.5f;
+		if(specialActive)stats.fireRate*=0.5f;
 		foreach (Weapon item in weapons.Cast<Weapon>())
 		{
 			item.updateStats();

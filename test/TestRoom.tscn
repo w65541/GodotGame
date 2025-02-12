@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d08we4p6moht6"]
+
+[ext_resource type="PackedScene" uid="uid://btkcr6dsloogs" path="res://Players/Knight/knight.tscn" id="1_82o74"]
+[ext_resource type="PackedScene" uid="uid://dg2ihf4xvgh6i" path="res://Players/Trooper/trooper.tscn" id="2_tneay"]
+[ext_resource type="PackedScene" uid="uid://dw8tluxcrjiyp" path="res://Players/Wizard/wizard.tscn" id="3_fsxn4"]
+[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="4_3aqi4"]
+
+[node name="Main" type="Node2D" groups=["Main"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.05, 0.05)
+
+[node name="Knight" parent="." instance=ExtResource("1_82o74")]
+position = Vector2(38, 153)
+
+[node name="Trooper" parent="." instance=ExtResource("2_tneay")]
+position = Vector2(762, 343)
+
+[node name="Wizard" parent="." instance=ExtResource("3_fsxn4")]
+position = Vector2(30, 463)
+
+[node name="Wall" parent="." instance=ExtResource("4_3aqi4")]
+position = Vector2(-663, 345)

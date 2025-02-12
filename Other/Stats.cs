@@ -27,6 +27,7 @@ public struct Stats
     public bool penetrationInf=false;// {get;set;}
     public float goldMult=1f;// {get;set;}//x
     public float cooldown=1f;//{get;set;}
+    public float hpMult=1f;//x
     public static Stats operator *(Stats s1,Stats s2)
     {
         return new Stats{
@@ -47,7 +48,8 @@ public struct Stats
             speedProjectileMult=s1.speedProjectileMult*s2.speedProjectileMult,
             durationMult=s1.durationMult*s2.durationMult,
             expMult=s1.expMult*s2.expMult,
-            cooldown=s1.cooldown
+            cooldown=s1.cooldown,
+            hpMult=s1.hpMult*s2.hpMult
         };
     }
 }

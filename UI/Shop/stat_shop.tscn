@@ -59,6 +59,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureRect2" type="TextureRect" parent="Plus"]
+layout_mode = 0
 offset_left = 0.000213623
 offset_top = 75.6416
 offset_right = 18.0002
@@ -67,6 +68,7 @@ texture = ExtResource("11_h2fa5")
 expand_mode = 1
 
 [node name="Name" type="RichTextLabel" parent="Plus"]
+layout_mode = 0
 offset_left = 17.2484
 offset_top = 77.9413
 offset_right = 94.2484
@@ -101,6 +103,7 @@ texture = ExtResource("11_h2fa5")
 expand_mode = 1
 
 [node name="Name" type="RichTextLabel" parent="Minus"]
+layout_mode = 0
 offset_left = 17.2484
 offset_top = 77.9413
 offset_right = 94.2484
@@ -125,6 +128,7 @@ fit_content = true
 scroll_active = false
 
 [node name="Name2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 92.0
 offset_top = 31.0
 offset_right = 267.0

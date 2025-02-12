@@ -26,6 +26,10 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="Godot"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -36,6 +40,12 @@ folder_colors={
 "res://UI/": "green",
 "res://Weapons/": "yellow"
 }
+
+[gdunit4]
+
+settings/common/update_notification_enabled=false
+settings/test/test_discovery=true
+report/verbose_orphans=false
 
 [global_group]
 
