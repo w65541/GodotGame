@@ -41,7 +41,7 @@ public partial class ChunkBase : Node2D
 	}
 	public void _on_area_2d_body_entered (Node2D node)
 	{
-		GD.Print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+node.Name);
+		//GD.Print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+node.Name);
 		if(node.GetParent().GetType().IsAssignableTo(new Player().GetType()))//(node==player)
 		{
 			generateChunks();

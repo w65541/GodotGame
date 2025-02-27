@@ -27,9 +27,9 @@ public partial class Lance : Weapon
 		r=200f;
 		//GD.Print(stats.penetration);
 		data=new itemData{
-			name="Shotgun",
+			name="Lanca",
 			level=2,
-			opis="afdgsdg",
+			opis="Zmniejsza przerwe ataku do 3s",
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
@@ -55,22 +55,27 @@ public partial class Lance : Weapon
 			case 2:
 			baseStats.cooldown=3f;
 			updateStats();
+			data.opis="Zwieksza ilosc pociskow o 1";
 			break;
 			case 3:
 			baseStats.count++;
 			updateStats();
+			data.opis="Zwieksza pbrazenia o 2";
 			break;
 			case 4:
 			baseStats.damage=7f;
 			updateStats();
+			data.opis="Zwieksza ilosc pociskow o 1";
 			break;
 			case 5:
 			baseStats.count++;
 			updateStats();
+			data.opis="Zwieksza pbrazenia o 3";
 			break;
 			case 6:
 			baseStats.damage=10f;
 			updateStats();
+			data.opis="Zwieksza ilosc pociskow o 1 i podwaja rozmiar";
 			break;
 			case 7:
 			baseStats.count++;

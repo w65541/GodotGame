@@ -11,7 +11,7 @@ public partial class Boomerang : Weapon
 		targeting=Targeting.Closest;
 		stats=new Stats{
 			damage=10f,
-			count=2,
+			count=1,
 			penetrationInf=false,
 			penetration=20,
 			cooldown=2f,
@@ -24,9 +24,9 @@ public partial class Boomerang : Weapon
 		r= 00f;
 		//GD.Print(stats.penetration);
 		data=new itemData{
-			name="Shotgun",
+			name="Boomerang",
 			level=2,
-			opis="afdgsdg",
+			opis="Zwieksza rozmiar o 20%",
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
@@ -78,22 +78,27 @@ public partial class Boomerang : Weapon
 			case 2:
 			baseStats.size=1.2f;
 			updateStats();
+			data.opis="Zwieksza liczbe bumerangow";
 			break;
 			case 3:
 			baseStats.count++;
 			updateStats();
+			data.opis="Zwieksza szybkosc pocisku o 50%";
 			break;
 			case 4:
 			baseStats.speed=300f;
 			updateStats();
+			data.opis="Zwieksza obrazenia o 10";
 			break;
 			case 5:
 			baseStats.damage=20f;
 			updateStats();
+			data.opis="Zwieksza liczbe bumerangow";
 			break;
 			case 6:
 			baseStats.count++;
 			updateStats();
+			data.opis="Podwaja liczbe bumerangow";
 			break;
 			case 7:
 			baseStats.count*=2;

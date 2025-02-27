@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
 folder_colors={
 "res://Enemies/": "red",
 "res://Items/": "yellow",
+"res://Levels/": "teal",
 "res://Players/": "purple",
 "res://Spawners/": "pink",
 "res://UI/": "green",

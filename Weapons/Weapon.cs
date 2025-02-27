@@ -39,7 +39,7 @@ public partial class Weapon: Node2D,Levelable
 
 			case Targeting.Mouse:
 			var pPosition=player.Position;
-			var ang=(pPosition.AngleToPoint(GetGlobalMousePosition()));
+			var ang=pPosition.AngleToPoint(GetGlobalMousePosition());
 			Rotation=ang;
 			Position=new Vector2{
 			Y=((float)Math.Sin(ang))*r,
@@ -49,7 +49,7 @@ public partial class Weapon: Node2D,Levelable
 
 			case Targeting.Closest:
 			Rotation=closest.rotate;
-			Position=Position;
+			//Position=Position;
 			break;
 		}
 		

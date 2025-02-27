@@ -7,10 +7,10 @@ public partial class Bombardment : Weapon
 	public override void _Ready()
 	{
 		bulletType="Rang";
-		targeting=Targeting.Mouse;
+		targeting=Targeting.Random;
 		stats=new Stats{
 			damage=20f,
-			count=1,
+			count=2,
 			penetrationInf=false,
 			penetration=2,
 			cooldown=5f,
@@ -18,14 +18,14 @@ public partial class Bombardment : Weapon
 			fireRate=1,
 			speed=200f,
 			size=5f,
-			duration=5f
+			duration=2f
 		};
 		r= 00f;
 		//GD.Print(stats.penetration);
 		data=new itemData{
 			name="Bombardment",
 			level=2,
-			opis="afdgsdg",
+			opis="Zwieksza ilosc wybuchow o 2",
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
@@ -48,21 +48,27 @@ public partial class Bombardment : Weapon
 			case 2:
 			baseStats.count+=2;
 			updateStats();
+			data.opis="Zwieksza wielkosc o 50%";
 			break;
 			case 3:
 			baseStats.size=1.5f;
 			updateStats();
+			
+			data.opis="Zwieksza obrazenia o 10";
 			break;
 			case 4:
 			baseStats.damage=30f;
+			data.opis="Zwieksza ilosc wybuchow o 2";
 			updateStats();
 			break;
 			case 5:
 			baseStats.count+=2;
+			data.opis="Zmniejsza przerwe ataku do 2,5s";
 			updateStats();
 			break;
 			case 6:
 			baseStats.cooldown=2.5f;
+			data.opis="Aktywuje laser ktory zadaje obrazenia przez caly czas";
 			updateStats();
 			break;
 			case 7:
@@ -84,7 +90,7 @@ public override void _on_timer_timeout()
 		var enemies=GetTree().GetNodesInGroup("Enemy");
 		if(enemies.Count>0)
 			{
-		var instance = projectile.Instantiate() as ProjectilePlayer;
+		var instance = projectile.Instantiate() as Bombard;
 		
 		instance.stats=stats;
 		

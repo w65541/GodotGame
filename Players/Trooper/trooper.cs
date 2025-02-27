@@ -22,7 +22,7 @@ public partial class trooper : Player
 		updateStats();
 
 		GD.Print(stats.damageMult);
-		var ps=GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
+		var ps=GD.Load<PackedScene>("res://Weapons/Bombardment/Bombardment.tscn");//("res://Weapons/rpg.tscn");//GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
 		AddChild(ps.Instantiate());
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;

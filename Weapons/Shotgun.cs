@@ -30,9 +30,9 @@ public partial class Shotgun : Weapon
 		data=new itemData{
 			name="Strzelba",
 			level=2,
-			opis="afdgsdg",
+			opis="Zmniejsza przerwe ataku do 1,5s",
 			sprite="res://Items/Textures/Shotgun.png",
-			scene=""
+			scene="res://Weapons/Shotgun.tscn"
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Projectiles/"+bulletType+".tscn");
 		//baseStats=stats;
@@ -75,29 +75,33 @@ public partial class Shotgun : Weapon
 			case 2:
 			baseStats.count++;
 			baseStats.cooldown=1.5f;
-			
+			data.opis="Zwieksza rozmiar o 20%";
 			updateStats();
 			break;
 			case 3:
 			baseStats.count++;
 			baseStats.penetration++;
 			baseStats.size=1.2f;
+			data.opis="Zmniejsza przerwe ataku do 1s";
 			updateStats();
 			break;
 			case 4:
 			baseStats.count++;
 			baseStats.cooldown=1f;
+			data.opis="Zwieksza rozmiar o 50%";
 			updateStats();
 			break;
 			case 5:
 			baseStats.count++;
 			baseStats.penetration++;
 			baseStats.size=1.5f;
+			data.opis="Zwieksza obrazenia o 4";
 			updateStats();
 			break;
 			case 6:
 			baseStats.count++;
 			baseStats.damage=5f;
+			data.opis="Nieskonczona penetracja pociskow";
 			updateStats();
 			break;
 			case 7:

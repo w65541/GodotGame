@@ -1,23 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://blblnhmt14au3"]
+[gd_scene load_steps=6 format=3 uid="uid://blblnhmt14au3"]
 
 [ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_75vtu"]
 [ext_resource type="Script" path="res://Levels/Test/TentacleTest.cs" id="2_k5fsn"]
-[ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_sqftv"]
-[ext_resource type="PackedScene" uid="uid://dhpwkxdr57428" path="res://Enemies/BossStage/Tentacle/tentacle.tscn" id="3_64p5e"]
+[ext_resource type="PackedScene" uid="uid://dcuj3c7bb58u5" path="res://Enemies/Dummy/dummy.tscn" id="3_6uc2n"]
+[ext_resource type="Texture2D" uid="uid://bevlcjkbdeyf0" path="res://triangle.png" id="4_cm8jj"]
+[ext_resource type="Script" path="res://Levels/Test/TargetTest.cs" id="5_81vda"]
 
 [node name="TentacleTest" instance=ExtResource("1_75vtu")]
 script = ExtResource("2_k5fsn")
 
-[node name="Wall" parent="." index="1" instance=ExtResource("2_sqftv")]
-position = Vector2(318, -1)
+[node name="Dummy" parent="." index="1" instance=ExtResource("3_6uc2n")]
+position = Vector2(367, 166)
 
-[node name="Tentacle" parent="." index="2" instance=ExtResource("3_64p5e")]
-visible = true
-position = Vector2(-332, -4.76837e-07)
-scale = Vector2(1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("4_cm8jj")
+script = ExtResource("5_81vda")
 
-[node name="Tentacle2" parent="." index="3" instance=ExtResource("3_64p5e")]
-visible = true
-position = Vector2(-319, 178)
-rotation = -0.242046
-scale = Vector2(1, 1)
+[node name="Dummy2" parent="." index="3" instance=ExtResource("3_6uc2n")]
+position = Vector2(183, -340)
+
+[node name="Dummy3" parent="." index="4" instance=ExtResource("3_6uc2n")]
+position = Vector2(-356, -189)
+
+[node name="Dummy4" parent="." index="5" instance=ExtResource("3_6uc2n")]
+position = Vector2(-201, 159)

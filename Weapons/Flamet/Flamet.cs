@@ -26,7 +26,7 @@ public partial class Flamet : Weapon
 		data=new itemData{
 			name="Flamer",
 			level=2,
-			opis="afdgsdg",
+			opis="Zwieksza czas pocisku o 1s",
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
@@ -60,27 +60,32 @@ public partial class Flamet : Weapon
 		switch(level)
 		{
 			case 2:
-			
+			baseStats.duration=4f;
 			updateStats();
+			data.opis="Zwieksza predkosc pocisku o 30%";
 			break;
 			case 3:
 			baseStats.speed=400f;
 			updateStats();
+			data.opis="Zwieksza obrazenia o 2";
 			break;
 			case 4:
 			baseStats.damage=3f;
 			updateStats();
+			data.opis="Zwieksza czas pocisku o 1s";
 			break;
 			case 5:
 			baseStats.duration=5f;
 			updateStats();
+			data.opis="Zwieksza predkosc pocisku o 60%";
 			break;
 			case 6:
 			baseStats.speed=500f;
 			updateStats();
+			data.opis="Zmniejsza przerwe ataku do 3s";
 			break;
 			case 7:
-			
+			baseStats.cooldown=3f;
 			updateStats();
 			break;
 		}

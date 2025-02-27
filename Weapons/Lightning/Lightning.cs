@@ -23,7 +23,7 @@ public partial class Lightning : Weapon
 		data=new itemData{
 			name="Lightning",
 			level=2,
-			opis="afdgsdg",
+			opis="Zwiekszenie rozmiaru o 50%",
 			sprite="res://Items/Textures/Shotgun.png",
 			scene=""
 		};
@@ -78,26 +78,32 @@ public partial class Lightning : Weapon
 			case 2:
 			baseStats.size=1.5f;
 			updateStats();
+			data.opis="Zwieksza ilosc o 1";
 			break;
 			case 3:
 			baseStats.count++;
 			updateStats();
+			data.opis="Zwieksza obrazenia o 5";
 			break;
 			case 4:
 			baseStats.damage=15f;
 			updateStats();
+			data.opis="Zwieksza ilosc o 1";
 			break;
 			case 5:
 			baseStats.count++;
 			updateStats();
+			data.opis="Zmniejsza przerwe ataku do 2s";
 			break;
 			case 6:
 			baseStats.cooldown=2f;
 			updateStats();
+			data.opis="Zwiekszenie rozmiaru o 50%";
 			break;
 			case 7:
 			baseStats.size=2f;
 			updateStats();
+			
 			break;
 		}
 	}

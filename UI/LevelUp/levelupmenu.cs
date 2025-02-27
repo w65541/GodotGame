@@ -45,31 +45,50 @@ public partial class levelupmenu : NinePatchRect
 
 	public void rollLevelUp()
 	{
+		
 		GetTree().Paused = true;
 		int childCount=0,x;
 		for (var i=childCount;i < 4; i++)
 				{
 					GetChild<level_up_choice>(childCount).Visible=true;
 				}
-		var weaponsTemp=new List<itemData>( weapons);
-		var itemTemp=new List<itemData>( items);
 		var weaponsInTree=GetTree().GetNodesInGroup("Weapons");
 		var itemsInTree=GetTree().GetNodesInGroup("Items");
+		foreach (var item in weaponsInTree.Cast<Levelable>())
+		{
+			for (int i = 0; i < weapons.Count; i++)
+			{
+				if(weapons[i].name.Equals(item.GetItemData().name)){
+					
+					weapons.RemoveAt(i);}
+			}
+		}
+		foreach (var item in itemsInTree.Cast<Levelable>())
+		{
+			for (int i = 0; i < items.Count; i++)
+			{
+				if(items[i].name.Equals(item.GetItemData().name)){
+					
+					items.RemoveAt(i);}
+			}
+		}
 		List<Levelable> wep=new List<Levelable>();
 		List<Levelable> ite=new List<Levelable>();
 		List<int> previousX1=new List<int>();
 		List<int> previousX2=new List<int>();
 		var pasives=new RandomNumberGenerator().RandiRange(0,4);
+		var weaponsTemp=new List<itemData>( weapons);
+		var itemTemp=new List<itemData>( items);
 		foreach (var item in itemsInTree.Cast<Levelable>())
 		{
-			if(item.GetItemData().level<3)
+			if(item.GetItemData().level<7)
 			{
 				ite.Add(item);
 			}
 		}
 		foreach (var item in weaponsInTree.Cast<Levelable>())
 		{
-			if(item.GetItemData().level<=3)
+			if(item.GetItemData().level<=7)
 			{
 				wep.Add(item);
 			}
@@ -96,7 +115,7 @@ public partial class levelupmenu : NinePatchRect
 							x=new RandomNumberGenerator().RandiRange(1,wep.Count);
 						} while (previousX1.Find(z=>z==x)!=0);
 						GetChild<level_up_choice>(childCount).updateOld( wep[x-1]);
-						
+						previousX1.Add(x);
 						usedweapons++;
 					}else{
 						do
@@ -104,7 +123,7 @@ public partial class levelupmenu : NinePatchRect
 							x=new RandomNumberGenerator().RandiRange(1,weaponsTemp.Count);
 						} while (previousX2.Find(z=>z==x)!=0);
 						GetChild<level_up_choice>(childCount).updateNew(weaponsTemp[x-1]);
-					
+						previousX2.Add(x);
 					}
 					childCount++;
 				}
@@ -123,12 +142,14 @@ public partial class levelupmenu : NinePatchRect
 						} while (previousX1.Find(z=>z==x)!=0);
 						GetChild<level_up_choice>(childCount).updateOld(ite[x-1]);
 						useditems++;
+						//previousX1.Add(x);
 					}else{
 						do
 						{
 							x=new RandomNumberGenerator().RandiRange(1,itemTemp.Count);
 						} while (previousX2.Find(z=>z==x)!=0);
 						GetChild<level_up_choice>(childCount).updateNew(itemTemp[x-1]);
+						//previousX2.Add(x);
 					}
 					childCount++;
 				}

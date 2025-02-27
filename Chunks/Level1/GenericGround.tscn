@@ -8,5 +8,5 @@ chunk = "res://Chunks/Level1/GenericGround.tscn"
 
 [node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, 0)
-scale = Vector2(0.97654, 0.975995)
+scale = Vector2(0.977, 0.977)
 texture = ExtResource("2_ofmeg")

@@ -26,7 +26,8 @@ public partial class rocket : ProjectilePlayer
 		instance.spawnPos=GlobalPosition;
 		//GD.Print("ShootRotate"+Rotation);
 		instance.spawnRot=Rotation;
-		main.CallDeferred("add_child",instance);
+		//main.CallDeferred("add_child",instance);
+		main.AddChild(instance);
 		Visible=false;
 		}
 		

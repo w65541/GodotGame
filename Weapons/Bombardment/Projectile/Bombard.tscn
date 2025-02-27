@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://drwpwbptrvl4w"]
+[gd_scene load_steps=6 format=3 uid="uid://drwpwbptrvl4w"]
 
 [ext_resource type="Script" path="res://Weapons/Bombardment/Projectile/Bombard.cs" id="1_hjr15"]
 [ext_resource type="PackedScene" uid="uid://dwvh7pliaso46" path="res://Weapons/Special/explosion.tscn" id="1_i3et5"]
 [ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="3_pxgg7"]
+[ext_resource type="Texture2D" uid="uid://bgf0uqdt87a6n" path="res://Weapons/Bombardment/Projectile/Circle.png" id="4_p1v1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7okm"]
 radius = 115.849
 
 [node name="Bombard" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_hjr15")
@@ -33,7 +35,13 @@ one_shot = true
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_pxgg7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(2.38, 2.35)
+texture = ExtResource("4_p1v1w")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
