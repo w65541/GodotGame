@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci3reqfjtfr7x"]
+[gd_scene load_steps=11 format=3 uid="uid://ci3reqfjtfr7x"]
 
+[ext_resource type="Script" path="res://UI/Shop/Shop.cs" id="1_3dw2i"]
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_fxodt"]
 [ext_resource type="Script" path="res://UI/Shop/StatShopContainer.cs" id="2_3m7gt"]
 [ext_resource type="PackedScene" uid="uid://dwnypw8b5vbeh" path="res://UI/Shop/stat_shop.tscn" id="2_5ullf"]
 [ext_resource type="Texture2D" uid="uid://cyle1ouakr8y3" path="res://Items/Textures/Material/money.png" id="4_lvhn2"]
 [ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="5_r7loc"]
 [ext_resource type="Script" path="res://UI/Shop/MoneyCount.cs" id="7_wsjo5"]
+[ext_resource type="Script" path="res://UI/Shop/CharShopGrid.cs" id="8_fyp4k"]
 [ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="8_g2mnu"]
 [ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="10_fxauf"]
 
@@ -16,8 +18,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_3dw2i")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
+[node name="StatsTab" type="NinePatchRect" parent="Shop"]
 layout_mode = 0
 offset_left = 244.0
 offset_top = 90.0
@@ -30,7 +33,7 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 script = ExtResource("2_3m7gt")
 
-[node name="StatShop" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -44,7 +47,7 @@ Nazwa = "Obrazenia"
 inCodeName = "damage"
 moneyScale = 500
 
-[node name="StatShop2" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop2" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -57,7 +60,7 @@ grow_horizontal = 1
 Nazwa = "Szybkosc poruszania"
 inCodeName = "movespeed"
 
-[node name="StatShop3" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop3" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -70,7 +73,7 @@ grow_horizontal = 1
 Nazwa = "Zycie"
 inCodeName = "hp"
 
-[node name="StatShop4" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop4" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -83,7 +86,7 @@ grow_horizontal = 1
 Nazwa = "Exp"
 inCodeName = "expboost"
 
-[node name="StatShop5" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop5" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -96,7 +99,7 @@ grow_horizontal = 1
 Nazwa = "Obrona"
 inCodeName = "defense"
 
-[node name="StatShop6" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop6" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -109,7 +112,7 @@ grow_horizontal = 1
 Nazwa = "Szybkosc strzelania"
 inCodeName = "firerate"
 
-[node name="StatShop7" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop7" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -122,7 +125,7 @@ grow_horizontal = 1
 Nazwa = "Czas trwania"
 inCodeName = "duration"
 
-[node name="StatShop8" parent="Shop/NinePatchRect" instance=ExtResource("2_5ullf")]
+[node name="StatShop8" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -169,8 +172,46 @@ fit_content = true
 scroll_active = false
 script = ExtResource("7_wsjo5")
 
+[node name="TabBar" type="TabBar" parent="Shop"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 244.0
+offset_top = 47.0
+offset_right = 388.0
+offset_bottom = 87.0
+current_tab = 0
+clip_tabs = false
+tab_count = 2
+tab_0/title = "Staty"
+tab_1/title = "Postacie"
+
+[node name="CharsTab" type="NinePatchRect" parent="Shop"]
+visible = false
+layout_mode = 0
+offset_left = 244.0
+offset_top = 90.0
+offset_right = 1125.0
+offset_bottom = 549.0
+texture = ExtResource("1_fxodt")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="GridContainer" type="GridContainer" parent="Shop/CharsTab"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 707.0
+offset_bottom = 499.0
+columns = 7
+script = ExtResource("8_fyp4k")
+
 [node name="BackButton" parent="." instance=ExtResource("10_fxauf")]
 offset_left = 9.0
 offset_top = 10.0
 offset_right = 209.0
 offset_bottom = 60.0
+
+[connection signal="tab_changed" from="Shop/TabBar" to="Shop" method="_on_tab_bar_tab_changed"]
+[connection signal="tab_clicked" from="Shop/TabBar" to="Shop" method="_on_tab_bar_tab_changed"]

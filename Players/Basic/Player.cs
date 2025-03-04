@@ -138,6 +138,11 @@ public override void _Ready()
 		stats=baseStats;
 		var items=GetTree().GetNodesInGroup("Items"); 
 		var weapons=GetTree().GetNodesInGroup("Weapons"); 
+		var pasives=GetTree().GetNodesInGroup("Pasives"); 
+		foreach (PasiveBasic item in items.Cast<PasiveBasic>())
+		{
+			item.activate();
+		}
 		foreach (BasicItem item in items.Cast<BasicItem>())
 		{
 			stats*=item.stats;

@@ -153,6 +153,7 @@ texture_hover = ExtResource("3_c47sv")
 texture_focused = ExtResource("4_hcf3n")
 stretch_mode = 4
 script = ExtResource("8_gdqfq")
+scena = "res://UI/Settings/Settings.tscn"
 
 [node name="TextPlay" type="RichTextLabel" parent="ButtonPlay4"]
 layout_mode = 1

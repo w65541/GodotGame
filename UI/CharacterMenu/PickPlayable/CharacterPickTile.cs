@@ -23,12 +23,15 @@ public partial class CharacterPickTile : NinePatchRect
 		switch(position){
 			case 1:
 			team.support1=passive;
+			team.GetChild<CharacterPickedTile>(0).updateLook(name);
 			break;
 			case 2:
 			team.player=scene;
+			team.GetChild<CharacterPickedTile>(1).updateLook(name);
 			break;
 			case 3:
 			team.support2=passive;
+			team.GetChild<CharacterPickedTile>(2).updateLook(name);
 			break;
 		}
 		BackButton back =GetParent().GetParent().GetParent().GetChild<BackButton>(1);

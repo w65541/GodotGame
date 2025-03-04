@@ -44,6 +44,7 @@ offset_left = 17.0
 offset_top = 18.0
 offset_right = 234.0
 offset_bottom = 481.0
+text = "tyyyyyyyyyyyyy"
 
 [node name="UpgradeLevel" type="NinePatchRect" parent="CharacterDetails/Statbox"]
 layout_mode = 0
@@ -147,6 +148,7 @@ offset_left = 128.0
 offset_top = 13.0
 offset_right = 290.0
 offset_bottom = 58.0
+text = "tyty"
 
 [node name="Opis" type="RichTextLabel" parent="CharacterDetails/Weaponbox"]
 layout_mode = 0
@@ -154,6 +156,7 @@ offset_left = 128.0
 offset_top = 63.0
 offset_right = 290.0
 offset_bottom = 120.0
+text = "tytyt"
 
 [node name="Abillitybox" type="NinePatchRect" parent="CharacterDetails"]
 layout_mode = 0
@@ -181,6 +184,7 @@ offset_left = 128.0
 offset_top = 13.0
 offset_right = 290.0
 offset_bottom = 58.0
+text = "ftycty"
 
 [node name="Opis" type="RichTextLabel" parent="CharacterDetails/Abillitybox"]
 layout_mode = 0
@@ -188,6 +192,7 @@ offset_left = 128.0
 offset_top = 63.0
 offset_right = 290.0
 offset_bottom = 120.0
+text = "tytt"
 
 [node name="Passivebox" type="NinePatchRect" parent="CharacterDetails"]
 layout_mode = 0
@@ -207,6 +212,7 @@ offset_left = 14.0
 offset_top = 13.0
 offset_right = 290.0
 offset_bottom = 58.0
+text = "Pasywka"
 
 [node name="Opis" type="RichTextLabel" parent="CharacterDetails/Passivebox"]
 layout_mode = 0
@@ -214,6 +220,7 @@ offset_left = 12.0
 offset_top = 63.0
 offset_right = 290.0
 offset_bottom = 120.0
+text = "fgjhgjhgkgkukkhjkjhkjkkk"
 
 [node name="RankUp" type="NinePatchRect" parent="CharacterDetails"]
 layout_mode = 0
@@ -311,11 +318,11 @@ offset_top = 21.0
 offset_right = 285.0
 offset_bottom = 93.0
 
-[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="levelupChar"]
 [connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="_on_button_up"]
+[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="levelupChar"]
 [connection signal="mouse_entered" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]
-[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="levelupSkill"]
 [connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="_on_button_up"]
+[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="levelupSkill"]
 [connection signal="mouse_entered" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq3pcuujg3pxe"
-path="res://.godot/imported/ashlands_tileset.png-21e0f188cbaad6b7079264930150858b.ctex"
+uid="uid://boyiweuvfx0y3"
+path="res://.godot/imported/Slider1.png-46f4432b00cabb947bdb555d2f5fc4df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ashlands_tileset.png"
-dest_files=["res://.godot/imported/ashlands_tileset.png-21e0f188cbaad6b7079264930150858b.ctex"]
+source_file="res://UI/Texures/Slider1.png"
+dest_files=["res://.godot/imported/Slider1.png-46f4432b00cabb947bdb555d2f5fc4df.ctex"]
 
 [params]
 

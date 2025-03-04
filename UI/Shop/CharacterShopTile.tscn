@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://ifgo2svhslsy"]
+
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="1_fjrgl"]
+[ext_resource type="Script" path="res://UI/Shop/CharacterShopTile.cs" id="2_vhn4j"]
+[ext_resource type="Texture2D" uid="uid://bts3sg0p4e8ib" path="res://Players/Trooper/troop.png" id="3_68cln"]
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="4_hep1b"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="5_agf6q"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="6_26djj"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="7_y6vhk"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="8_a2bv5"]
+[ext_resource type="Texture2D" uid="uid://cyle1ouakr8y3" path="res://Items/Textures/Material/money.png" id="9_3sck3"]
+
+[node name="CharacterMenuTile" type="NinePatchRect"]
+custom_minimum_size = Vector2(112, 200)
+offset_right = 112.0
+offset_bottom = 200.0
+texture = ExtResource("1_fjrgl")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_vhn4j")
+
+[node name="Portret" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 17.0
+offset_right = 106.0
+offset_bottom = 117.0
+texture = ExtResource("3_68cln")
+expand_mode = 1
+
+[node name="ToCharacterDetails" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 120.0
+offset_right = -1.0
+offset_bottom = 201.0
+grow_horizontal = 0
+disabled = true
+texture_normal = ExtResource("4_hep1b")
+texture_pressed = ExtResource("5_agf6q")
+texture_hover = ExtResource("1_fjrgl")
+texture_focused = ExtResource("6_26djj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ButtonPlay5" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -32.0
+offset_right = 94.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.483129, 0.483129)
+texture_normal = ExtResource("4_hep1b")
+texture_pressed = ExtResource("5_agf6q")
+texture_hover = ExtResource("1_fjrgl")
+texture_focused = ExtResource("6_26djj")
+stretch_mode = 4
+
+[node name="TextPlay" type="RichTextLabel" parent="ButtonPlay5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.3937
+offset_top = -14.6508
+offset_right = 108.606
+offset_bottom = 16.3492
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_y6vhk")
+theme_override_font_sizes/normal_font_size = 25
+text = "00000"
+fit_content = true
+scroll_active = false
+script = ExtResource("8_a2bv5")
+
+[node name="TextureRect" type="TextureRect" parent="ButtonPlay5"]
+layout_mode = 0
+offset_left = 8.27937
+offset_top = 6.20948
+offset_right = 108.279
+offset_bottom = 106.209
+scale = Vector2(0.389696, 0.389696)
+texture = ExtResource("9_3sck3")
+
+[node name="Name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 27.0
+offset_right = 52.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_y6vhk")
+theme_override_font_sizes/normal_font_size = 17
+text = "Name"
+fit_content = true
+scroll_active = false
+
+[connection signal="button_up" from="ToCharacterDetails" to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="ToCharacterDetails" to="Name" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="ToCharacterDetails" to="Name" method="_on_button_play_mouse_exited"]
+[connection signal="button_up" from="ButtonPlay5" to="." method="_on_button_play_5_button_up"]
+[connection signal="mouse_entered" from="ButtonPlay5" to="ButtonPlay5/TextPlay" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonPlay5" to="ButtonPlay5/TextPlay" method="_on_button_play_mouse_exited"]

@@ -64,8 +64,5 @@ public partial class StatShop : NinePatchRect
 		core.updateMat("money",core.inventory[core.inventory.FindIndex(x=>x.name.Equals("money"))].amount+refund);
 		GetParent<StatShopContainer>().updateAllCost();
 	}
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+
 }

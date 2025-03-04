@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="1_26gty"]
 [ext_resource type="Script" path="res://UI/CharacterMenu/PickPlayable/CharacterPickedTile.cs" id="2_fnh5h"]
-[ext_resource type="Texture2D" uid="uid://bts3sg0p4e8ib" path="res://Players/Trooper/troop.png" id="3_upflb"]
+[ext_resource type="Texture2D" uid="uid://be3v720jgvxaf" path="res://icon.svg" id="3_lp7qe"]
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="4_fcav2"]
 [ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="5_t0467"]
 [ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="6_fjh3b"]
@@ -26,7 +26,7 @@ offset_left = 4.0
 offset_top = 16.0
 offset_right = 106.0
 offset_bottom = 142.0
-texture = ExtResource("3_upflb")
+texture = ExtResource("3_lp7qe")
 expand_mode = 1
 
 [node name="ToCharacterDetails" type="TextureButton" parent="."]

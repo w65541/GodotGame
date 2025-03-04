@@ -9,6 +9,7 @@ public partial class UiBasic : Control
 	ProgressBar hpbar,expbar, specialbar;
 	Control itemicons,itemlevels;
 	ColorRect dodge;
+	RichTextLabel explabel;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,6 +21,7 @@ public partial class UiBasic : Control
 		itemicons=GetChild<Control>(7);
 		itemlevels=GetChild<Control>(8);
 		dodge=GetChild<ColorRect>(6);
+		explabel=GetChild<RichTextLabel>(9);
 		updateItems();
 	}
 
@@ -30,6 +32,7 @@ public partial class UiBasic : Control
 		hpbar.Value=player.hp;
 		expbar.MaxValue=main.nextLevelExp;
 		expbar.Value=main.exp;
+		explabel.Text="Level "+main.levelcount;
 		if(player.DodgeCooldown.TimeLeft==0){
 			dodge.Color=Color.FromString("Green",Color.Color8(255,255,255));
 		}else{

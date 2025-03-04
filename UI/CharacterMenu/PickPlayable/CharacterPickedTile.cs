@@ -7,12 +7,13 @@ public partial class CharacterPickedTile : NinePatchRect
 	public int level{get;set;}
 	public string name{get;set;}
 	public string weapon{get;set;}
-	public ConfigFile character;
+	public ConfigFile character=new ConfigFile();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GetChild(1).GetChild<RichTextLabel>(0).Text=name;
 		GetChild(1).GetChild<RichTextLabel>(1).Text="LV "+level;
+		character.Load("res://Configs/Characters.ini");
 	}
 	public void _on_button_up()
 	{
@@ -38,4 +39,13 @@ public partial class CharacterPickedTile : NinePatchRect
 			break;
 		}
 	}
+
+    internal void updateLook(string name)
+    {
+		GD.Print(name);
+        GetChild<TextureRect>(0).Texture=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
+		GetChild(1).GetChild<RichTextLabel>(0).Text=name;
+		
+    }
+
 }

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cecuak1vh46ov"]
+
+[ext_resource type="Script" path="res://Players/Pasives/PasiveTrooper.cs" id="1_bqpvn"]
+
+[node name="PasiveTrooper" type="Node" groups=["Pasives"]]
+script = ExtResource("1_bqpvn")

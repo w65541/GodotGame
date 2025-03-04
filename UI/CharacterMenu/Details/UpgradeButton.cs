@@ -38,7 +38,7 @@ public partial class UpgradeButton : TextureButton
 		var skilllevel=status.skill;
 		var temp=(string)chardata.character.GetValue(status.name,"material");
 		var mats=temp.Split(":");
-			if(skilllevel<5)
+			if(skilllevel<2)
 		{
 			var m=core.inventory.Find(x=>x.name.Equals(mats[0]));
 			
@@ -52,7 +52,7 @@ public partial class UpgradeButton : TextureButton
 			}
 			return;
 		}	
-		if(skilllevel<6)
+		if(skilllevel<3)
 		{
 
 			var m1=core.inventory.Find(x=>x.name.Equals(mats[0]));

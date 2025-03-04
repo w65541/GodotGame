@@ -19,10 +19,10 @@ public partial class RPG : Weapon
 			count=1,
 			penetrationInf=false,
 			penetration=2,
-			cooldown=1f,
+			cooldown=7f,
 			durationMult=1,
 			fireRate=1,
-			speed=1000f
+			speed=500f
 		};
 		bulletType="rocket";
 		//main= GetTree().Root.GetNode("Main");
@@ -38,7 +38,52 @@ public partial class RPG : Weapon
 		};
 		base._Ready();
 	}
-
+	public override void levelup()
+    {
+        level++;
+		data.level++;
+		switch(level)
+		{
+			case 2:
+			baseStats.count++;
+			baseStats.cooldown=1.5f;
+			data.opis="Zwieksza rozmiar o 20%";
+			updateStats();
+			break;
+			case 3:
+			baseStats.count++;
+			baseStats.penetration++;
+			baseStats.size=1.2f;
+			data.opis="Zmniejsza przerwe ataku do 1s";
+			updateStats();
+			break;
+			case 4:
+			baseStats.count++;
+			baseStats.cooldown=1f;
+			data.opis="Zwieksza rozmiar o 50%";
+			updateStats();
+			break;
+			case 5:
+			baseStats.count++;
+			baseStats.penetration++;
+			baseStats.size=1.5f;
+			data.opis="Zwieksza obrazenia o 4";
+			updateStats();
+			break;
+			case 6:
+			baseStats.count++;
+			baseStats.damage=5f;
+			data.opis="Nieskonczona penetracja pociskow";
+			updateStats();
+			break;
+			case 7:
+			baseStats.count++;
+			baseStats.penetrationInf=true;
+			
+			updateStats();
+			break;
+		}
+    }
 	public override void Shoot()
 	{
 		closest._on_timer_timeout();

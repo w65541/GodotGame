@@ -10,6 +10,7 @@ public partial class BasicLevel : Node2D
 	public string passive2;
 	public levelupmenu levelupmenu;
 	public float exp=0f;
+	public int levelcount=1;
 	public long deathcount=0;
 	public float nextLevelExp=10f; 
 	public long activeEnemies=0;
@@ -71,6 +72,13 @@ public partial class BasicLevel : Node2D
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
 		
+			if(!passive1.Equals("")){
+			ele=GD.Load<PackedScene>(passive1);
+			GetNode("Player").AddChild(ele.Instantiate());}
+			if(!passive2.Equals("")){
+			ele=GD.Load<PackedScene>(passive2);
+			GetNode("Player").AddChild(ele.Instantiate());}
+
 		levelupmenu=GetNode<levelupmenu>("Player/LevelUpMenu");
 		GD.Print(GetTree().Root.GetTreeStringPretty());
 	}
@@ -80,6 +88,7 @@ public partial class BasicLevel : Node2D
 	{
 		if(exp>=nextLevelExp)
 		{
+			levelcount++;
 			exp-=nextLevelExp;
 			nextLevelExp*=1.5f;
 			levelupmenu.Visible=true;

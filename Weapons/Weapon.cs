@@ -61,6 +61,7 @@ public partial class Weapon: Node2D,Levelable
 	virtual public void updateStats()
 	{
 		stats=baseStats*GetParent<Player>().stats;
+		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
 		GD.Print(Name+": Update stats damage multiplayer: "+stats.damageMult);
 	}
 	public virtual void Shoot(){}
