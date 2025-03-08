@@ -31,6 +31,7 @@ public partial class ProjectilePlayer : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
 		Velocity=(new Vector2(0,-stats.speed).Rotated(dir)+Vector2.Right)*stop;
 		MoveAndSlide();
 	}

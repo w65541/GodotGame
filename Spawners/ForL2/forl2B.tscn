@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://8kk3vhqflvov"]
+
+[ext_resource type="PackedScene" uid="uid://d0cjcjq8uhm2l" path="res://Spawners/Axis/X.tscn" id="1_28elq"]
+[ext_resource type="PackedScene" uid="uid://dghd81ltfnwvi" path="res://Spawners/spawner_basic_l2.tscn" id="2_alijw"]
+
+[node name="X" instance=ExtResource("1_28elq")]
+
+[node name="SpawnerBasic" parent="." index="0" instance=ExtResource("2_alijw")]

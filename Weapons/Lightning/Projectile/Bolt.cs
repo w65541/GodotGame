@@ -9,6 +9,7 @@ public partial class Bolt : ProjectilePlayer
 	public Vector2 targetPos;
 	public override void _Ready()
 	{
+		
 		base._Ready();
 		GetParent<LightingFollow>().Start();
 	}
@@ -38,7 +39,7 @@ public partial class Bolt : ProjectilePlayer
 			penetrable--;
 			//GD.Print(penetrable+"/"+stats.penetration);
 			
-			if(penetrable<0) nextTarget();
+			if(penetrable<0) Despawn();
 		}else{
 			if(bullet.GetType().IsAssignableTo(new wall().GetType())){
 				Despawn();

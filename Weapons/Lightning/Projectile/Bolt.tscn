@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3ie5byutkodi"]
 
 [ext_resource type="Script" path="res://Weapons/Lightning/Projectile/Bolt.cs" id="1_2uj8f"]
-[ext_resource type="Texture2D" uid="uid://cxolmybk5ruhb" path="res://exp3.png" id="2_3nvuy"]
+[ext_resource type="Texture2D" uid="uid://cxlqnl0qocdxf" path="res://Weapons/Lightning/Projectile/Lbolt.png" id="2_750l2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6smmr"]
 radius = 46.2709
@@ -18,8 +18,7 @@ script = ExtResource("1_2uj8f")
 shape = SubResource("CircleShape2D_6smmr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 1.583)
-texture = ExtResource("2_3nvuy")
+texture = ExtResource("2_750l2")
 
 [node name="Timer" type="Timer" parent="."]
 

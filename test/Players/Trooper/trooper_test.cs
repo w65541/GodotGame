@@ -15,7 +15,15 @@ namespace GdUnitDefaultTestNamespace
 		[TestCase]
 		public void PassiveTest()
 		{
-			AssertString("AbcD".ToLower()).IsEqual("abcd");
+			ISceneRunner runner = ISceneRunner.Load("res://test/TestRoom.tscn");
+			trooper tr= runner.FindChild("Trooper") as trooper;
+			PasiveTrooper pt= runner.FindChild("PasiveTrooper") as PasiveTrooper;
+			pt.level=3;
+			BasicLevel l=tr.GetParent<BasicLevel>();
+			l.levelcount=30;
+			//tr.updateStats();
+			pt.activate();
+			AssertFloat(tr.stats.count).IsEqual(3);
 		}
 
 		

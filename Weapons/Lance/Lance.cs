@@ -42,6 +42,7 @@ public partial class Lance : Weapon
 	public override void _on_timer_timeout()
 	{
 		if(nextAttack.TimeLeft==0){
+			GetChild<AudioStreamPlayer>(2).Play();
 		remaining=1;
 		Shoot();}
 	}

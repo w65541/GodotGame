@@ -1,16 +1,25 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class TargetClosest : Node2D
 {
+
+	
+
+
 	Player player;
 	public EnemyBasic enemy;
-	public override void _Ready()
-	{
-		
-	}
 	public Vector2 position;
 	public float rotate=0f;
+	
+	public Node sortByDis(Node a,Node b){
+		
+		Node2D a2D=a as Node2D;
+		Node2D b2D=b as Node2D;
+		if(player.GlobalPosition.DistanceSquaredTo(a2D.GlobalPosition)<player.GlobalPosition.DistanceSquaredTo(b2D.GlobalPosition)) return a;
+		return b;
+	}
 		public  void _on_timer_timeout()
 		{
 			player=GetTree().GetFirstNodeInGroup("Player") as Player;
@@ -18,6 +27,7 @@ public partial class TargetClosest : Node2D
 			if(enem.Count>0){
 			Node2D close=new Node2D();
 			float max = 9999999999f;
+			
 			foreach (Node2D item in enem)
 			{
 			//GD.Print(player.GlobalPosition.DistanceSquaredTo(item.GlobalPosition));
@@ -28,6 +38,7 @@ public partial class TargetClosest : Node2D
 				//GD.Print(item);
 			}
 			}
+			
 			enemy=close as EnemyBasic;
 			//enemy.Modulate=Color.Color8(0,0,0);
 			position=close.GlobalPosition;

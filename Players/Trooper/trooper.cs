@@ -11,18 +11,12 @@ public partial class trooper : Player
 	{
 		SpecialCooldown= (Timer)GetNode("CooldownSpecial");
 		DodgeCooldown= (Timer)GetNode("CooldownDodge");
-		stats=new Stats{
-		maxHp=100.0f,
-		speed=500f,
-		speedMove=500f,
-		cooldown=5f,
-		penetration=0
-		};
+		setLeveledStats();
 		baseStats=stats;
 		updateStats();
 
 		GD.Print(stats.damageMult);
-		var ps=GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
+		var ps=GD.Load<PackedScene>("res://Weapons/Bombardment/Bombardment.tscn");//("res://Weapons/Shotgun.tscn");
 		AddChild(ps.Instantiate());
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;
@@ -30,12 +24,23 @@ public partial class trooper : Player
 		base._Ready();
 	}
 	public override void setLeveledStats(){
+		try
+	{
+		level=GetTree().Root.GetChild<Core>(0).unlocked[0].level;
+	}
+	catch (System.Exception)
+	{
+		
+		level=1;
+	}
+		float mult= (float)(level *0.1+1);
 		stats=new Stats{
-		maxHp=100.0f,
+		maxHp=100.0f*mult,
 		speed=500f,
 		speedMove=500f,
 		cooldown=5f,
-		penetration=0
+		penetration=0,
+		damageMult=mult
 		};
 		baseStats=stats;
 	}

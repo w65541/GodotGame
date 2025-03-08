@@ -11,13 +11,13 @@ public partial class Lightning : Weapon
 		targeting=Targeting.Closest;
 		stats=new Stats{
 			damage=10f,
-			count=2,
+			count=3,
 			penetrationInf=false,
 			penetration=2,
 			cooldown=4f,
 			durationMult=1,
 			fireRate=1,
-			speed=5000f
+			speed=0f
 		};
 		
 		data=new itemData{
@@ -36,20 +36,24 @@ public partial class Lightning : Weapon
 	}
 	public override void Shoot()
 	{
+		var enemies=GetTree().GetNodesInGroup("Enemy");
+		
+		if(enemies.Count>0){
+			GetChild<AudioStreamPlayer>(2).Play();
 		var path=new Path2D();
 		path.Curve=new Curve2D();
 		path.Curve.AddPoint(player.GlobalPosition);
 		path.Curve.AddPoint(closest.position);
 		for (int i = 1; i < stats.count+1; i++)
 		{
-			path.Curve.AddPoint(closest.position*1.5f*1);
+			var rng=new RandomNumberGenerator().RandfRange(-100f,100f);
+			var newpoint=new Vector2(path.Curve.GetBakedPoints()[i].X+rng,path.Curve.GetBakedPoints()[i].Y+rng);
+			path.Curve.AddPoint(closest.position*1.5f*1);//(newpoint);
 		}
+
+		
 		var foll=follow.Instantiate() as LightingFollow;
 		path.AddChild(foll);
-
-		
-
-		
 		var instance = projectile.Instantiate() as Bolt;
 		
 		instance.dir =Rotation;
@@ -58,11 +62,12 @@ public partial class Lightning : Weapon
 		instance.stats=stats;
 		instance.targetPos=closest.position;
 		//GD.Print(instance.stats.penetration+"/"+stats.penetration);
-		GD.Print("ShootRotate"+Rotation);
+		
 		instance.spawnRot=Rotation;
 		foll.AddChild(instance);
 		main.AddChild(path);
-		GD.Print(GetTreeStringPretty());
+		
+		}
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

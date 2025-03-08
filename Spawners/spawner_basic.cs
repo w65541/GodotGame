@@ -16,19 +16,21 @@ public partial class spawner_basic : Node2D
 	[Export] public float brightness=1f;
 	[Export] public bool lockX=false;
 	[Export] public bool lockY=false;
+	Core core;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		core=GetTree().Root.GetChild<Core>(0);
 		main= GetTree().GetFirstNodeInGroup("Main") as BasicLevel;
 		enemy=GD.Load<PackedScene>(enemyType);
+		difficulty=difficulty+core.difficulty-1;
 		//spawnCount=5;
 	}
 
 	
 	public virtual void spawnEnemy()
 	{
-		if(main.activeEnemies<100){
+		if(main.activeEnemies<=core.maxenemy){
 		var r=700f;
 		var instance = enemy.Instantiate() as EnemyBasic;
 		instance.difficulty=difficulty;
@@ -57,11 +59,11 @@ public partial class spawner_basic : Node2D
 			spawnEnemy();
 		}		
 		 timeElapsed+=3;
-		 if(timeElapsed%60==0)
+		 if(timeElapsed%30==0)
 		 {
 			timeElapsed=0;
 			spawnCount+=spawnIncrise;
-			difficulty+=0.2f;
+			difficulty+=0.5f;
 		 }
 	}
 }

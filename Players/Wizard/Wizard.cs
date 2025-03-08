@@ -11,13 +11,7 @@ public partial class Wizard : Player
 	Sprite2D sprite;
 	public override void _Ready()
 	{specialtime= (Timer)GetNode("SpecialTime");
-		stats=new Stats{
-		maxHp=100.0f,
-		speed=500f,
-		speedMove=500f,
-		cooldown=5f,
-		penetration=0
-		};
+		setLeveledStats();
 		baseStats=stats;
 		sprite=GetChild<Sprite2D>(2);
 		var ps=GD.Load<PackedScene>("res://Weapons/Lightning/Lightning.tscn");
@@ -42,7 +36,27 @@ public partial class Wizard : Player
 
 		MoveAndSlide();
 	}
-
+public override void setLeveledStats(){
+	try
+	{
+		level=GetTree().Root.GetChild<Core>(0).unlocked[2].level;
+	}
+	catch (System.Exception)
+	{
+		
+		level=1;
+	}
+		float mult= (float)(level *0.1+1);
+		stats=new Stats{
+		maxHp=100.0f*mult,
+		speed=500f,
+		speedMove=500f,
+		cooldown=5f,
+		penetration=0,
+		damageMult=mult
+		};
+		baseStats=stats;
+	}
 	public void special()
 	{
 		

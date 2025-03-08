@@ -27,6 +27,7 @@ public partial class CharacterPickTile : NinePatchRect
 			break;
 			case 2:
 			team.player=scene;
+			team.support0=passive;
 			team.GetChild<CharacterPickedTile>(1).updateLook(name);
 			break;
 			case 3:

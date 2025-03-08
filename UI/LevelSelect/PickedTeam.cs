@@ -3,7 +3,7 @@ using System;
 
 public partial class PickedTeam : HBoxContainer
 {
-	public string player="",support1,support2;
+	public string player="",support0="",support1="",support2="";
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

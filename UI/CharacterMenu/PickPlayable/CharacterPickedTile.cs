@@ -33,6 +33,7 @@ public partial class CharacterPickedTile : NinePatchRect
 			break;
 			case 2:
 			parent.player=pl;
+			parent.support0=item;
 			break;
 			case 3:
 			parent.support2=item;

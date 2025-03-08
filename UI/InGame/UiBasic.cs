@@ -28,6 +28,10 @@ public partial class UiBasic : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("ui_special") && specialbar.Value==100)
+			{
+				specialbar.Value=0;
+			}
 		hpbar.MaxValue=player.stats.maxHp;
 		hpbar.Value=player.hp;
 		expbar.MaxValue=main.nextLevelExp;
@@ -40,6 +44,9 @@ public partial class UiBasic : Control
 		}
 		if(prev<main.deathcount && specialbar.Value<100){
 			specialbar.Value+=main.deathcount-prev;
+			}else{
+				specialbar.Value=100;
+				player.specialReady=true;
 			}
 			prev=main.deathcount;
 	}

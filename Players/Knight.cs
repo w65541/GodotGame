@@ -15,13 +15,7 @@ public partial class Knight : Player
 		DodgeCooldown= (Timer)GetNode("CooldownDodge");
 		SpeedCooldown= (Timer)GetNode("SpeedBoost");
 		ChargeTime= (Timer)GetNode("Chargetime");
-		stats=new Stats{
-		maxHp=100.0f,
-		speed=500f,
-		speedMove=500f,
-		cooldown=5f,
-		penetration=0
-		};
+		setLeveledStats();
 		baseStats=stats;
 		updateStats();
 		dodge=true;
@@ -33,7 +27,27 @@ public partial class Knight : Player
 		base._Ready();
 	}
 
-
+public override void setLeveledStats(){
+	try
+	{
+		level=GetTree().Root.GetChild<Core>(0).unlocked[1].level;
+	}
+	catch (System.Exception)
+	{
+		
+		level=1;
+	}
+		float mult= (float)(level *0.1+1);
+		stats=new Stats{
+		maxHp=200.0f*mult,
+		speed=400f,
+		speedMove=400f,
+		cooldown=5f,
+		penetration=0,
+		damageMult=mult
+		};
+		baseStats=stats;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{

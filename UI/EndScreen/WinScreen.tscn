@@ -20,8 +20,10 @@ script = ExtResource("1_vs2l3")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 364.0
-offset_bottom = 172.0
+offset_left = -180.0
+offset_top = -87.0
+offset_right = 184.0
+offset_bottom = 85.0
 texture = ExtResource("2_yxrek")
 patch_margin_left = 3
 patch_margin_top = 3

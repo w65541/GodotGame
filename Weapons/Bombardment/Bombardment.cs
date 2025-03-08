@@ -3,6 +3,7 @@ using System;
 
 public partial class Bombardment : Weapon
 {
+	PackedScene laser;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -10,15 +11,15 @@ public partial class Bombardment : Weapon
 		targeting=Targeting.Random;
 		stats=new Stats{
 			damage=20f,
-			count=2,
+			count=3,
 			penetrationInf=false,
 			penetration=2,
-			cooldown=5f,
+			cooldown=10f,
 			durationMult=1,
 			fireRate=1,
 			speed=200f,
 			size=5f,
-			duration=2f
+			duration=5f
 		};
 		r= 00f;
 		//GD.Print(stats.penetration);
@@ -30,7 +31,7 @@ public partial class Bombardment : Weapon
 			scene=""
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Bombardment/Projectile/Bombard.tscn");
-		
+		laser=GD.Load<PackedScene>("res://Weapons/Bombardment/Projectile/OrbitalLaser.tscn");
 		base._Ready();
 	}
 
@@ -88,24 +89,30 @@ public override void _on_timer_timeout()
 	public override void Shoot()
 	{
 		var enemies=GetTree().GetNodesInGroup("Enemy");
+		
 		if(enemies.Count>0)
-			{
-		var instance = projectile.Instantiate() as Bombard;
-		
-		instance.stats=stats;
-		
+			{GetChild<AudioStreamPlayer>(2).Play();
 		int rng1=new RandomNumberGenerator().RandiRange(0,enemies.Count-1);
 		int rng2=(rng1+10)%enemies.Count;
-		//GD.Print(instance.stats.penetration+"/"+stats.penetration);
-		//GD.Print("ShootRotate"+Rotation);
-		
 		Node2D temp1=enemies[rng1] as Node2D;
 		Node2D temp2=enemies[rng2] as Node2D;
 		var dire=temp1.GlobalPosition.AngleTo(temp2.GlobalPosition);
+		if(level<7){
+			var instance = projectile.Instantiate() as Bombard;
+		instance.stats=stats;
 		instance.spawnPos=temp1.GlobalPosition;
 		instance.spawnRot=dire;
 		instance.dir =dire;
 		main.AddChild(instance);
+		}else{
+		var orb = laser.Instantiate() as OrbitalLaser;
+		orb.stats=stats;
+		orb.spawnPos=temp1.GlobalPosition;
+		orb.spawnRot=dire;
+		orb.dir =dire;
+		main.AddChild(orb);
+		}
+		
 			}
 	}
 	

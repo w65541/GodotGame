@@ -11,14 +11,14 @@ public partial class CharacterPickTileContainer : GridContainer
 	public override void _Ready()
 	{
 		var core=GetTree().Root.GetChild<Core>(0);
-		
+		var team=GetTree().GetFirstNodeInGroup("Team") as PickedTeam;
 		Error err= character.Load("res://Configs/Characters.ini");
 		items.Load("res://Configs/Items.ini");
 		GD.Print(err);
 		var menu=GD.Load<PackedScene>("res://UI/CharacterMenu/PickPlayable/CharacterPickTile.tscn");
 		foreach(String x in character.GetSections())
 		{
-			if(!core.unlocked.Where(y=>y.name==x).First().Equals(null))
+			if(!core.unlocked.Where(y=>y.name==x).First().Equals(null) && (string)character.GetValue(x,"passive")!=team.support0 && (string)character.GetValue(x,"passive")!=team.support1 && (string)character.GetValue(x,"passive")!=team.support2)
 			{
 			GD.Print((string)character.GetValue(x, "name"));
 		var instance =menu.Instantiate() as CharacterPickTile;

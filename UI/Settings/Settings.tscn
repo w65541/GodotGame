@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://41r6mk3uf03w"]
+[gd_scene load_steps=12 format=3 uid="uid://41r6mk3uf03w"]
 
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_7cc77"]
 [ext_resource type="Script" path="res://UI/Settings/Settings.cs" id="1_a2doh"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="8_bf1qm"]
 [ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="9_1m3sx"]
 [ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="10_m0v2d"]
-[ext_resource type="AudioStream" uid="uid://dwphp3ycngtlm" path="res://MusicSfx/6- Dark Fantasy Studio- Ghost of Phobos (seamless).mp3" id="12_yh620"]
 
 [node name="Node" type="Node"]
 
@@ -382,12 +381,6 @@ offset_left = 9.0
 offset_top = 10.0
 offset_right = 209.0
 offset_bottom = 60.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_yh620")
-autoplay = true
-bus = &"BGM"
-parameters/looping = true
 
 [connection signal="value_changed" from="Settings/Audio/HSlider" to="Settings" method="musicChanged"]
 [connection signal="button_down" from="Settings/Sterowanie/GridContainer/Button" to="Settings/Sterowanie/GridContainer/Button" method="_on_button_down"]

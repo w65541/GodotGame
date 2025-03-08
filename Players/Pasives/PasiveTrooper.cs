@@ -26,21 +26,33 @@ public partial class PasiveTrooper : PasiveBasic
 		base._Ready();
 	}
 	public override void activate(){
-		int temp;
+		int temp=0;
+		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
+		player=(Player) GetTree().GetFirstNodeInGroup("Player");
+		GD.Print("StartPas");
 		switch(level){
+			case 0:
+				temp=main.levelcount/40;
+				player.stats.count+=temp;
+				GD.Print("Level 0");
+			break;
 			case 1:
 				temp=main.levelcount/30;
 				player.stats.count+=temp;
+				GD.Print("Level 1");
 			break;
 			case 2:
 				temp=main.levelcount/20;
 				player.stats.count+=temp;
+				GD.Print("Level 2");
 			break;
 			case 3:
 				temp=main.levelcount/10;
 				player.stats.count+=temp;
+				GD.Print("Level 3");
 			break;
 		}
+		GD.Print("temp="+temp);
 	}
 
     public override void opis()

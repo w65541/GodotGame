@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://de430tr7b56t4"]
+
+[ext_resource type="Script" path="res://Spawners/Axis/Y.cs" id="1_73gyt"]
+
+[node name="Y" type="Node2D"]
+script = ExtResource("1_73gyt")

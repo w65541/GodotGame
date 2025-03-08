@@ -39,7 +39,7 @@ public partial class Keybind : Button
 				changing=false;
 				Text=InputMap.ActionGetEvents(akcja)[0].AsText();
 				core.file.SetValue("Controls",akcja,Text);
-				core.file.Save("res://Configs/Save.ini");
+				core.file.Save("user://Save.ini");
 			}
 			
 			

@@ -25,7 +25,7 @@ public partial class ChunkL3 : ChunkBase
 				//int num= ((int)(Math.Abs(item.GlobalPosition.X))+(int)(Math.Abs(item.GlobalPosition.Y))+seed)%chunkNumber+1;
 				//var instance=chunks[num].Instantiate() as ChunkBase;
 				
-				instance=mid.Instantiate() as MiddleL2;//temp
+				instance=mid.Instantiate() as ChunkL3;//temp
 				
 				
 				instance.GlobalPosition=item.GlobalPosition;

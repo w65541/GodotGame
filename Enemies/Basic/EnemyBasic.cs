@@ -18,7 +18,7 @@ public Vector2 spawnPos{get;set;}
 		player=(Player) GetTree().GetFirstNodeInGroup("Player");
 		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
 		GlobalPosition=spawnPos;
-		stats=new Stats{maxHp=5f*difficulty,speed=200f,speedMove=80f};
+		stats=new Stats{maxHp=5f*difficulty,speed=230f,speedMove=80f};
 		hp=stats.maxHp;
 		//Velocity=Position.DirectionTo(player.Position)*speed;
 		//MoveAndSlide();
@@ -38,7 +38,7 @@ public void Death(){
 	main.exp+=(1+difficulty)*player.stats.expMult;
 	main.deathcount++;
 	main.activeEnemies--;
-	var rng=new RandomNumberGenerator().RandiRange(1,10);
+	var rng=new RandomNumberGenerator().RandiRange(1,100);
 	if(rng<11){
 		var instance=main.material.Instantiate<PickMaterial>();
 		rng=new RandomNumberGenerator().RandiRange(0,main.materials.Count()-1);

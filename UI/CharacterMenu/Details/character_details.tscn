@@ -336,11 +336,11 @@ offset_top = 21.0
 offset_right = 285.0
 offset_bottom = 93.0
 
-[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="_on_button_up"]
 [connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="levelupChar"]
+[connection signal="button_up" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" method="_on_button_up"]
 [connection signal="mouse_entered" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterDetails/Statbox/UpgradeLevel/CharacterButton" to="CharacterDetails/Statbox/UpgradeLevel/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]
-[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="_on_button_up"]
 [connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="levelupSkill"]
+[connection signal="button_up" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton" method="_on_button_up"]
 [connection signal="mouse_entered" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterDetails/RankUp/CharacterButton" to="CharacterDetails/RankUp/CharacterButton/TextPlay" method="_on_button_play_mouse_exited"]

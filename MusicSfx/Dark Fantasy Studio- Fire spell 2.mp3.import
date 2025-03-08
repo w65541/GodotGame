@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c101xbrsafxn2"
+path="res://.godot/imported/Dark Fantasy Studio- Fire spell 2.mp3-ab8599a5679e50c99ff4ccd11cc8207e.mp3str"
+
+[deps]
+
+source_file="res://MusicSfx/Dark Fantasy Studio- Fire spell 2.mp3"
+dest_files=["res://.godot/imported/Dark Fantasy Studio- Fire spell 2.mp3-ab8599a5679e50c99ff4ccd11cc8207e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

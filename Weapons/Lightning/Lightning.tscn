@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwkdwky26uwl5"]
+[gd_scene load_steps=3 format=3 uid="uid://dwkdwky26uwl5"]
 
 [ext_resource type="Script" path="res://Weapons/Lightning/Lightning.cs" id="1_k8jgw"]
+[ext_resource type="AudioStream" uid="uid://y20qag8grn5a" path="res://MusicSfx/Dark Fantasy Studio- Electric spell 15.mp3" id="2_slfnf"]
 
 [node name="Lightning" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_k8jgw")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_slfnf")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

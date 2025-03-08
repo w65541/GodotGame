@@ -21,6 +21,7 @@ public partial class Player : CharacterBody2D
 	public BasicLevel main;
 	public Area2D hitbox;
 	public int level=1;
+	
 public override void _Ready()
 	{
 		
@@ -43,7 +44,7 @@ public override void _Ready()
 		cooldown=5f,
 		};*/
 		//GD.Print(stats.fireRate);
-		main=(BasicLevel) GetTree().Root.GetNode("Main");
+		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
 		//GD.Print(main.Score);
 	}
 	public override void _PhysicsProcess(double delta)

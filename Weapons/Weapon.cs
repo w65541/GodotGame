@@ -27,7 +27,7 @@ public partial class Weapon: Node2D,Levelable
 		//GD.Print(stats.penetration);
 		stats=baseStats*player.stats;
 	//	GD.Print(stats.penetration);
-		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
+		Cooldown.WaitTime=stats.cooldown*stats.fireRate+0.1f;
 		Cooldown.Start();
 		closest=GetTree().GetFirstNodeInGroup("Closest") as TargetClosest;
 	}

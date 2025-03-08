@@ -7,6 +7,7 @@ public partial class BasicLevel : Node2D
 	public ConfigFile level;
 	public string name;
 	public string charatcer="";//"res://Players/Trooper/trooper.tscn";//
+	public string passive0="";
 	public string passive1="";
 	public string passive2="";
 	public levelupmenu levelupmenu;
@@ -17,7 +18,7 @@ public partial class BasicLevel : Node2D
 	public long activeEnemies=0;
 	public long enemyProjectiles=0;
 	public PackedScene material=GD.Load<PackedScene>("res://Items/Pickable/Material/material.tscn");
-	[Export] public string[] materials={"red","green","blue"};
+	[Export] public string[] materials={"red","green","blue","money"};
 	Core core;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -74,7 +75,11 @@ public partial class BasicLevel : Node2D
 			GetNode("Player").AddChild(ele.Instantiate());
 			
 		levelupmenu=GetTree().GetFirstNodeInGroup("LevelUpMenu") as levelupmenu;
-	
+
+
+			if(passive0!=""){
+			ele=GD.Load<PackedScene>(passive0);
+			GetNode("Player").AddChild(ele.Instantiate());}
 			if(passive1!=""){
 			ele=GD.Load<PackedScene>(passive1);
 			GetNode("Player").AddChild(ele.Instantiate());}
@@ -89,10 +94,10 @@ public partial class BasicLevel : Node2D
 			core.file.SetValue("Level","Level"+number,1);
 			core.file.Save("user://Save.ini");
 		}
-		GetNode<EndScreen>("Winscreen").activate();
+		GetNode<EndScreen>("Player/Winscreen").activate();
 	}
 	public void death(){
-		GetNode<EndScreen>("EndScreen").activate();
+		GetNode<EndScreen>("Player/EndScreen").activate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

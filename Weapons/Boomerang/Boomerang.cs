@@ -122,7 +122,7 @@ public partial class Boomerang : Weapon
 	{
 		GetChild<AudioStreamPlayer>(2).Play();
 		Shoot();
-		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
+		Cooldown.WaitTime=stats.cooldown*stats.fireRate+0.1f;
 		Cooldown.Start();
 	}
 }

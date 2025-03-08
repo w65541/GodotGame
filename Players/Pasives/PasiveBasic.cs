@@ -3,7 +3,7 @@ using System;
 
 public partial class PasiveBasic : Node
 {
-	public int level=1;
+	public int level=0;
 	public itemData data;
 	public Player player;
 	public BasicLevel main;

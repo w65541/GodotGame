@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://pqiyiu5ogv2e"]
+[gd_scene load_steps=4 format=3 uid="uid://pqiyiu5ogv2e"]
 
 [ext_resource type="Script" path="res://Levels/Basic/BasicLevel.cs" id="1_w52cc"]
 [ext_resource type="PackedScene" uid="uid://imy0mt808rqa" path="res://target_closest.tscn" id="2_rbwdo"]
+[ext_resource type="AudioStream" uid="uid://dwphp3ycngtlm" path="res://MusicSfx/6- Dark Fantasy Studio- Ghost of Phobos (seamless).mp3" id="3_lgkwb"]
 
 [node name="BasicLevel" type="Node2D" groups=["Main"]]
 script = ExtResource("1_w52cc")
@@ -9,8 +10,15 @@ script = ExtResource("1_w52cc")
 [node name="TargetClosest" parent="." instance=ExtResource("2_rbwdo")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 600.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_lgkwb")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

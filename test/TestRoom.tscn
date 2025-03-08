@@ -1,23 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://d08we4p6moht6"]
+[gd_scene load_steps=16 format=3 uid="uid://d08we4p6moht6"]
 
+[ext_resource type="Script" path="res://test/TestRoom.cs" id="1_5i6w6"]
 [ext_resource type="PackedScene" uid="uid://btkcr6dsloogs" path="res://Players/Knight/knight.tscn" id="1_82o74"]
+[ext_resource type="PackedScene" uid="uid://sxqll07726hy" path="res://Weapons/rpg.tscn" id="2_ce30w"]
 [ext_resource type="PackedScene" uid="uid://dg2ihf4xvgh6i" path="res://Players/Trooper/trooper.tscn" id="2_tneay"]
 [ext_resource type="PackedScene" uid="uid://dw8tluxcrjiyp" path="res://Players/Wizard/wizard.tscn" id="3_fsxn4"]
+[ext_resource type="PackedScene" uid="uid://b1eu1rf5ahesh" path="res://Weapons/Bombardment/Bombardment.tscn" id="3_k3r16"]
 [ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="4_3aqi4"]
+[ext_resource type="PackedScene" uid="uid://pr11in36oesh" path="res://Weapons/Boomerang/Boomerang.tscn" id="4_vdadv"]
+[ext_resource type="PackedScene" uid="uid://bel2c4ti4e3is" path="res://Weapons/Flamet/Flamet.tscn" id="5_fw55y"]
+[ext_resource type="PackedScene" uid="uid://ck4grntj0j37h" path="res://Weapons/Lance/Lance.tscn" id="6_6wb3e"]
+[ext_resource type="PackedScene" uid="uid://dwkdwky26uwl5" path="res://Weapons/Lightning/Lightning.tscn" id="7_jc2xx"]
+[ext_resource type="PackedScene" uid="uid://ol25fuogiyv2" path="res://Weapons/Shotgun.tscn" id="8_rhfvt"]
+[ext_resource type="PackedScene" uid="uid://dwwp3too4ogvt" path="res://Players/Pasives/PasiveTrooper.tscn" id="10_iwhtr"]
+[ext_resource type="PackedScene" uid="uid://imy0mt808rqa" path="res://target_closest.tscn" id="14_avcai"]
+[ext_resource type="PackedScene" uid="uid://dcuj3c7bb58u5" path="res://Enemies/Dummy/dummy.tscn" id="15_dhg3u"]
 
 [node name="Main" type="Node2D" groups=["Main"]]
+script = ExtResource("1_5i6w6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.05, 0.05)
+position = Vector2(212, 275)
+scale = Vector2(117.03, 131.227)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Trooper" parent="." instance=ExtResource("2_tneay")]
+position = Vector2(762, 343)
+
+[node name="PasiveTrooper" parent="Trooper" instance=ExtResource("10_iwhtr")]
 
 [node name="Knight" parent="." instance=ExtResource("1_82o74")]
 position = Vector2(38, 153)
 
-[node name="Trooper" parent="." instance=ExtResource("2_tneay")]
-position = Vector2(762, 343)
+[node name="RPG" parent="Knight" instance=ExtResource("2_ce30w")]
+
+[node name="Bombardment" parent="Knight" instance=ExtResource("3_k3r16")]
+
+[node name="Boomerang" parent="Knight" instance=ExtResource("4_vdadv")]
+
+[node name="Flamet" parent="Knight" instance=ExtResource("5_fw55y")]
+
+[node name="Lance" parent="Knight" instance=ExtResource("6_6wb3e")]
+
+[node name="Lightning" parent="Knight" instance=ExtResource("7_jc2xx")]
+
+[node name="Shotgun" parent="Knight" instance=ExtResource("8_rhfvt")]
 
 [node name="Wizard" parent="." instance=ExtResource("3_fsxn4")]
 position = Vector2(30, 463)
 
 [node name="Wall" parent="." instance=ExtResource("4_3aqi4")]
 position = Vector2(-663, 345)
+
+[node name="TargetClosest" parent="." instance=ExtResource("14_avcai")]
+
+[node name="Dummy" parent="." instance=ExtResource("15_dhg3u")]
+position = Vector2(405, 291)
