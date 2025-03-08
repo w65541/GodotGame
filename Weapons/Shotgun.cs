@@ -112,12 +112,9 @@ public partial class Shotgun : Weapon
 			break;
 		}
     }
-/*	public void _on_timer_timeout()
+	public override void _on_timer_timeout()
 	{
-		for (int i = 0; i < stats.count; i++)
-		{
-			Shoot();
-		}		
-		 
-	}*/
+		GetChild<AudioStreamPlayer>(1).Play();		
+		 base._on_timer_timeout();
+	}
 }

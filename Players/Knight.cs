@@ -29,7 +29,7 @@ public partial class Knight : Player
 		var ps=GD.Load<PackedScene>("res://Weapons/Lance/Lance.tscn");
 		AddChild(ps.Instantiate());
 		
-		main=(Main) GetTree().Root.GetNode("Main");
+//		main=(Main) GetTree().Root.GetNode("Main");
 		base._Ready();
 	}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hamvsw3axkdr"]
+[gd_scene load_steps=17 format=3 uid="uid://hamvsw3axkdr"]
 
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_21j65"]
 [ext_resource type="Script" path="res://UI/LevelSelect/LevelSelect.cs" id="1_chq02"]
@@ -7,11 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="4_6rh8l"]
 [ext_resource type="Script" path="res://UI/LevelSelect/LevelButton.cs" id="5_8wtkp"]
 [ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="5_jxrnu"]
+[ext_resource type="Texture2D" uid="uid://cfi484xjl0q0j" path="res://UI/Texures/MainMenu/Button/DisabledButton.png" id="5_x8hps"]
 [ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="6_b06ts"]
-[ext_resource type="Texture2D" uid="uid://c43n3mocql8bl" path="res://Items/Textures/brokuł.png" id="7_br5l5"]
 [ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="9_nmkig"]
+[ext_resource type="Texture2D" uid="uid://sl2o7kq1v4qj" path="res://UI/Texures/Desert.png" id="10_colys"]
 [ext_resource type="Script" path="res://UI/LevelSelect/PickedTeam.cs" id="10_qkqel"]
+[ext_resource type="Texture2D" uid="uid://dv8l2jpgvpfmn" path="res://UI/Texures/Forest.png" id="11_j3o40"]
 [ext_resource type="PackedScene" uid="uid://b62172dvb5fcp" path="res://UI/CharacterMenu/PickPlayable/CharacterPickedTile.tscn" id="11_qmdow"]
+[ext_resource type="Texture2D" uid="uid://bgqydhbr7dtbg" path="res://UI/Texures/Bridge.png" id="12_wu0lq"]
+[ext_resource type="Texture2D" uid="uid://b71dvga76bgvv" path="res://UI/Texures/Arena.png" id="13_l7p3s"]
 
 [node name="Node" type="Node"]
 
@@ -35,6 +39,7 @@ layout_mode = 2
 texture_normal = ExtResource("1_21j65")
 texture_pressed = ExtResource("2_0fv2l")
 texture_hover = ExtResource("3_1c42r")
+texture_disabled = ExtResource("5_x8hps")
 texture_focused = ExtResource("4_6rh8l")
 stretch_mode = 4
 script = ExtResource("5_8wtkp")
@@ -49,7 +54,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -134.0
 offset_top = -59.5
-offset_right = 156.0
+offset_right = 245.0
 offset_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -90,7 +95,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 116.0
 offset_bottom = 116.0
-texture = ExtResource("7_br5l5")
+texture = ExtResource("10_colys")
 
 [node name="LevelButton2" type="TextureButton" parent="LevelSelect/VBoxContainer"]
 custom_minimum_size = Vector2(524, 131)
@@ -98,6 +103,7 @@ layout_mode = 2
 texture_normal = ExtResource("1_21j65")
 texture_pressed = ExtResource("2_0fv2l")
 texture_hover = ExtResource("3_1c42r")
+texture_disabled = ExtResource("5_x8hps")
 texture_focused = ExtResource("4_6rh8l")
 stretch_mode = 4
 script = ExtResource("5_8wtkp")
@@ -153,7 +159,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 116.0
 offset_bottom = 116.0
-texture = ExtResource("7_br5l5")
+texture = ExtResource("11_j3o40")
 
 [node name="LevelButton3" type="TextureButton" parent="LevelSelect/VBoxContainer"]
 custom_minimum_size = Vector2(524, 131)
@@ -161,10 +167,11 @@ layout_mode = 2
 texture_normal = ExtResource("1_21j65")
 texture_pressed = ExtResource("2_0fv2l")
 texture_hover = ExtResource("3_1c42r")
+texture_disabled = ExtResource("5_x8hps")
 texture_focused = ExtResource("4_6rh8l")
 stretch_mode = 4
 script = ExtResource("5_8wtkp")
-name = "Level4"
+name = "Level3"
 
 [node name="Name" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton3"]
 layout_mode = 1
@@ -216,7 +223,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 116.0
 offset_bottom = 116.0
-texture = ExtResource("7_br5l5")
+texture = ExtResource("12_wu0lq")
 
 [node name="LevelButton4" type="TextureButton" parent="LevelSelect/VBoxContainer"]
 custom_minimum_size = Vector2(524, 131)
@@ -224,10 +231,11 @@ layout_mode = 2
 texture_normal = ExtResource("1_21j65")
 texture_pressed = ExtResource("2_0fv2l")
 texture_hover = ExtResource("3_1c42r")
+texture_disabled = ExtResource("5_x8hps")
 texture_focused = ExtResource("4_6rh8l")
 stretch_mode = 4
 script = ExtResource("5_8wtkp")
-name = "Level5"
+name = "Level4"
 
 [node name="Name" type="RichTextLabel" parent="LevelSelect/VBoxContainer/LevelButton4"]
 layout_mode = 1
@@ -279,7 +287,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 116.0
 offset_bottom = 116.0
-texture = ExtResource("7_br5l5")
+texture = ExtResource("13_l7p3s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect" groups=["Team"]]
 layout_mode = 0

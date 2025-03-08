@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbclcjh5s1sj"]
+
+[ext_resource type="PackedScene" uid="uid://pqiyiu5ogv2e" path="res://Levels/Basic/basic_level.tscn" id="1_gbmab"]
+[ext_resource type="PackedScene" uid="uid://be6jy4bm0blfw" path="res://Chunks/Level3/chunk_l3.tscn" id="2_jwggt"]
+
+[node name="BasicLevel" instance=ExtResource("1_gbmab")]
+
+[node name="ChunkL2" parent="." index="1" instance=ExtResource("2_jwggt")]
+
+[node name="ChunkL3" parent="." index="2" instance=ExtResource("2_jwggt")]
+position = Vector2(0, 2997)
+
+[node name="ChunkL4" parent="." index="3" instance=ExtResource("2_jwggt")]
+position = Vector2(0, -2997)

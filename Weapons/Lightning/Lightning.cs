@@ -24,7 +24,7 @@ public partial class Lightning : Weapon
 			name="Lightning",
 			level=2,
 			opis="Zwiekszenie rozmiaru o 50%",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/bolt.png",
 			scene=""
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Lightning/Projectile/Bolt.tscn");

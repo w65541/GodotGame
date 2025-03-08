@@ -1,17 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7l4jxafdnyrx"]
+[gd_scene load_steps=6 format=3 uid="uid://b7l4jxafdnyrx"]
 
 [ext_resource type="PackedScene" uid="uid://c3g61ndqrclg1" path="res://Chunks/chunk_base.tscn" id="1_gkmnm"]
 [ext_resource type="Script" path="res://Chunks/Level2/MiddleL2.cs" id="2_75mga"]
 [ext_resource type="PackedScene" uid="uid://b4s3ydge6xe74" path="res://Levels/Elements/wall.tscn" id="2_a88yj"]
+[ext_resource type="Texture2D" uid="uid://0dwpujfowvfn" path="res://Chunks/Textures/Grass.png" id="3_t6pjo"]
+[ext_resource type="Texture2D" uid="uid://dkfujq1ipxe0r" path="res://Chunks/Textures/Forest.png" id="4_tfwes"]
 
 [node name="ChunkL2" instance=ExtResource("1_gkmnm")]
 scale = Vector2(3, 3)
 script = ExtResource("2_75mga")
+chunk = "res://Chunks/Level2/chunk_l2.tscn"
+
+[node name="Sprite2D" parent="." index="2"]
+z_index = -4
+position = Vector2(5.01871e-05, 2.33336)
+scale = Vector2(1.15895, 1.16224)
+texture = ExtResource("3_t6pjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0"]
+position = Vector2(1.15, -800)
+scale = Vector2(0.845435, 0.750953)
+texture = ExtResource("4_tfwes")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" index="1"]
+position = Vector2(1.15, 800)
+rotation = 3.14159
+scale = Vector2(0.845435, 0.750953)
+texture = ExtResource("4_tfwes")
 
 [node name="Wall" parent="." index="3" instance=ExtResource("2_a88yj")]
+z_index = -5
 position = Vector2(0, 500)
 scale = Vector2(25, 1)
 
 [node name="Wall2" parent="." index="4" instance=ExtResource("2_a88yj")]
+z_index = -5
 position = Vector2(0, -500)
 scale = Vector2(25, 1)

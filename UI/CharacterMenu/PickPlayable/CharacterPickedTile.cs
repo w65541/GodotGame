@@ -43,9 +43,13 @@ public partial class CharacterPickedTile : NinePatchRect
     internal void updateLook(string name)
     {
 		GD.Print(name);
-        GetChild<TextureRect>(0).Texture=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
 		GetChild(1).GetChild<RichTextLabel>(0).Text=name;
+		if(name!="none"){
+        GetChild<TextureRect>(0).Texture=(Texture2D)GD.Load((string)character.GetValue(name,"sprite"));
 		
+		}else{
+			GetChild<TextureRect>(0).Texture=null;
+		}
     }
 
 }

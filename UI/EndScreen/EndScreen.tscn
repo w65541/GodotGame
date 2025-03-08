@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="7_74akb"]
 
 [node name="EndScreen" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +30,12 @@ patch_margin_bottom = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 32.0
-offset_right = 154.0
-offset_bottom = 57.0
+offset_left = 57.0
+offset_top = 29.0
+offset_right = 330.0
+offset_bottom = 176.0
+theme_override_fonts/normal_font = ExtResource("6_2cfu1")
+theme_override_font_sizes/normal_font_size = 51
 text = "Game Over"
 
 [node name="ButtonPlay2" type="TextureButton" parent="NinePatchRect"]
@@ -58,10 +61,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -127.0
-offset_top = -21.5
-offset_right = 127.0
-offset_bottom = 21.5
+offset_left = -78.5
+offset_top = -22.5
+offset_right = 175.5
+offset_bottom = 20.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

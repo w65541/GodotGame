@@ -44,8 +44,8 @@ offset_right = 492.0
 offset_bottom = 127.0
 grow_horizontal = 1
 Nazwa = "Obrazenia"
+Opis = "Zwieksza obrazenia o 10% co poziom"
 inCodeName = "damage"
-moneyScale = 500
 
 [node name="StatShop2" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
 layout_mode = 0
@@ -58,6 +58,7 @@ offset_right = 492.0
 offset_bottom = 235.0
 grow_horizontal = 1
 Nazwa = "Szybkosc poruszania"
+Opis = "Zwieksza szybkosc poruszania  o 10% co poziom"
 inCodeName = "movespeed"
 
 [node name="StatShop3" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -71,6 +72,7 @@ offset_right = 492.0
 offset_bottom = 343.0
 grow_horizontal = 1
 Nazwa = "Zycie"
+Opis = "Zwieksza ilosc zycia o 10% co poziom"
 inCodeName = "hp"
 
 [node name="StatShop4" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -84,6 +86,7 @@ offset_right = 492.0
 offset_bottom = 451.0
 grow_horizontal = 1
 Nazwa = "Exp"
+Opis = "Zwieksza zdobywane doswiadczenie o 10% co poziom"
 inCodeName = "expboost"
 
 [node name="StatShop5" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -97,6 +100,7 @@ offset_right = 926.0
 offset_bottom = 127.0
 grow_horizontal = 1
 Nazwa = "Obrona"
+Opis = "Zwieksza obrone o 10% co poziom"
 inCodeName = "defense"
 
 [node name="StatShop6" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -110,6 +114,7 @@ offset_right = 926.0
 offset_bottom = 235.0
 grow_horizontal = 1
 Nazwa = "Szybkosc strzelania"
+Opis = "Zwieksza szybkosc strzelania o 5% co poziom"
 inCodeName = "firerate"
 
 [node name="StatShop7" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -123,6 +128,7 @@ offset_right = 926.0
 offset_bottom = 343.0
 grow_horizontal = 1
 Nazwa = "Czas trwania"
+Opis = "Zwieksza czas trwania broni o 10% co poziom"
 inCodeName = "duration"
 
 [node name="StatShop8" parent="Shop/StatsTab" instance=ExtResource("2_5ullf")]
@@ -136,6 +142,7 @@ offset_right = 926.0
 offset_bottom = 451.0
 grow_horizontal = 1
 Nazwa = "Gold"
+Opis = "Zwieksza zdobywane zloto o 10% co poziom"
 inCodeName = "goldboost"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Shop"]

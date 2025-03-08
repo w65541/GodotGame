@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+
 public partial class Core : Node
 {
 	public ConfigFile file=new ConfigFile();
@@ -9,13 +10,22 @@ public partial class Core : Node
 	public List<characterStatus> locked=new List<characterStatus>();
 	public List<material> inventory=new List<material>();
 	public Dictionary<string,int> shopStatus=new Dictionary<string,int>();
+	public int maxenemy=100,difficulty=1;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		file.Load("res://Configs/Save.ini");
+		
+		var err=	file.Load("user://Save.ini");
+		if(err!=Error.Ok){
+			GD.Print(err);
+			var newsave=new ConfigFile();
+			newsave.Load("res://Configs/Save.ini");
+			file=newsave;
+			file.Save("user://Save.ini");
+		}
 		foreach (var key in file.GetSectionKeys("Characters"))
 		{
-			string temp=(String)file.GetValue("Characters",key);
+			string temp=(String)file.GetValue("Characters",key); //unlocked:level:passive
 			var tem=temp.Split(":");
 			if(int.Parse(tem[0])==1){
 				unlocked.Add(new characterStatus{name=key,unlocked=int.Parse(tem[0]),level=int.Parse(tem[1]),skill=int.Parse(tem[2])});
@@ -41,6 +51,19 @@ public partial class Core : Node
 			input.Keycode=OS.FindKeycodeFromString(temp);
 					InputMap.ActionAddEvent(key,input);
 		} ;
+		float volume=(float) file.GetValue("Audio","bgm");
+		AudioServer.SetBusVolumeDb(1,volume);
+		volume=(float) file.GetValue("Audio","sfx");
+		AudioServer.SetBusVolumeDb(2,volume);
+		
+			
+			
+			
+		
+		
+	}
+	public void reloadSave(){
+		
 	}
 	public void updateChar(string name,int unl=1,int level=1,int skill=1)
 	{

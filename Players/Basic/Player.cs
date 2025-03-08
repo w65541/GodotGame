@@ -18,8 +18,9 @@ public partial class Player : CharacterBody2D
 	public Timer DodgeCooldown;
 	 public Stats baseStats;
 	 public Stats stats,shop;
-	public Main main;
+	public BasicLevel main;
 	public Area2D hitbox;
+	public int level=1;
 public override void _Ready()
 	{
 		
@@ -42,7 +43,7 @@ public override void _Ready()
 		cooldown=5f,
 		};*/
 		//GD.Print(stats.fireRate);
-		//main=(Main) GetTree().Root.GetNode("Main");
+		main=(BasicLevel) GetTree().Root.GetNode("Main");
 		//GD.Print(main.Score);
 	}
 	public override void _PhysicsProcess(double delta)
@@ -86,13 +87,14 @@ public override void _Ready()
 
 	private void Death()
 	{
+		main.death();
 	   // QueueFree();
 	}
 	public void ResetDodge(){
 		dodge=true;
 	}
 	int touchCounter=0;
-	float basicEnemydameg=0.01f;
+	float basicEnemydameg=0.1f;
 	public void _on_area_2d_body_entered(Node2D node)
 	{
 		
@@ -139,10 +141,7 @@ public override void _Ready()
 		var items=GetTree().GetNodesInGroup("Items"); 
 		var weapons=GetTree().GetNodesInGroup("Weapons"); 
 		var pasives=GetTree().GetNodesInGroup("Pasives"); 
-		foreach (PasiveBasic item in items.Cast<PasiveBasic>())
-		{
-			item.activate();
-		}
+		
 		foreach (BasicItem item in items.Cast<BasicItem>())
 		{
 			stats*=item.stats;
@@ -151,7 +150,14 @@ public override void _Ready()
 		{
 			item.updateStats();
 		}
+		foreach (PasiveBasic item in pasives.Cast<PasiveBasic>())
+		{
+			item.activate();
+		}
 		Speed=stats.speed*stats.speedMult;
 		hp=stats.maxHp*perhp;
+	}
+	public virtual void setLeveledStats(){
+		
 	}
 }

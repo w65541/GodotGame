@@ -33,7 +33,7 @@ public partial class RPG : Weapon
 			name="Rpg",
 			level=2,
 			opis="afdgsdg",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/Rakieta.png",
 			scene="res://Weapons/rpg.tscn"
 		};
 		base._Ready();

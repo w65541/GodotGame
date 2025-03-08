@@ -24,7 +24,7 @@ public partial class UiBasic : Control
 		explabel=GetChild<RichTextLabel>(9);
 		updateItems();
 	}
-
+	long prev=0;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -38,6 +38,10 @@ public partial class UiBasic : Control
 		}else{
 			dodge.Color=Color.Color8(0,0,0);
 		}
+		if(prev<main.deathcount && specialbar.Value<100){
+			specialbar.Value+=main.deathcount-prev;
+			}
+			prev=main.deathcount;
 	}
 
 	public void updateItems(){

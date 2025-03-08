@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8l1v1m03usa8"]
+
+[ext_resource type="Script" path="res://Items/Pasives/Mleko.cs" id="1_x5hxv"]
+
+[node name="Mleko" type="Node2D" groups=["Items"]]
+script = ExtResource("1_x5hxv")

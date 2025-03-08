@@ -22,14 +22,23 @@ public partial class trooper : Player
 		updateStats();
 
 		GD.Print(stats.damageMult);
-		var ps=GD.Load<PackedScene>("res://Weapons/Bombardment/Bombardment.tscn");//("res://Weapons/rpg.tscn");//GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
+		var ps=GD.Load<PackedScene>("res://Weapons/Shotgun.tscn");
 		AddChild(ps.Instantiate());
 		specialObject=GD.Load<PackedScene>("res://Weapons/Special/explosion.tscn");
 		specialReady=true;
 		//main=(Main) GetTree().Root.GetNode("Main");
 		base._Ready();
 	}
-
+	public override void setLeveledStats(){
+		stats=new Stats{
+		maxHp=100.0f,
+		speed=500f,
+		speedMove=500f,
+		cooldown=5f,
+		penetration=0
+		};
+		baseStats=stats;
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 		

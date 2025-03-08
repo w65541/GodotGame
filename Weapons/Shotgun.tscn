@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ol25fuogiyv2"]
+[gd_scene load_steps=3 format=3 uid="uid://ol25fuogiyv2"]
 
 [ext_resource type="Script" path="res://Weapons/Shotgun.cs" id="1_n8fyn"]
+[ext_resource type="AudioStream" uid="uid://bfu1kd3cf00ih" path="res://MusicSfx/Dark Fantasy Studio-Combined-lightgun-7.mp3" id="2_4aqb1"]
 
 [node name="Shotgun" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_n8fyn")
@@ -9,5 +10,9 @@ script = ExtResource("1_n8fyn")
 process_callback = 0
 wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4aqb1")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -20,6 +20,8 @@ public partial class Wizard : Player
 		};
 		baseStats=stats;
 		sprite=GetChild<Sprite2D>(2);
+		var ps=GD.Load<PackedScene>("res://Weapons/Lightning/Lightning.tscn");
+		AddChild(ps.Instantiate());
 		base._Ready();
 	}
 

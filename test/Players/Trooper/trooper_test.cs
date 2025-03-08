@@ -13,15 +13,11 @@ namespace GdUnitDefaultTestNamespace
 		// TestSuite generated from
 		private const string sourceClazzPath = "C:/Users/Filip/Documents/Godot/Players/Trooper/trooper.cs";
 		[TestCase]
-		public void _PhysicsProcess()
+		public void PassiveTest()
 		{
 			AssertString("AbcD".ToLower()).IsEqual("abcd");
 		}
 
-		[TestCase]
-		public void CooldownSpecial()
-		{
-			AssertNotYetImplemented();
-		}
+		
 	}
 }

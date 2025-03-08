@@ -6,6 +6,7 @@ public partial class Broc : BasicItem
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		op=30;
 		data=new itemData{
 			name="Brokuł",
 			level=2,
@@ -49,5 +50,7 @@ public partial class Broc : BasicItem
 			break;
 		}
 		player.updateStats();
+		op+=10;
+		data.opis="Zwiększa obrazenia o "+op+"%";
     }
 }

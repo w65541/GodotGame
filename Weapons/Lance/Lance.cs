@@ -30,7 +30,7 @@ public partial class Lance : Weapon
 			name="Lanca",
 			level=2,
 			opis="Zmniejsza przerwe ataku do 3s",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/lanca.png",
 			scene=""
 		};
 		base._Ready();

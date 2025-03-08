@@ -50,7 +50,7 @@ public partial class charger : EnemyBasic
 		//GD.Print("ENTER "+bullet.Name+" "+bullet.GetType());
 		if(bullet.GetType().IsAssignableTo(new Player().GetType()) && readyToCharge)
 		{
-			player.hp-=stats.damage;
+			player.hp-=(stats.damage-player.stats.defense);
 			//hp-=x.damage;
 			GD.Print("Hit player"+hp);
 			readyToCharge=false;

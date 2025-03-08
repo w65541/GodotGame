@@ -27,7 +27,7 @@ public partial class Flamet : Weapon
 			name="Flamer",
 			level=2,
 			opis="Zwieksza czas pocisku o 1s",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/flamer.png",
 			scene=""
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Flamet/Projectile/Flame.tscn");

@@ -26,7 +26,7 @@ public partial class Bombardment : Weapon
 			name="Bombardment",
 			level=2,
 			opis="Zwieksza ilosc wybuchow o 2",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/bomb.png",
 			scene=""
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Bombardment/Projectile/Bombard.tscn");

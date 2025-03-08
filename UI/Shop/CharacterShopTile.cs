@@ -12,7 +12,7 @@ public partial class CharacterShopTile : NinePatchRect
 	{
 		buton=GetChild<TextureButton>(2);
 		core=GetTree().Root.GetChild<Core>(0);
-		buton.GetChild<RichTextLabel>(1).Text=""+cost;
+		buton.GetChild<RichTextLabel>(0).Text=""+cost;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

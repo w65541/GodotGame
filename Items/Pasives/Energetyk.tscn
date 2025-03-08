@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://j1dnrarkihpy"]
+
+[ext_resource type="Script" path="res://Items/Pasives/Energetyk.cs" id="1_ra72r"]
+
+[node name="Lax" type="Node2D" groups=["Items"]]
+script = ExtResource("1_ra72r")

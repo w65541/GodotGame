@@ -27,7 +27,7 @@ public partial class Boomerang : Weapon
 			name="Boomerang",
 			level=2,
 			opis="Zwieksza rozmiar o 20%",
-			sprite="res://Items/Textures/Shotgun.png",
+			sprite="res://Items/Textures/rang.png",
 			scene=""
 		};
 		projectile=GD.Load<PackedScene>("res://Weapons/Boomerang/Projectile/Rang.tscn");
@@ -120,6 +120,7 @@ public partial class Boomerang : Weapon
 	}
 	public override void _on_timer_timeout()
 	{
+		GetChild<AudioStreamPlayer>(2).Play();
 		Shoot();
 		Cooldown.WaitTime=stats.cooldown*stats.fireRate;
 		Cooldown.Start();

@@ -1,13 +1,14 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class BasicLevel : Node2D
 {
 	public ConfigFile level;
 	public string name;
 	public string charatcer="";//"res://Players/Trooper/trooper.tscn";//
-	public string passive1;
-	public string passive2;
+	public string passive1="";
+	public string passive2="";
 	public levelupmenu levelupmenu;
 	public float exp=0f;
 	public int levelcount=1;
@@ -17,9 +18,11 @@ public partial class BasicLevel : Node2D
 	public long enemyProjectiles=0;
 	public PackedScene material=GD.Load<PackedScene>("res://Items/Pickable/Material/material.tscn");
 	[Export] public string[] materials={"red","green","blue"};
+	Core core;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		var core=GetTree().Root.GetChild<Core>(0);
 		GD.Print(level.GetSectionKeys(name));
 		//level.Load("res://Configs/Levels.ini");
 		if(charatcer.Equals("")) charatcer="res://Players/Trooper/trooper.tscn";
@@ -39,10 +42,6 @@ public partial class BasicLevel : Node2D
 			GetNode("Player").AddChild(ele.Instantiate());
 			}
 			
-
-			/*x=(String)level.GetValue(name,"bossspawner");
-			ele=GD.Load<PackedScene>(x);
-			GetNode("Player").AddChild(ele.Instantiate());*/
 
 			x=(String)level.GetValue(name,"camera");
 			ele=GD.Load<PackedScene>(x);
@@ -67,20 +66,33 @@ public partial class BasicLevel : Node2D
 			x=(String)level.GetValue(name,"gameoverMenu");
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
-
+			x=(String)level.GetValue(name,"winMenu");
+			ele=GD.Load<PackedScene>(x);
+			GetNode("Player").AddChild(ele.Instantiate());
 			x=(String)level.GetValue(name,"ui");
 			ele=GD.Load<PackedScene>(x);
 			GetNode("Player").AddChild(ele.Instantiate());
-		
-			if(!passive1.Equals("")){
+			
+		levelupmenu=GetTree().GetFirstNodeInGroup("LevelUpMenu") as levelupmenu;
+	
+			if(passive1!=""){
 			ele=GD.Load<PackedScene>(passive1);
 			GetNode("Player").AddChild(ele.Instantiate());}
-			if(!passive2.Equals("")){
+			if(passive2!=""){
 			ele=GD.Load<PackedScene>(passive2);
 			GetNode("Player").AddChild(ele.Instantiate());}
 
-		levelupmenu=GetNode<levelupmenu>("Player/LevelUpMenu");
-		GD.Print(GetTree().Root.GetTreeStringPretty());
+	}
+	public  void _on_timer_timeout(){
+		int number=name.Last()+1;
+		if(number<5){
+			core.file.SetValue("Level","Level"+number,1);
+			core.file.Save("user://Save.ini");
+		}
+		GetNode<EndScreen>("Winscreen").activate();
+	}
+	public void death(){
+		GetNode<EndScreen>("EndScreen").activate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,10 +107,12 @@ public partial class BasicLevel : Node2D
 			levelupmenu.rollLevelUp();
 		}
 		//
+		 /*
 		if (Input.IsActionJustPressed("ui_focus_next"))
 		{
 			levelupmenu.Visible=true;
 			levelupmenu.rollLevelUp();
 		}
+		*/
 	}
 }

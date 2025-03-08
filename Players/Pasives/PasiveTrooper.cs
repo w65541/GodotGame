@@ -3,9 +3,6 @@ using System;
 
 public partial class PasiveTrooper : PasiveBasic
 {
-    public PasiveTrooper(int x) : base(x)
-    {
-    }
 
     public override void _Ready()
 	{
@@ -13,6 +10,9 @@ public partial class PasiveTrooper : PasiveBasic
 			name="Pas amunicji"
 		};
 		switch(level){
+			case 0:
+				data.opis="Zwieksza ilosc pociskow co 40 poziomow";
+			break;
 			case 1:
 				data.opis="Zwieksza ilosc pociskow co 30 poziomow";
 			break;
@@ -42,4 +42,26 @@ public partial class PasiveTrooper : PasiveBasic
 			break;
 		}
 	}
+
+    public override void opis()
+    {
+		data=new itemData{
+			name="Pas amunicji"
+		};
+		switch(level){
+			case 0:
+				data.opis="Zwieksza ilosc pociskow co 40 poziomow";
+			break;
+			case 1:
+				data.opis="Zwieksza ilosc pociskow co 30 poziomow";
+			break;
+			case 2:
+				data.opis="Zwieksza ilosc pociskow co 20 poziomow";
+			break;
+			case 3:
+				data.opis="Zwieksza ilosc pociskow co 10 poziomow";
+			break;
+		}
+    }
+
 }

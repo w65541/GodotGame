@@ -5,9 +5,11 @@ public partial class Keybind : Button
 {
 	[Export] public string akcja;
 	public bool changing=false;
+	Core core;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		core=GetTree().Root.GetChild<Core>(0);
 		Text=InputMap.ActionGetEvents(akcja)[0].AsText();
 	}
 
@@ -36,6 +38,8 @@ public partial class Keybind : Button
 				}
 				changing=false;
 				Text=InputMap.ActionGetEvents(akcja)[0].AsText();
+				core.file.SetValue("Controls",akcja,Text);
+				core.file.Save("res://Configs/Save.ini");
 			}
 			
 			

@@ -47,12 +47,14 @@ folder_colors={
 settings/common/update_notification_enabled=false
 settings/test/test_discovery=true
 report/verbose_orphans=false
+ui/toolbar/run_overall=true
 
 [global_group]
 
 Weapons=""
 LevelUpMenu=""
 Pasives=""
+Items=""
 
 [input]
 

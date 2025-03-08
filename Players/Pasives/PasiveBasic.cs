@@ -7,14 +7,13 @@ public partial class PasiveBasic : Node
 	public itemData data;
 	public Player player;
 	public BasicLevel main;
-	public PasiveBasic(int x){
-		level=x;
-	}
+	
 	public override void _Ready()
 	{
 		player=(Player) GetTree().GetFirstNodeInGroup("Player");
 		main=(BasicLevel) GetTree().GetFirstNodeInGroup("Main");
+		opis();
 	}
 	public virtual void activate(){}
-
+	public virtual void opis(){}
 }

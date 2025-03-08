@@ -7,7 +7,7 @@ public partial class StatShop : NinePatchRect
 	[Export] public string Opis;
 	[Export] public string inCodeName;
 	[Export] public string Sprite;
-	[Export] public int moneyScale;
+	[Export] public int moneyScale=500;
 
 	RichTextLabel LabelOpis;
 	RichTextLabel minusKasa;
@@ -26,12 +26,12 @@ public partial class StatShop : NinePatchRect
 		level=core.shopStatus[inCodeName];
 		plus=GetChild<TextureButton>(1);
 		minus=GetChild<TextureButton>(2);
-
+		LabelOpis.Text=Opis;
 		updateCost();
 	}
 	public void updateCost(){
 		refund=level*moneyScale;
-		
+		GetChild(0).GetChild<TextureRect>(0).Texture=(Texture2D) GD.Load("res://UI/Texures/InGame/ItemLevel/level"+(level)+".png");
 		if(level==0) {
 			GD.Print("disable-");
 			minus.Disabled=true;

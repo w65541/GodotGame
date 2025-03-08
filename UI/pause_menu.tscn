@@ -23,101 +23,25 @@ script = ExtResource("1_txm11")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = -190.0
-offset_top = -281.0
-offset_right = 181.0
-offset_bottom = 302.0
+offset_left = -193.0
+offset_top = -65.0
+offset_right = 178.0
+offset_bottom = 66.0
 texture = ExtResource("1_5r47g")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="ButtonPlay2" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -337.0
-offset_top = 107.0
-offset_right = -45.0
-offset_bottom = 182.0
-grow_horizontal = 0
-texture_normal = ExtResource("1_5r47g")
-texture_pressed = ExtResource("2_t003w")
-texture_hover = ExtResource("3_46w8n")
-texture_focused = ExtResource("4_bukv1")
-stretch_mode = 4
-
-[node name="TextPlay" type="RichTextLabel" parent="NinePatchRect/ButtonPlay2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -127.0
-offset_top = -21.5
-offset_right = 127.0
-offset_bottom = 21.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_bkfpp")
-theme_override_font_sizes/normal_font_size = 35
-text = "opcje"
-fit_content = true
-scroll_active = false
-script = ExtResource("6_3t5ra")
-
-[node name="ButtonPlay3" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -338.0
-offset_top = 205.0
-offset_right = -46.0
-offset_bottom = 280.0
-grow_horizontal = 0
-texture_normal = ExtResource("1_5r47g")
-texture_pressed = ExtResource("2_t003w")
-texture_hover = ExtResource("3_46w8n")
-texture_focused = ExtResource("4_bukv1")
-stretch_mode = 4
-
-[node name="TextPlay" type="RichTextLabel" parent="NinePatchRect/ButtonPlay3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -127.0
-offset_top = -21.5
-offset_right = 127.0
-offset_bottom = 21.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("5_bkfpp")
-theme_override_font_sizes/normal_font_size = 35
-text = "test"
-fit_content = true
-scroll_active = false
-script = ExtResource("6_3t5ra")
-
 [node name="ButtonPlay4" type="TextureButton" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -337.0
-offset_top = 316.0
-offset_right = -45.0
-offset_bottom = 391.0
+offset_left = -328.0
+offset_top = 32.0
+offset_right = -36.0
+offset_bottom = 107.0
 grow_horizontal = 0
 texture_normal = ExtResource("1_5r47g")
 texture_pressed = ExtResource("2_t003w")
@@ -147,9 +71,5 @@ fit_content = true
 scroll_active = false
 script = ExtResource("6_3t5ra")
 
-[connection signal="mouse_entered" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_entered"]
-[connection signal="mouse_exited" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_exited"]
-[connection signal="mouse_entered" from="NinePatchRect/ButtonPlay3" to="NinePatchRect/ButtonPlay3/TextPlay" method="_on_button_play_mouse_entered"]
-[connection signal="mouse_exited" from="NinePatchRect/ButtonPlay3" to="NinePatchRect/ButtonPlay3/TextPlay" method="_on_button_play_mouse_exited"]
 [connection signal="mouse_entered" from="NinePatchRect/ButtonPlay4" to="NinePatchRect/ButtonPlay4/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="NinePatchRect/ButtonPlay4" to="NinePatchRect/ButtonPlay4/TextPlay" method="_on_button_play_mouse_exited"]

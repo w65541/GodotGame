@@ -15,6 +15,7 @@ script = ExtResource("1_q17x7")
 shape = SubResource("RectangleShape2D_s1bdm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_hlfce")
 
 [node name="Timer" type="Timer" parent="."]

@@ -3,14 +3,14 @@ using System;
 
 public partial class MiddleL2 : ChunkBase
 {
-	public PackedScene up,down,mid,walled;
+	public PackedScene mid;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		up=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
-		down=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
+		//up=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
+		//down=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
 		mid=GD.Load<PackedScene>("res://Chunks/Level2/chunk_l2.tscn");//temp
-		walled=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
+		//walled=GD.Load<PackedScene>("res://Chunks/chunk_base.tscn");//temp
 		base._Ready();
 	}
 

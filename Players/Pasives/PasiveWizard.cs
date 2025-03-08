@@ -3,9 +3,7 @@ using System;
 
 public partial class PasiveWizard : PasiveBasic
 {
-	public PasiveWizard(int x) : base(x)
-    {
-    }
+	
 
     public override void _Ready()
 	{

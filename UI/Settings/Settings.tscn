@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://41r6mk3uf03w"]
+[gd_scene load_steps=13 format=3 uid="uid://41r6mk3uf03w"]
 
 [ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="1_7cc77"]
 [ext_resource type="Script" path="res://UI/Settings/Settings.cs" id="1_a2doh"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="8_bf1qm"]
 [ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="9_1m3sx"]
 [ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="10_m0v2d"]
+[ext_resource type="AudioStream" uid="uid://dwphp3ycngtlm" path="res://MusicSfx/6- Dark Fantasy Studio- Ghost of Phobos (seamless).mp3" id="12_yh620"]
 
 [node name="Node" type="Node"]
 
@@ -64,12 +65,11 @@ tick_count = 11
 ticks_on_borders = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Audio/HSlider"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -4.0
 offset_top = -20.0
 offset_right = 296.0
-offset_bottom = 30.0
+offset_bottom = -3.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "Muzyka
@@ -93,12 +93,11 @@ tick_count = 11
 ticks_on_borders = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Audio/HSlider2"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -4.0
 offset_top = -20.0
-offset_right = 296.0
-offset_bottom = 30.0
+offset_right = 290.0
+offset_bottom = -1.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "Dzwieki"
@@ -134,12 +133,11 @@ script = ExtResource("3_a5okm")
 akcja = "ui_up"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Sterowanie/GridContainer/Button"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -169.0
 offset_top = 2.0
-offset_right = 131.0
-offset_bottom = 52.0
+offset_right = -31.0
+offset_bottom = 28.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "Gora
@@ -156,12 +154,11 @@ script = ExtResource("3_a5okm")
 akcja = "ui_down"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Sterowanie/GridContainer/Button2"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -169.0
 offset_top = 2.0
-offset_right = 131.0
-offset_bottom = 52.0
+offset_right = -28.0
+offset_bottom = 26.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "dol
@@ -178,12 +175,11 @@ script = ExtResource("3_a5okm")
 akcja = "ui_right"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Sterowanie/GridContainer/Button3"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -169.0
 offset_top = 2.0
-offset_right = 131.0
-offset_bottom = 52.0
+offset_right = -23.0
+offset_bottom = 30.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "prawo
@@ -200,11 +196,10 @@ script = ExtResource("3_a5okm")
 akcja = "ui_left"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Sterowanie/GridContainer/Button4"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -169.0
 offset_top = 2.0
-offset_right = 131.0
+offset_right = -14.0
 offset_bottom = 52.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
@@ -222,12 +217,11 @@ script = ExtResource("3_a5okm")
 akcja = "ui_select"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Sterowanie/GridContainer/Button5"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -169.0
 offset_top = 2.0
-offset_right = 131.0
-offset_bottom = 52.0
+offset_right = -26.0
+offset_bottom = 28.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 text = "Unik
@@ -310,11 +304,10 @@ value = 1.0
 rounded = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Gameplay/GridContainer/SpinBox"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -158.0
 offset_top = -8.0
-offset_right = 142.0
+offset_right = -12.0
 offset_bottom = 42.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
@@ -331,11 +324,10 @@ value = 1.0
 rounded = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Settings/Gameplay/GridContainer/SpinBox2"]
-custom_minimum_size = Vector2(300, 50)
 layout_mode = 0
 offset_left = -158.0
 offset_top = -8.0
-offset_right = 142.0
+offset_right = -8.0
 offset_bottom = 42.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
@@ -380,7 +372,7 @@ mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_f565i")
 theme_override_font_sizes/normal_font_size = 25
-text = "Zapisz"
+text = "RESET"
 fit_content = true
 scroll_active = false
 script = ExtResource("10_m0v2d")
@@ -391,6 +383,13 @@ offset_top = 10.0
 offset_right = 209.0
 offset_bottom = 60.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_yh620")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true
+
+[connection signal="value_changed" from="Settings/Audio/HSlider" to="Settings" method="musicChanged"]
 [connection signal="button_down" from="Settings/Sterowanie/GridContainer/Button" to="Settings/Sterowanie/GridContainer/Button" method="_on_button_down"]
 [connection signal="gui_input" from="Settings/Sterowanie/GridContainer/Button" to="Settings/Sterowanie/GridContainer/Button" method="_on_gui_input"]
 [connection signal="button_down" from="Settings/Sterowanie/GridContainer/Button2" to="Settings/Sterowanie/GridContainer/Button2" method="_on_button_down"]
@@ -403,6 +402,8 @@ offset_bottom = 60.0
 [connection signal="gui_input" from="Settings/Sterowanie/GridContainer/Button5" to="Settings/Sterowanie/GridContainer/Button5" method="_on_gui_input"]
 [connection signal="button_down" from="Settings/Sterowanie/GridContainer/Button6" to="Settings/Sterowanie/GridContainer/Button6" method="_on_button_down"]
 [connection signal="gui_input" from="Settings/Sterowanie/GridContainer/Button6" to="Settings/Sterowanie/GridContainer/Button6" method="_on_gui_input"]
+[connection signal="value_changed" from="Settings/Gameplay/GridContainer/SpinBox" to="Settings" method="maxenemy"]
+[connection signal="value_changed" from="Settings/Gameplay/GridContainer/SpinBox2" to="Settings" method="diff"]
 [connection signal="button_up" from="Settings/ButtonPlay5" to="Settings" method="_on_button_play_5_button_up"]
 [connection signal="mouse_entered" from="Settings/ButtonPlay5" to="Settings/ButtonPlay5/TextPlay" method="_on_button_play_mouse_entered"]
 [connection signal="mouse_exited" from="Settings/ButtonPlay5" to="Settings/ButtonPlay5/TextPlay" method="_on_button_play_mouse_exited"]

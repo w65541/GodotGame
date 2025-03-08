@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8nyh0j7xc3qt"]
+
+[ext_resource type="Script" path="res://Items/Pasives/Itemhpmult.cs" id="1_um25y"]
+
+[node name="Node2D" type="Node2D" groups=["Items"]]
+script = ExtResource("1_um25y")

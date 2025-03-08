@@ -19,7 +19,7 @@ namespace GdUnitDefaultTestNamespace
 			ISceneRunner runner = ISceneRunner.Load("res://test/TestRoom.tscn");
 			Knight k= runner.FindChild("Knight") as Knight;
 			k.horseOn();
-			AssertThat(k.horse).IsFalse();
+			AssertThat(k.horse).IsTrue();
 
 			await Task.Delay(3100);
 			AssertThat(k.horse).IsFalse();

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv1xspoj3nbtl"]
+[gd_scene load_steps=4 format=3 uid="uid://dv1xspoj3nbtl"]
 
 [ext_resource type="Script" path="res://UI/CharacterMenu/PickPlayable/CharacterPickTileContainer.cs" id="1_abm77"]
+[ext_resource type="PackedScene" uid="uid://cbtfd0a1s436t" path="res://UI/CharacterMenu/PickPlayable/CharacterPickNullTile.tscn" id="2_61og6"]
 [ext_resource type="PackedScene" uid="uid://c1rd33id3t5wo" path="res://UI/BackButton/BackButton.tscn" id="3_qryy1"]
 
 [node name="Node" type="Node"]
@@ -25,6 +26,9 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 script = ExtResource("1_abm77")
+
+[node name="CharacterMenuTile" parent="CharacterCollectionMenu/CharacterTileContainer" instance=ExtResource("2_61og6")]
+layout_mode = 2
 
 [node name="BackButton" parent="." instance=ExtResource("3_qryy1")]
 offset_right = 200.0

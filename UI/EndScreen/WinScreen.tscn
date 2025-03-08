@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cea1rjrodei6j"]
+
+[ext_resource type="Script" path="res://UI/EndScreen/EndScreen.cs" id="1_vs2l3"]
+[ext_resource type="Texture2D" uid="uid://clefi4w27bvht" path="res://UI/Texures/MainMenu/Button/MenuButtonNormal.png" id="2_yxrek"]
+[ext_resource type="FontFile" uid="uid://bg35fbg3l7ipt" path="res://UI/Fonts/venus rising rg.otf" id="3_5juwo"]
+[ext_resource type="Texture2D" uid="uid://fjglbcef66i8" path="res://UI/Texures/MainMenu/Button/MenuButtonPressed.png" id="4_0cl51"]
+[ext_resource type="Texture2D" uid="uid://c8efpycqv3mcd" path="res://UI/Texures/MainMenu/Button/MenuButtonHover.png" id="5_wbpqo"]
+[ext_resource type="Texture2D" uid="uid://cyt835e741er8" path="res://UI/Texures/MainMenu/PlayButton/MenuButtonFocused.png" id="6_515cp"]
+[ext_resource type="Script" path="res://UI/MainMenu/TextPlay.cs" id="7_gk2ir"]
+
+[node name="Winscreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vs2l3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 364.0
+offset_bottom = 172.0
+texture = ExtResource("2_yxrek")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 404.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("3_5juwo")
+theme_override_font_sizes/normal_font_size = 42
+text = "Wygrana"
+
+[node name="ButtonPlay2" type="TextureButton" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_top = 87.0
+offset_right = -67.0
+offset_bottom = 148.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_yxrek")
+texture_pressed = ExtResource("4_0cl51")
+texture_hover = ExtResource("5_wbpqo")
+texture_focused = ExtResource("6_515cp")
+stretch_mode = 4
+
+[node name="TextPlay" type="RichTextLabel" parent="NinePatchRect/ButtonPlay2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -22.5
+offset_right = 175.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_5juwo")
+theme_override_font_sizes/normal_font_size = 35
+text = "Menu"
+fit_content = true
+scroll_active = false
+script = ExtResource("7_gk2ir")
+
+[connection signal="button_up" from="NinePatchRect/ButtonPlay2" to="." method="backToMenu"]
+[connection signal="mouse_entered" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_entered"]
+[connection signal="mouse_exited" from="NinePatchRect/ButtonPlay2" to="NinePatchRect/ButtonPlay2/TextPlay" method="_on_button_play_mouse_exited"]

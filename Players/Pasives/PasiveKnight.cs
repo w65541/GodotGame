@@ -3,9 +3,6 @@ using System;
 
 public partial class PasiveKnight : PasiveBasic
 {
-	public PasiveKnight(int x) : base(x)
-    {
-    }
 
     public override void _Ready()
 	{

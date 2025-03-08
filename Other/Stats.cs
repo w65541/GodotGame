@@ -52,4 +52,17 @@ public struct Stats
             hpMult=s1.hpMult*s2.hpMult
         };
     }
+
+    public  string wypisz(){
+        var x="Zycie: "+maxHp+"\n"
+        +"Obrona: "+defense+"\n"
+        +"Szybkosc poruszania: "+((speedMult-1)*100)+"%\n"
+        +"Obrazenia: "+((damageMult-1)*100)+"%\n"
+        +"Wielkosc: "+((size-1)*100)+"%\n"
+        +"Szybkosc pocisku: "+((speedProjectileMult-1)*100)+"%\n"
+        +"Ilosc: "+count+"\n"
+        +"Czas trwaniia: "+((durationMult-1)*100)+"%\n"
+        +"Szybkostrzelnosc: "+((fireRate-1)*100)+"%\n";
+        return x;
+    }
 }

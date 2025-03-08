@@ -29,7 +29,7 @@ public partial class TargetClosest : Node2D
 			}
 			}
 			enemy=close as EnemyBasic;
-			enemy.Modulate=Color.Color8(0,0,0);
+			//enemy.Modulate=Color.Color8(0,0,0);
 			position=close.GlobalPosition;
 			rotate=player.Position.AngleToPoint(close.GlobalPosition);//+Vector2.Down.Angle();
 			//GD.Print("Updated closest "+rotate+" "+position.X);
