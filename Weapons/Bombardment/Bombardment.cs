@@ -91,7 +91,7 @@ public override void _on_timer_timeout()
 		var enemies=GetTree().GetNodesInGroup("Enemy");
 		
 		if(enemies.Count>0)
-			{GetChild<AudioStreamPlayer>(2).Play();
+			{GetChild<AudioStreamPlayer>(1).Play();
 		int rng1=new RandomNumberGenerator().RandiRange(0,enemies.Count-1);
 		int rng2=(rng1+10)%enemies.Count;
 		Node2D temp1=enemies[rng1] as Node2D;

@@ -39,6 +39,7 @@ public partial class Boomerang : Weapon
 	{
 		if(rangs>stats.count) rangs=stats.count;
 		if(rangs>0){
+			GetChild<AudioStreamPlayer>(2).Play();
 			rangs--;
 		var instance = projectile.Instantiate() as Rang;
 		instance.dir =Rotation;

@@ -51,6 +51,7 @@ public void Death(){
 	QueueFree();
 }
 public void Despawn(){
+	main.activeEnemies--;
 	QueueFree();
 }
 public virtual void _on_area_2d_body_entered(Node2D bullet)

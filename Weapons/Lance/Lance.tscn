@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck4grntj0j37h"]
+[gd_scene load_steps=3 format=3 uid="uid://ck4grntj0j37h"]
 
 [ext_resource type="Script" path="res://Weapons/Lance/Lance.cs" id="1_4jimh"]
+[ext_resource type="AudioStream" uid="uid://c67f5dt5ohon0" path="res://MusicSfx/Dark Fantasy Studio- Wind spell-3.mp3" id="2_fhkh2"]
 
 [node name="Lance" type="Node2D" groups=["Weapons"]]
 script = ExtResource("1_4jimh")
@@ -11,6 +12,9 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.33
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fhkh2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="Shoot"]

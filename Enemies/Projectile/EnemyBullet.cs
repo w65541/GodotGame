@@ -20,9 +20,9 @@ public partial class EnemyBullet : CharacterBody2D
 		//GD.Print("rotate"+GlobalRotation);
 		//Rotation=spawnRot;
 		dir+=Vector2.Down.Angle();
-		penetrable=stats.penetration;
+		stats.speed*=3;
 		Cooldown= (Timer)GetNode("Timer");
-		Cooldown.WaitTime=stats.duration*stats.durationMult+0.01f;
+		Cooldown.WaitTime=10;
 		Cooldown.Start();
 		//GD.Print(stats.penetration);
 	}

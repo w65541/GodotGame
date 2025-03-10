@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c67f5dt5ohon0"
+path="res://.godot/imported/Dark Fantasy Studio- Wind spell-3.mp3-86015169c38998ec70ecc5d4384fe40e.mp3str"
+
+[deps]
+
+source_file="res://MusicSfx/Dark Fantasy Studio- Wind spell-3.mp3"
+dest_files=["res://.godot/imported/Dark Fantasy Studio- Wind spell-3.mp3-86015169c38998ec70ecc5d4384fe40e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

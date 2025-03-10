@@ -86,7 +86,7 @@ public partial class RPG : Weapon
     }
 	public override void Shoot()
 	{
-		GetChild<AudioStreamPlayer>(2).Play();
+		GetChild<AudioStreamPlayer>(1).Play();
 		closest._on_timer_timeout();
 		var instance = projectile.Instantiate() as rocket;
 		instance.dir =Rotation;

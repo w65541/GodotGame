@@ -8,12 +8,13 @@ public partial class EnemyShooter : EnemyBasic
 	public override void _Ready()
 	{
 		base._Ready();
-		stats=new Stats{maxHp=5f*difficulty,speed=80f,speedMove=80f};
+		stats=new Stats{maxHp=3f*difficulty,speed=80f,speedMove=80f};
 		hp=stats.maxHp;
 		projectile=GD.Load<PackedScene>("res://Enemies/Projectile/EnemyBullet.tscn");
 	}
 	public override void _PhysicsProcess(double delta)
 	{
+		if(hp<=0)Death();
 		readyToShoot=true;
 		if(Position.DistanceTo(player.Position)>1000)
 		{
@@ -47,5 +48,9 @@ public partial class EnemyShooter : EnemyBasic
 		instance.spawnRot=rotate+rng;
 		main.AddChild(instance);
 		}
+	}
+	public override void _on_area_2d_body_entered(Node2D bullet)
+	{
+		base._on_area_2d_body_entered(bullet);
 	}
 }

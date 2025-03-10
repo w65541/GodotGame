@@ -39,7 +39,7 @@ public partial class Lightning : Weapon
 		var enemies=GetTree().GetNodesInGroup("Enemy");
 		
 		if(enemies.Count>0){
-			GetChild<AudioStreamPlayer>(2).Play();
+			GetChild<AudioStreamPlayer>(1).Play();
 		var path=new Path2D();
 		path.Curve=new Curve2D();
 		path.Curve.AddPoint(player.GlobalPosition);
